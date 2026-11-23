@@ -1,0 +1,12 @@
+package com.neonplayer.data.db
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "playlists")
+data class PlaylistEntity(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0L,
+    val name: String,
+    val position: Int,
+    val createdAt: Long,
+)

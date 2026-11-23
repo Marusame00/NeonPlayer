@@ -1,0 +1,1 @@
+-keep class com.neonplayer.playback.PlaybackService
