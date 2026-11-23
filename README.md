@@ -125,6 +125,10 @@ app/src/main/java/com/neonplayer/
 - Equalizer, BassBoost and Virtualizer depend on the device's audio effects. Some outputs, such as certain Bluetooth codecs, don't support them.
 - "Edit tags" only *displays* the tags (Track info). It does not write them back to the file.
 
+## Privacy
+
+NeonPlayer collects no data and has no internet permission. The full policy is at <https://marusame00.github.io/NeonPlayer/privacy.html> (source: `docs/privacy.html`).
+
 ## AI disclosure
 
 NeonPlayer was built with AI assistance. The code, assets pipeline (generated backdrop videos), documentation and on-device testing were produced by **Claude Opus 5.5** running in **Abacus.AI Desktop**, directed and reviewed by the project owner. The included `video.mp4` backdrop, the synthwave background image and the design direction came from the owner's existing NeonAmp / NeonStage apps. Fonts are Space Grotesk and JetBrains Mono (SIL Open Font License).
