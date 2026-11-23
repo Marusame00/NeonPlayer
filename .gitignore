@@ -10,3 +10,6 @@
 .cxx
 .kotlin/
 /.abacusai/
+/keystore.properties
+*.jks
+*.keystore

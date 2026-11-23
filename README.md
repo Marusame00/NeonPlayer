@@ -16,6 +16,10 @@ Captured on a Pixel 6.
 | **Stage Mode: tap to show controls** | **Settings** |
 | ![Stage Mode controls](docs/screenshots/stage_controls.jpg) | ![Settings](docs/screenshots/settings.jpg) |
 
+## Download
+
+Grab `NeonPlayer-v1.0.0.apk` from the [latest release](https://github.com/Marusame00/NeonPlayer/releases/latest), open it on your phone and allow "Install unknown apps" for your browser or file manager when Android asks. Android 8.0 (API 26) or newer.
+
 ## Build & run
 
 Requirements: Android Studio (recent, with its bundled JBR), Android SDK platform 37.
@@ -39,6 +43,8 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 - minSdk 26, targetSdk/compileSdk 37
 - AGP 9.4 (built-in Kotlin 2.4), KSP for Room, Gradle 9.8 (wrapper included)
+
+Release builds (`gradlew.bat assembleRelease`) are minified with R8. They are signed with the key described in a `keystore.properties` file in the project root (`storeFile`, `storePassword`, `keyAlias`, `keyPassword`). That file and the keystore are gitignored. Without it, release builds fall back to the debug key.
 
 ## Permissions
 
@@ -118,3 +124,7 @@ app/src/main/java/com/neonplayer/
 - The visualizer analyzes audio as it is decoded, which can be a little ahead of what you hear (the audio buffer, roughly 100–200 ms).
 - Equalizer, BassBoost and Virtualizer depend on the device's audio effects. Some outputs, such as certain Bluetooth codecs, don't support them.
 - "Edit tags" only *displays* the tags (Track info). It does not write them back to the file.
+
+## AI disclosure
+
+NeonPlayer was built with AI assistance. The code, assets pipeline (generated backdrop videos), documentation and on-device testing were produced by **Claude Opus 5.5** running in **Abacus.AI Desktop**, directed and reviewed by the project owner. The included `video.mp4` backdrop, the synthwave background image and the design direction came from the owner's existing NeonAmp / NeonStage apps. Fonts are Space Grotesk and JetBrains Mono (SIL Open Font License).
