@@ -15,8 +15,31 @@ They do not need to be technical, own a specific phone, or live in your country.
 
 - Family, friends, coworkers, classmates: the easiest 5-8.
 - A synthwave, retrowave or Android community you are already in.
-- r/androidapps, r/synthwave, r/AndroidGaming-adjacent Discords, X/Twitter followers.
 - Local maker or coding meetups.
+
+### Reddit
+
+Tester-swap subreddits, where developers join each other's tests in exchange for joining yours:
+
+| Subreddit | Notes |
+|---|---|
+| r/AndroidClosedTesting | Most focused on the Play 12-tester rule; daily activity, tester swaps |
+| r/AndroidAppTesters | Long-standing, explicitly "test for test"; uses flairs like `[12 Testers Needed]` |
+| r/TestersCommunity | Smaller, dedicated to the 14-day requirement |
+| r/alphaandbetausers | General beta recruitment; busy with other developers |
+| r/betatests | 20k+ members, structured self-promotion rules |
+| r/TestMyApp | App testing only, no paid services |
+| r/BetaTestersNeeded | Small and focused, higher conversion |
+
+Rules that matter on all of them:
+
+- **Reciprocate.** These are give-and-take. Posting a link and never testing anyone else's app gets you ignored.
+- **Read the sidebar and pinned post first.** Most require a specific title format, a minimum account age or karma, and no cross-posting the same text to several subs at once.
+- **New accounts get shadowbanned.** If your Reddit account is new or low-karma, comment in a few threads before posting your own.
+- **Recruit 15-20, not 12.** People drop out, and a dropout resets that tester's clock.
+- **Use a Google Group** for the tester list so people can join themselves instead of you collecting addresses by hand.
+
+Niche communities usually beat tester subs for real feedback: a synthwave or retrowave sub will have people who actually want the app, while tester subs are mostly other developers.
 
 ## Post you can paste
 
@@ -26,7 +49,14 @@ They do not need to be technical, own a specific phone, or live in your country.
 >
 > Google requires 12 testers opted in for 14 days before I can publish it publicly. If you have an Android phone, all you would do is tap a link, install it from Play, and keep it installed for two weeks. Feedback is welcome but optional.
 >
-> Link: <paste your opt-in link here>
+> Link: https://play.google.com/apps/testing/com.neonplayer
+
+## Links
+
+- Closed testing opt-in (counts toward the 12): https://play.google.com/apps/testing/com.neonplayer
+- Internal testing opt-in (does not count): https://play.google.com/apps/internaltest/4700958626991204136
+
+Both are derived from the package name or a fixed track ID, so they stay the same across releases.
 
 ## Timeline
 
