@@ -62,6 +62,9 @@ Use a plain personal Gmail account to own the group. Some developers report Play
 
 Group name: `NeonPlayer Testers`
 Group email: `neonplayer-testers@googlegroups.com`
+Group link to hand out: https://groups.google.com/g/neonplayer-testers
+
+The email address is only for Play Console's Google Groups field and for emailing the group. Testers need the web link above, then click **Join group**.
 
 Description (paste into the group's Description field):
 
@@ -84,7 +87,7 @@ Welcome message (paste into the group's Welcome Message field):
 Welcome, and thanks for testing NeonPlayer.
 
 To install the test build:
-1. Join this group with the same Google Account you use on your Android phone.
+1. Join the tester group: https://groups.google.com/g/neonplayer-testers
 2. Open https://play.google.com/apps/testing/com.neonplayer and tap "Become a tester".
 3. Install NeonPlayer from the Play Store link that appears.
 
