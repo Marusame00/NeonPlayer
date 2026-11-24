@@ -208,14 +208,16 @@ private fun AppearanceSection(vm: MainViewModel, settings: AppSettings) {
             GlassButton(
                 icon = Icons.Rounded.GraphicEq,
                 contentDescription = stringResource(R.string.settings_glass_preview),
-                onClick = {},
+                onClick = { vm.updateSettings { it.copy(glassIcons = true) } },
                 size = 40.dp,
+                active = settings.glassIcons,
             )
             FlatIconButton(
                 icon = Icons.Rounded.GraphicEq,
                 contentDescription = stringResource(R.string.settings_flat_preview),
-                onClick = {},
+                onClick = { vm.updateSettings { it.copy(glassIcons = false) } },
                 size = 40.dp,
+                active = !settings.glassIcons,
             )
         }
         Spacer(Modifier.height(4.dp))
