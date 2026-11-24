@@ -2,6 +2,10 @@
 
 Deferred work. Nothing here is in progress; pick items up when there is a reason to cut a new build.
 
+## Open
+
+- [ ] **Library scroll position is lost when leaving Stage Mode.** Play an album whose title starts with Z, open Stage Mode, then back out — the library list is scrolled back to A at the top instead of staying on the album/song that was playing. Keep the list scrolled to the playing item (or to the last scroll offset) when returning from Stage Mode, for both the album grid/list and the song list.
+
 ## Done in versionCode 5 (verified on the Pixel 6)
 
 - [x] **UI was English-only and hardcoded in Kotlin.** All user-facing text now lives in `res/values/strings.xml` (about 180 `string`/`plurals` entries) and 14 locale folders: `values-es`, `values-pt-rBR`, `values-fr`, `values-de`, `values-it`, `values-ru`, `values-pl`, `values-tr`, `values-hi`, `values-id`, `values-zh-rTW`, `values-zh-rCN`, `values-ja`, `values-ko`.
