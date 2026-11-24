@@ -98,6 +98,40 @@ Feedback, bugs or ideas: reply to this group, or open an issue at https://github
 
 ## Post you can paste
 
+### r/AndroidClosedTesting (title + body)
+
+Title:
+
+```
+[Testers needed] NeonPlayer – landscape-first synthwave music player (12 testers / 14 days, I test yours back)
+```
+
+Body:
+
+```
+Hi all! I need 12 testers for the 14-day closed test of my Android app, NeonPlayer, and I'll happily test yours back.
+
+What it is: a landscape-first synthwave music player for the music already on your phone. Prop the phone sideways and Stage Mode turns it into a now-playing display: big album art, title, and a live visualizer, with the controls fading out of the way. It also has an equalizer with presets, playlists with M3U import/export, a drag-to-reorder queue, and looping video backdrops.
+
+No ads, no accounts, no internet permission, and it collects no data. Everything stays on your device.
+
+How to join (about a minute, use the same Google account for all three steps):
+
+1. Join the tester group: https://groups.google.com/g/neonplayer-testers
+2. Open this link and tap "Become a tester": https://play.google.com/apps/testing/com.neonplayer
+3. Install NeonPlayer from the Play Store link that appears
+
+Please keep it installed and stay opted in for 14 days. Opening it now and then helps too.
+
+Test for test: drop your group and test links in the comments and I'll join, install, and keep your app for the full 14 days. I'll reply "Done" once I'm in.
+
+Feedback is welcome, especially on the landscape layout, Stage Mode gestures, and whether the visualizer feels in sync with the audio. Bugs or ideas: https://github.com/Marusame00/NeonPlayer/issues
+
+Thanks!
+```
+
+### Generic version for other subs
+
 > **Looking for 12 testers for a synthwave music player (Android)**
 >
 > I built NeonPlayer, a landscape-first music player for your own local files. Prop your phone sideways and Stage Mode turns it into a now-playing display: big album art, title, and a live visualizer, with the controls fading out of the way. It also has an equalizer, playlists, a drag-reorder queue and looping video backdrops. No ads, no accounts, no internet permission, nothing collected.
