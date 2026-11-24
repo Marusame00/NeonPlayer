@@ -15,6 +15,8 @@ Captured on a Pixel 6.
 | ![Stage Mode](docs/screenshots/stage.jpg) | ![Stage Mode ring](docs/screenshots/stage_ring.jpg) |
 | **Stage Mode: tap to show controls** | **Settings** |
 | ![Stage Mode controls](docs/screenshots/stage_controls.jpg) | ![Settings](docs/screenshots/settings.jpg) |
+| **Backdrops** | **Equalizer** |
+| ![Backdrops](docs/screenshots/backdrops.jpg) | ![Equalizer](docs/screenshots/equalizer.jpg) |
 
 ## Download
 
