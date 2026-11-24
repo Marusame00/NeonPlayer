@@ -24,6 +24,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.neonplayer.R
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.neonplayer.playback.EqUiState
 import com.neonplayer.ui.components.NeonCard
@@ -65,11 +67,11 @@ fun EqualizerScreen(
             ) {
                 NeonIconButton(
                     icon = Icons.Rounded.ArrowBack,
-                    contentDescription = "Close equalizer",
+                    contentDescription = stringResource(R.string.eq_close),
                     onClick = onClose,
                     size = 34.dp,
                 )
-                SectionLabel(text = "Equalizer", color = palette.primary)
+                SectionLabel(text = stringResource(R.string.label_equalizer), color = palette.primary)
                 Spacer(Modifier.weight(1f))
                 PillBadge(text = state.route.uppercase())
                 Spacer(Modifier.width(2.dp))
@@ -88,14 +90,14 @@ fun EqualizerScreen(
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(
-                            text = "Equalizer isn't available on this device / output",
+                            text = stringResource(R.string.eq_unavailable),
                             style = NeonType.TitleM,
                             color = palette.textPrimary,
                             textAlign = TextAlign.Center,
                         )
                         Spacer(Modifier.height(6.dp))
                         Text(
-                            text = "Start playback once to attach the equalizer",
+                            text = stringResource(R.string.eq_start_playback),
                             style = NeonType.BodySmall,
                             color = palette.textSecondary,
                             textAlign = TextAlign.Center,
@@ -131,7 +133,7 @@ fun EqualizerScreen(
                     if (state.bassBoostSupported) {
                         NeonCard(modifier = Modifier.fillMaxWidth()) {
                             Text(
-                                text = "Bass boost ${(state.bassBoost / 10)}%",
+                                text = stringResource(R.string.eq_bass_boost, state.bassBoost / 10),
                                 style = NeonType.BodySmall,
                                 color = palette.textSecondary,
                             )
@@ -146,7 +148,7 @@ fun EqualizerScreen(
                     if (state.virtualizerSupported) {
                         NeonCard(modifier = Modifier.fillMaxWidth()) {
                             Text(
-                                text = "Virtualizer ${(state.virtualizer / 10)}%",
+                                text = stringResource(R.string.eq_virtualizer, state.virtualizer / 10),
                                 style = NeonType.BodySmall,
                                 color = palette.textSecondary,
                             )
@@ -162,7 +164,7 @@ fun EqualizerScreen(
             }
             Spacer(Modifier.height(6.dp))
             Text(
-                text = "Settings are saved per output (speaker / wired / bluetooth)",
+                text = stringResource(R.string.eq_saved_per_output),
                 style = NeonType.BodySmall,
                 color = palette.textMuted,
             )

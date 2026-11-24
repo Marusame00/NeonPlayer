@@ -2,6 +2,7 @@ package com.neonplayer.ui.settings
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
@@ -28,9 +29,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.neonplayer.BuildConfig
+import com.neonplayer.R
 import com.neonplayer.domain.model.AccentMode
 import com.neonplayer.domain.model.AppSettings
 import com.neonplayer.domain.model.OrientationLock
@@ -50,6 +53,7 @@ import com.neonplayer.ui.components.NeonTextButton
 import com.neonplayer.ui.components.SectionLabel
 import com.neonplayer.ui.components.SettingRow
 import com.neonplayer.ui.components.gridTexture
+import com.neonplayer.ui.components.label
 import com.neonplayer.ui.library.ScanStatusText
 import com.neonplayer.ui.main.MainViewModel
 import com.neonplayer.ui.main.Overlay
@@ -87,11 +91,11 @@ fun SettingsScreen(
                 ) {
                     NeonIconButton(
                         icon = Icons.Rounded.ArrowBack,
-                        contentDescription = "Close settings",
+                        contentDescription = stringResource(R.string.settings_close),
                         onClick = onClose,
                         size = 34.dp,
                     )
-                    SectionLabel(text = "Settings", color = palette.primary)
+                    SectionLabel(text = stringResource(R.string.label_settings), color = palette.primary)
                 }
                 Spacer(Modifier.height(8.dp))
                 BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
@@ -125,6 +129,7 @@ fun SettingsScreen(
                                     scanState = scanState,
                                     onAddFolder = { folderLauncher.launch(null) },
                                 )
+                                LanguageSection(vm, settings)
                                 AboutSection()
                             }
                         }
@@ -146,6 +151,7 @@ fun SettingsScreen(
                                 scanState = scanState,
                                 onAddFolder = { folderLauncher.launch(null) },
                             )
+                            LanguageSection(vm, settings)
                             AboutSection()
                         }
                     }
@@ -181,9 +187,10 @@ private fun ChipRow(content: @Composable RowScope.() -> Unit) {
 
 @Composable
 private fun AppearanceSection(vm: MainViewModel, settings: AppSettings) {
-    SettingsSection(title = "Appearance") {
+    val context = LocalContext.current
+    SettingsSection(title = stringResource(R.string.label_appearance)) {
         SettingRow(
-            title = "Glass icons",
+            title = stringResource(R.string.settings_glass_icons),
             trailing = {
                 NeonSwitch(
                     checked = settings.glassIcons,
@@ -200,32 +207,36 @@ private fun AppearanceSection(vm: MainViewModel, settings: AppSettings) {
         ) {
             GlassButton(
                 icon = Icons.Rounded.GraphicEq,
-                contentDescription = "Glass preview",
+                contentDescription = stringResource(R.string.settings_glass_preview),
                 onClick = {},
                 size = 40.dp,
             )
             FlatIconButton(
                 icon = Icons.Rounded.GraphicEq,
-                contentDescription = "Flat preview",
+                contentDescription = stringResource(R.string.settings_flat_preview),
                 onClick = {},
                 size = 40.dp,
             )
         }
         Spacer(Modifier.height(4.dp))
-        Text(text = "Theme accent", style = NeonType.BodySmall, color = Neon.palette.textSecondary)
+        Text(
+            text = stringResource(R.string.settings_theme_accent),
+            style = NeonType.BodySmall,
+            color = Neon.palette.textSecondary,
+        )
         Spacer(Modifier.height(4.dp))
         ChipRow {
             AccentMode.entries.forEach { mode ->
                 NeonChip(
-                    text = mode.label,
+                    text = mode.label(context),
                     selected = settings.accent == mode,
                     onClick = { vm.updateSettings { it.copy(accent = mode) } },
                 )
             }
         }
         SettingRow(
-            title = "Reduce motion",
-            subtitle = "Disables pulses and animations",
+            title = stringResource(R.string.settings_reduce_motion),
+            subtitle = stringResource(R.string.settings_reduce_motion_sub),
             trailing = {
                 NeonSwitch(
                     checked = settings.reduceMotion,
@@ -242,20 +253,23 @@ private fun AppearanceSection(vm: MainViewModel, settings: AppSettings) {
 private fun BackdropSection(vm: MainViewModel, settings: AppSettings) {
     val context = LocalContext.current
     val current = BackdropCatalog.resolve(context, settings.backdropId, settings.customBackdrops)
-    SettingsSection(title = "Backdrop") {
+    SettingsSection(title = stringResource(R.string.label_backdrops)) {
         SettingRow(
             title = current.label,
-            subtitle = "Current backdrop",
+            subtitle = stringResource(R.string.settings_backdrop_current),
             trailing = {
                 NeonTextButton(
-                    text = "Choose",
+                    text = stringResource(R.string.action_choose),
                     onClick = { vm.openOverlay(Overlay.BACKDROPS) },
                 )
             },
         )
         Spacer(Modifier.height(4.dp))
         Text(
-            text = "Dim ${(settings.backdropDim * 100f).toInt()}%",
+            text = stringResource(
+                R.string.settings_dim_percent,
+                (settings.backdropDim * 100f).toInt(),
+            ),
             style = NeonType.BodySmall,
             color = Neon.palette.textSecondary,
         )
@@ -265,7 +279,7 @@ private fun BackdropSection(vm: MainViewModel, settings: AppSettings) {
             valueRange = 0f..0.8f,
         )
         SettingRow(
-            title = "Vignette",
+            title = stringResource(R.string.settings_vignette),
             trailing = {
                 NeonSwitch(
                     checked = settings.backdropVignette,
@@ -276,8 +290,8 @@ private fun BackdropSection(vm: MainViewModel, settings: AppSettings) {
             },
         )
         SettingRow(
-            title = "Battery saver",
-            subtitle = "Use the static image instead of video",
+            title = stringResource(R.string.settings_battery_saver),
+            subtitle = stringResource(R.string.settings_battery_saver_sub),
             trailing = {
                 NeonSwitch(
                     checked = settings.batterySaver,
@@ -292,11 +306,12 @@ private fun BackdropSection(vm: MainViewModel, settings: AppSettings) {
 
 @Composable
 private fun VisualizerSection(vm: MainViewModel, settings: AppSettings) {
-    SettingsSection(title = "Visualizer") {
+    val context = LocalContext.current
+    SettingsSection(title = stringResource(R.string.label_visualizer)) {
         ChipRow {
             VisualizerStyle.entries.forEach { style ->
                 NeonChip(
-                    text = style.label,
+                    text = style.label(context),
                     selected = settings.visualizer == style,
                     onClick = { vm.updateSettings { it.copy(visualizer = style) } },
                 )
@@ -304,7 +319,10 @@ private fun VisualizerSection(vm: MainViewModel, settings: AppSettings) {
         }
         Spacer(Modifier.height(6.dp))
         Text(
-            text = "Sensitivity ${"%.1f".format(settings.visualizerSensitivity)}×",
+            text = stringResource(
+                R.string.settings_sensitivity,
+                "%.1f".format(settings.visualizerSensitivity),
+            ),
             style = NeonType.BodySmall,
             color = Neon.palette.textSecondary,
         )
@@ -314,7 +332,7 @@ private fun VisualizerSection(vm: MainViewModel, settings: AppSettings) {
             valueRange = 0.5f..2f,
         )
         SettingRow(
-            title = "Colors from album art",
+            title = stringResource(R.string.settings_art_colors),
             trailing = {
                 NeonSwitch(
                     checked = settings.visualizerArtColors,
@@ -329,18 +347,19 @@ private fun VisualizerSection(vm: MainViewModel, settings: AppSettings) {
 
 @Composable
 private fun StageSection(vm: MainViewModel, settings: AppSettings) {
-    SettingsSection(title = "Stage mode") {
+    val context = LocalContext.current
+    SettingsSection(title = stringResource(R.string.label_stage_mode)) {
         ChipRow {
             StageLayout.entries.forEach { layout ->
                 NeonChip(
-                    text = layout.label,
+                    text = layout.label(context),
                     selected = settings.stageLayout == layout,
                     onClick = { vm.updateSettings { it.copy(stageLayout = layout) } },
                 )
             }
         }
         SettingRow(
-            title = "Show album",
+            title = stringResource(R.string.settings_show_album),
             trailing = {
                 NeonSwitch(
                     checked = settings.stageShowAlbum,
@@ -351,7 +370,7 @@ private fun StageSection(vm: MainViewModel, settings: AppSettings) {
             },
         )
         SettingRow(
-            title = "Track-change glow sweep",
+            title = stringResource(R.string.settings_glow_sweep),
             trailing = {
                 NeonSwitch(
                     checked = settings.stageGlowSweep,
@@ -363,7 +382,7 @@ private fun StageSection(vm: MainViewModel, settings: AppSettings) {
         )
         Spacer(Modifier.height(4.dp))
         Text(
-            text = "Auto-enter Stage",
+            text = stringResource(R.string.settings_auto_stage),
             style = NeonType.BodySmall,
             color = Neon.palette.textSecondary,
         )
@@ -378,8 +397,8 @@ private fun StageSection(vm: MainViewModel, settings: AppSettings) {
             }
         }
         SettingRow(
-            title = "Keep screen on while playing",
-            subtitle = "Stage Mode always keeps the screen awake",
+            title = stringResource(R.string.settings_keep_screen_on),
+            subtitle = stringResource(R.string.settings_keep_screen_on_sub),
             trailing = {
                 NeonSwitch(
                     checked = settings.keepScreenOnWhilePlaying,
@@ -390,8 +409,8 @@ private fun StageSection(vm: MainViewModel, settings: AppSettings) {
             },
         )
         SettingRow(
-            title = "Burn-in protection",
-            subtitle = "Slow pixel drift of art and text",
+            title = stringResource(R.string.settings_burn_in),
+            subtitle = stringResource(R.string.settings_burn_in_sub),
             trailing = {
                 NeonSwitch(
                     checked = settings.burnInProtection,
@@ -403,7 +422,7 @@ private fun StageSection(vm: MainViewModel, settings: AppSettings) {
         )
         Spacer(Modifier.height(4.dp))
         Text(
-            text = "Dim after",
+            text = stringResource(R.string.settings_dim_after),
             style = NeonType.BodySmall,
             color = Neon.palette.textSecondary,
         )
@@ -411,7 +430,11 @@ private fun StageSection(vm: MainViewModel, settings: AppSettings) {
         ChipRow {
             DIM_AFTER_OPTIONS.forEach { minutes ->
                 NeonChip(
-                    text = if (minutes == 0) "Off" else "${minutes}m",
+                    text = if (minutes == 0) {
+                        stringResource(R.string.action_off)
+                    } else {
+                        stringResource(R.string.settings_minutes_short, minutes)
+                    },
                     selected = settings.dimAfterMinutes == minutes,
                     onClick = { vm.updateSettings { it.copy(dimAfterMinutes = minutes) } },
                 )
@@ -422,9 +445,10 @@ private fun StageSection(vm: MainViewModel, settings: AppSettings) {
 
 @Composable
 private fun PlaybackSection(vm: MainViewModel, settings: AppSettings) {
-    SettingsSection(title = "Playback") {
+    val context = LocalContext.current
+    SettingsSection(title = stringResource(R.string.label_playback)) {
         Text(
-            text = "Crossfade",
+            text = stringResource(R.string.settings_crossfade),
             style = NeonType.BodySmall,
             color = Neon.palette.textSecondary,
         )
@@ -432,20 +456,24 @@ private fun PlaybackSection(vm: MainViewModel, settings: AppSettings) {
         ChipRow {
             CROSSFADE_OPTIONS.forEach { ms ->
                 NeonChip(
-                    text = if (ms == 0) "Off" else "${ms / 1000}s",
+                    text = if (ms == 0) {
+                        stringResource(R.string.action_off)
+                    } else {
+                        stringResource(R.string.settings_seconds_short, ms / 1000)
+                    },
                     selected = settings.crossfadeMs == ms,
                     onClick = { vm.updateSettings { it.copy(crossfadeMs = ms) } },
                 )
             }
         }
         Text(
-            text = "Fades out/in between tracks; gapless when off",
+            text = stringResource(R.string.settings_crossfade_sub),
             style = NeonType.BodySmall,
             color = Neon.palette.textMuted,
         )
         Spacer(Modifier.height(6.dp))
         Text(
-            text = "ReplayGain",
+            text = stringResource(R.string.settings_replay_gain),
             style = NeonType.BodySmall,
             color = Neon.palette.textSecondary,
         )
@@ -453,7 +481,7 @@ private fun PlaybackSection(vm: MainViewModel, settings: AppSettings) {
         ChipRow {
             ReplayGainMode.entries.forEach { mode ->
                 NeonChip(
-                    text = mode.label,
+                    text = mode.label(context),
                     selected = settings.replayGain == mode,
                     onClick = { vm.updateSettings { it.copy(replayGain = mode) } },
                 )
@@ -461,29 +489,33 @@ private fun PlaybackSection(vm: MainViewModel, settings: AppSettings) {
         }
         Spacer(Modifier.height(6.dp))
         Text(
-            text = "Sleep timer",
+            text = stringResource(R.string.settings_sleep_timer),
             style = NeonType.BodySmall,
             color = Neon.palette.textSecondary,
         )
         Spacer(Modifier.height(4.dp))
         ChipRow {
-            NeonChip(text = "Off", selected = false, onClick = { vm.cancelSleepTimer() })
+            NeonChip(
+                text = stringResource(R.string.action_off),
+                selected = false,
+                onClick = { vm.cancelSleepTimer() },
+            )
             SLEEP_OPTIONS.forEach { minutes ->
                 NeonChip(
-                    text = "$minutes min",
+                    text = stringResource(R.string.settings_sleep_min, minutes),
                     selected = false,
                     onClick = { vm.startSleepTimer(minutes) },
                 )
             }
             NeonChip(
-                text = "End of track",
+                text = stringResource(R.string.settings_sleep_end_of_track),
                 selected = false,
                 onClick = { vm.startSleepTimerEndOfTrack() },
             )
         }
         Spacer(Modifier.height(6.dp))
         NeonTextButton(
-            text = "Equalizer",
+            text = stringResource(R.string.label_equalizer),
             icon = Icons.Rounded.GraphicEq,
             onClick = { vm.openOverlay(Overlay.EQUALIZER) },
         )
@@ -492,11 +524,12 @@ private fun PlaybackSection(vm: MainViewModel, settings: AppSettings) {
 
 @Composable
 private fun DisplaySection(vm: MainViewModel, settings: AppSettings) {
-    SettingsSection(title = "Display") {
+    val context = LocalContext.current
+    SettingsSection(title = stringResource(R.string.label_display)) {
         ChipRow {
             OrientationLock.entries.forEach { lock ->
                 NeonChip(
-                    text = lock.label,
+                    text = lock.label(context),
                     selected = settings.orientation == lock,
                     onClick = { vm.updateSettings { it.copy(orientation = lock) } },
                 )
@@ -511,19 +544,19 @@ private fun LibrarySection(
     scanState: ScanState,
     onAddFolder: () -> Unit,
 ) {
-    SettingsSection(title = "Library") {
+    SettingsSection(title = stringResource(R.string.label_library)) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             NeonTextButton(
-                text = "Rescan now",
+                text = stringResource(R.string.settings_rescan_now),
                 icon = Icons.Rounded.Refresh,
                 primary = true,
                 onClick = vm::rescan,
             )
             NeonTextButton(
-                text = "Add folder",
+                text = stringResource(R.string.settings_add_folder),
                 icon = Icons.Rounded.CreateNewFolder,
                 onClick = onAddFolder,
             )
@@ -534,30 +567,77 @@ private fun LibrarySection(
 }
 
 @Composable
+private fun LanguageSection(vm: MainViewModel, settings: AppSettings) {
+    val context = LocalContext.current
+    SettingsSection(title = stringResource(R.string.label_language)) {
+        SettingRow(
+            title = stringResource(R.string.settings_language_sub),
+            subtitle = stringResource(R.string.settings_language_note),
+        )
+        Spacer(Modifier.height(4.dp))
+        ChipRow {
+            LANGUAGE_OPTIONS.forEach { option ->
+                NeonChip(
+                    text = context.getString(option.labelRes),
+                    selected = settings.language == option.tag,
+                    onClick = { vm.updateSettings { it.copy(language = option.tag) } },
+                )
+            }
+        }
+    }
+}
+
+@Composable
 private fun AboutSection() {
     val palette = Neon.palette
-    SettingsSection(title = "About") {
+    SettingsSection(title = stringResource(R.string.label_about)) {
         Text(
-            text = "NeonPlayer ${BuildConfig.VERSION_NAME} (build ${BuildConfig.VERSION_CODE})",
+            text = stringResource(
+                R.string.settings_version,
+                BuildConfig.VERSION_NAME,
+                BuildConfig.VERSION_CODE,
+            ),
             style = NeonType.Body,
             color = palette.textPrimary,
         )
         Spacer(Modifier.height(2.dp))
         Text(
-            text = "Backdrop videos: app/src/main/assets/backdrops",
+            text = stringResource(R.string.settings_backdrop_path),
             style = NeonType.BodySmall,
             color = palette.textMuted,
         )
     }
 }
 
+@Composable
 private fun autoStageLabel(seconds: Int): String = when {
-    seconds <= 0 -> "Off"
-    seconds < 60 -> "${seconds}s"
-    else -> "${seconds / 60}m"
+    seconds <= 0 -> stringResource(R.string.action_off)
+    seconds < 60 -> stringResource(R.string.settings_seconds_short, seconds)
+    else -> stringResource(R.string.settings_minutes_short, seconds / 60)
 }
 
+private data class LanguageOption(val tag: String, @StringRes val labelRes: Int)
+
+private val LANGUAGE_OPTIONS = listOf(
+    LanguageOption("", R.string.lang_system),
+    LanguageOption("en", R.string.lang_en),
+    LanguageOption("es", R.string.lang_es),
+    LanguageOption("pt-BR", R.string.lang_pt_br),
+    LanguageOption("fr", R.string.lang_fr),
+    LanguageOption("de", R.string.lang_de),
+    LanguageOption("it", R.string.lang_it),
+    LanguageOption("ru", R.string.lang_ru),
+    LanguageOption("pl", R.string.lang_pl),
+    LanguageOption("tr", R.string.lang_tr),
+    LanguageOption("hi", R.string.lang_hi),
+    LanguageOption("zh-TW", R.string.lang_zh_tw),
+    LanguageOption("zh-CN", R.string.lang_zh_cn),
+    LanguageOption("ja", R.string.lang_ja),
+    LanguageOption("ko", R.string.lang_ko),
+    LanguageOption("id", R.string.lang_id),
+)
+
 private val AUTO_STAGE_OPTIONS = listOf(0, 15, 30, 60, 120, 300)
+private val SLEEP_OPTIONS = listOf(15, 30, 45, 60, 90)
 private val DIM_AFTER_OPTIONS = listOf(0, 1, 5, 10, 30)
 private val CROSSFADE_OPTIONS = listOf(0, 2000, 4000, 6000, 8000)
-private val SLEEP_OPTIONS = listOf(15, 30, 45, 60, 90)

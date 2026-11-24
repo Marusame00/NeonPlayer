@@ -42,6 +42,8 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.neonplayer.R
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.neonplayer.domain.model.BACKDROP_CUSTOM_PREFIX
 import com.neonplayer.ui.backdrop.BackdropCatalog
@@ -90,11 +92,11 @@ fun BackdropPickerScreen(
             ) {
                 NeonIconButton(
                     icon = Icons.Rounded.ArrowBack,
-                    contentDescription = "Close backdrops",
+                    contentDescription = stringResource(R.string.backdrop_close),
                     onClick = onClose,
                     size = 34.dp,
                 )
-                SectionLabel(text = "Backdrops", color = palette.primary)
+                SectionLabel(text = stringResource(R.string.label_backdrops), color = palette.primary)
             }
             Spacer(Modifier.height(8.dp))
             LazyVerticalGrid(
@@ -130,7 +132,10 @@ fun BackdropPickerScreen(
             }
             Spacer(Modifier.height(8.dp))
             Text(
-                text = "Dim ${(settings.backdropDim * 100f).toInt()}%",
+                text = stringResource(
+                    R.string.settings_dim_percent,
+                    (settings.backdropDim * 100f).toInt(),
+                ),
                 style = NeonType.BodySmall,
                 color = palette.textSecondary,
             )
@@ -140,8 +145,7 @@ fun BackdropPickerScreen(
                 valueRange = 0f..0.8f,
             )
             Text(
-                text = "Drop your own looping MP4s (H.264/HEVC, 720p–1080p, 30fps) into " +
-                    "app/src/main/assets/backdrops and rebuild — they appear here automatically.",
+                text = stringResource(R.string.backdrop_drop_hint),
                 style = NeonType.BodySmall,
                 color = palette.textMuted,
             )
@@ -212,7 +216,7 @@ private fun BackdropTile(
                 ) {
                     NeonIconButton(
                         icon = Icons.Rounded.Delete,
-                        contentDescription = "Remove backdrop",
+                        contentDescription = stringResource(R.string.backdrop_remove),
                         onClick = onDelete,
                         size = 26.dp,
                         tint = palette.textSecondary,
@@ -247,7 +251,11 @@ private fun BackdropKindBadge(
             .padding(horizontal = 6.dp, vertical = 2.dp),
     ) {
         Text(
-            text = if (video) "VIDEO" else "STILL",
+            text = if (video) {
+                stringResource(R.string.backdrop_badge_video)
+            } else {
+                stringResource(R.string.backdrop_badge_still)
+            },
             style = NeonType.MonoSmall,
             color = accent,
         )
@@ -292,7 +300,7 @@ private fun AddBackdropTile(onClick: () -> Unit) {
         }
         Spacer(Modifier.height(6.dp))
         Text(
-            text = "Add my own video",
+            text = stringResource(R.string.backdrop_add_own),
             style = NeonType.BodySmall,
             color = palette.textSecondary,
         )

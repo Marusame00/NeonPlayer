@@ -64,22 +64,9 @@ data class Playlist(
     val createdAt: Long,
 )
 
-enum class SortOrder(val label: String) {
-    TITLE("Title"),
-    ARTIST("Artist"),
-    ALBUM("Album"),
-    DATE_ADDED("Date added"),
-    DURATION("Duration"),
-    MANUAL("Manual"),
-}
+enum class SortOrder { TITLE, ARTIST, ALBUM, DATE_ADDED, DURATION, MANUAL }
 
-enum class LibraryTab(val label: String) {
-    SONGS("Songs"),
-    ALBUMS("Albums"),
-    ARTISTS("Artists"),
-    PLAYLISTS("Playlists"),
-    FOLDERS("Folders"),
-}
+enum class LibraryTab { SONGS, ALBUMS, ARTISTS, PLAYLISTS, FOLDERS }
 
 enum class RepeatMode { OFF, ALL, ONE }
 

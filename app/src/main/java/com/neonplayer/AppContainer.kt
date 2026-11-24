@@ -21,6 +21,8 @@ class AppContainer(context: Context) {
 
     private val appContext = context.applicationContext
 
+    val context: Context = appContext
+
     val appScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
     val database: NeonDatabase = NeonDatabase.build(appContext)

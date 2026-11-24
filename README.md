@@ -118,6 +118,7 @@ app/src/main/java/com/neonplayer/
 - Visualizers: spectrum bars, mirrored bars, radial ring, oscilloscope and a bass-reactive retro grid. They can optionally take their colors from the album art.
 - Equalizer with presets (Flat, Bass Boost, Vocal, Synthwave, …), plus BassBoost and Virtualizer. Settings are saved separately for speaker, wired and Bluetooth output.
 - Video backdrops use a second, muted ExoPlayer. They pause in the background, and Battery saver switches back to the static image.
+- 15 languages: Settings → Language offers *System default* plus English, Español, Português (Brasil), Français, Deutsch, Italiano, Русский, Polski, Türkçe, हिन्दी, 繁體中文, 简体中文, 日本語, 한국어 and Bahasa Indonesia. The default follows the system language.
 
 ## Known limitations
 

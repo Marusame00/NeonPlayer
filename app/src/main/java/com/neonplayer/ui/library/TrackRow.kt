@@ -42,6 +42,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.neonplayer.R
 import com.neonplayer.domain.model.Track
 import com.neonplayer.domain.model.formatDuration
 import com.neonplayer.ui.components.ArtImage
@@ -201,7 +203,7 @@ fun DragHandle(modifier: Modifier = Modifier) {
     ) {
         Icon(
             imageVector = Icons.Rounded.DragIndicator,
-            contentDescription = "Drag to reorder",
+                    contentDescription = stringResource(R.string.track_drag_reorder),
             tint = palette.textMuted,
             modifier = Modifier.size(18.dp),
         )

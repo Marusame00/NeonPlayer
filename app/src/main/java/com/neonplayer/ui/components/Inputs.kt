@@ -44,6 +44,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.res.stringResource
+import com.neonplayer.R
 import com.neonplayer.ui.theme.Neon
 import com.neonplayer.ui.theme.NeonShapes
 import com.neonplayer.ui.theme.NeonType
@@ -95,7 +97,7 @@ fun NeonSearchField(
                 if (value.isNotEmpty()) {
                     Icon(
                         imageVector = Icons.Rounded.Close,
-                        contentDescription = "Clear search",
+                        contentDescription = stringResource(R.string.search_clear),
                         tint = palette.textSecondary,
                         modifier = Modifier
                             .size(18.dp)

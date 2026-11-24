@@ -6,6 +6,7 @@ import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.provider.OpenableColumns
 import androidx.documentfile.provider.DocumentFile
+import com.neonplayer.R
 import com.neonplayer.domain.model.BACKDROP_ASSET_PREFIX
 import com.neonplayer.domain.model.BACKDROP_CUSTOM_PREFIX
 import com.neonplayer.domain.model.BACKDROP_STATIC
@@ -36,7 +37,15 @@ object BackdropCatalog {
 
     fun list(context: Context, custom: List<String>): List<BackdropOption> {
         val options = ArrayList<BackdropOption>(custom.size + 4)
-        options.add(BackdropOption(BACKDROP_STATIC, "Static synthwave", BackdropKind.STATIC, null, null))
+        options.add(
+            BackdropOption(
+                BACKDROP_STATIC,
+                context.getString(R.string.backdrop_static),
+                BackdropKind.STATIC,
+                null,
+                null,
+            ),
+        )
         for (file in assetVideos(context)) {
             options.add(
                 BackdropOption(
@@ -53,7 +62,8 @@ object BackdropCatalog {
             options.add(
                 BackdropOption(
                     id = BACKDROP_CUSTOM_PREFIX + uri,
-                    label = customLabel(context, uri) ?: "My video ${index + 1}",
+                    label = customLabel(context, uri)
+                        ?: context.getString(R.string.backdrop_my_video, index + 1),
                     kind = BackdropKind.VIDEO,
                     playUri = uri,
                     thumbUri = uri,

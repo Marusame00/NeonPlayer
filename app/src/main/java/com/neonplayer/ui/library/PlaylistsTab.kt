@@ -42,6 +42,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import com.neonplayer.R
 import com.neonplayer.domain.model.Playlist
 import com.neonplayer.domain.model.Track
 import com.neonplayer.domain.model.formatDuration
@@ -146,7 +149,7 @@ private fun PlaylistList(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             NeonTextButton(
-                text = "New",
+                text = stringResource(R.string.playlists_new),
                 icon = Icons.Rounded.PlayArrow,
                 primary = true,
                 onClick = {
@@ -155,7 +158,7 @@ private fun PlaylistList(
                 },
             )
             NeonTextButton(
-                text = "Import M3U",
+                text = stringResource(R.string.playlists_import_m3u),
                 icon = Icons.Rounded.Save,
                 onClick = {
                     importLauncher.launch(arrayOf("audio/x-mpegurl", "audio/mpegurl", "*/*"))
@@ -189,7 +192,7 @@ private fun PlaylistList(
             }
         }
         Text(
-            text = "HOLD A PLAYLIST TO DRAG · TAP TO OPEN",
+            text = stringResource(R.string.playlists_hold_drag),
             style = NeonType.MonoSmall,
             color = palette.textMuted,
         )
@@ -197,9 +200,9 @@ private fun PlaylistList(
 
     if (creating) {
         NeonDialog(
-            title = "New playlist",
+            title = stringResource(R.string.playlists_new_title),
             onDismiss = { creating = false },
-            confirmLabel = "Create",
+            confirmLabel = stringResource(R.string.action_create),
             onConfirm = {
                 creating = false
                 onCreate(draftName)
@@ -208,7 +211,7 @@ private fun PlaylistList(
             NeonTextField(
                 value = draftName,
                 onValueChange = { draftName = it },
-                placeholder = "Playlist name",
+                placeholder = stringResource(R.string.playlists_name_placeholder),
             )
         }
     }
@@ -316,7 +319,7 @@ private fun PlaylistDetail(
         ) {
             NeonIconButton(
                 icon = Icons.Rounded.ArrowBack,
-                contentDescription = "Back to playlists",
+                contentDescription = stringResource(R.string.playlists_back),
                 onClick = onClose,
                 size = 34.dp,
             )
@@ -329,7 +332,11 @@ private fun PlaylistDetail(
                     overflow = TextOverflow.Ellipsis,
                 )
                 Text(
-                    text = "${playlist.trackCount} tracks · ${formatDuration(playlist.totalDurationMs)}",
+                    text = LocalContext.current.getString(
+                        R.string.playlists_detail_count,
+                        playlist.trackCount,
+                        formatDuration(playlist.totalDurationMs),
+                    ),
                     style = NeonType.MonoSmall,
                     color = palette.textMuted,
                 )
@@ -345,20 +352,20 @@ private fun PlaylistDetail(
         ) {
             NeonIconButton(
                 icon = Icons.Rounded.PlayArrow,
-                contentDescription = "Play playlist",
+                contentDescription = stringResource(R.string.playlists_play),
                 onClick = { if (tracks.isNotEmpty()) onPlay(tracks, 0) },
                 size = 34.dp,
                 active = true,
             )
             NeonIconButton(
                 icon = Icons.Rounded.Shuffle,
-                contentDescription = "Shuffle play",
+                contentDescription = stringResource(R.string.playlists_shuffle),
                 onClick = { onPlayShuffled(tracks) },
                 size = 34.dp,
             )
             NeonIconButton(
                 icon = Icons.Rounded.Edit,
-                contentDescription = "Rename playlist",
+                contentDescription = stringResource(R.string.playlists_rename),
                 onClick = {
                     draftName = playlist.name
                     renaming = true
@@ -367,13 +374,13 @@ private fun PlaylistDetail(
             )
             NeonIconButton(
                 icon = Icons.Rounded.Save,
-                contentDescription = "Export M3U",
+                contentDescription = stringResource(R.string.playlists_export),
                 onClick = { exportLauncher.launch("${playlist.name}.m3u") },
                 size = 34.dp,
             )
             NeonIconButton(
                 icon = Icons.Rounded.Delete,
-                contentDescription = "Delete playlist",
+                contentDescription = stringResource(R.string.playlists_delete),
                 onClick = { deleting = true },
                 size = 34.dp,
                 tint = palette.textSecondary,
@@ -409,7 +416,7 @@ private fun PlaylistDetail(
             }
         }
         Text(
-            text = "HOLD A TRACK TO DRAG · HOLD FOR MORE",
+            text = stringResource(R.string.playlists_hold_track),
             style = NeonType.MonoSmall,
             color = palette.textMuted,
         )
@@ -417,9 +424,9 @@ private fun PlaylistDetail(
 
     if (renaming) {
         NeonDialog(
-            title = "Rename playlist",
+            title = stringResource(R.string.playlists_rename),
             onDismiss = { renaming = false },
-            confirmLabel = "Save",
+            confirmLabel = stringResource(R.string.action_save),
             onConfirm = {
                 renaming = false
                 onRename(playlist.id, draftName)
@@ -428,23 +435,23 @@ private fun PlaylistDetail(
             NeonTextField(
                 value = draftName,
                 onValueChange = { draftName = it },
-                placeholder = "Playlist name",
+                placeholder = stringResource(R.string.playlists_name_placeholder),
             )
         }
     }
 
     if (deleting) {
         NeonDialog(
-            title = "Delete playlist",
+            title = stringResource(R.string.playlists_delete),
             onDismiss = { deleting = false },
-            confirmLabel = "Delete",
+            confirmLabel = stringResource(R.string.action_delete),
             onConfirm = {
                 deleting = false
                 onDelete(playlist.id)
             },
         ) {
             Text(
-                text = "Delete \"${playlist.name}\"? The tracks stay in your library.",
+                text = stringResource(R.string.playlists_delete_msg, playlist.name),
                 style = NeonType.BodySmall,
                 color = palette.textSecondary,
             )

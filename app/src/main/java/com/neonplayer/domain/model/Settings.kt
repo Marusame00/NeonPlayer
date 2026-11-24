@@ -2,26 +2,15 @@ package com.neonplayer.domain.model
 
 import androidx.compose.runtime.Immutable
 
-enum class AccentMode(val label: String) { CYAN("Cyan-dominant"), MAGENTA("Magenta-dominant") }
+enum class AccentMode { CYAN, MAGENTA }
 
-enum class VisualizerStyle(val label: String) {
-    BARS("Neon bars"),
-    MIRRORED("Mirrored bars"),
-    RADIAL("Radial ring"),
-    OSCILLOSCOPE("Oscilloscope"),
-    RETRO_GRID("Retro grid"),
-}
+enum class VisualizerStyle { BARS, MIRRORED, RADIAL, OSCILLOSCOPE, RETRO_GRID }
 
-enum class StageLayout(val label: String) {
-    ART_LEFT("Art left, text right"),
-    CENTERED_RING("Centered art + ring"),
-    TEXT_OVER_VISUALIZER("Text over visualizer"),
-    VISUALIZER_ONLY("Visualizer only"),
-}
+enum class StageLayout { ART_LEFT, CENTERED_RING, TEXT_OVER_VISUALIZER, VISUALIZER_ONLY }
 
-enum class OrientationLock(val label: String) { LANDSCAPE("Landscape"), AUTO("Auto"), PORTRAIT("Portrait") }
+enum class OrientationLock { LANDSCAPE, AUTO, PORTRAIT }
 
-enum class ReplayGainMode(val label: String) { OFF("Off"), TRACK("Track gain"), ALBUM("Album gain") }
+enum class ReplayGainMode { OFF, TRACK, ALBUM }
 
 const val BACKDROP_STATIC = "static"
 const val BACKDROP_ASSET_PREFIX = "asset:"
@@ -53,6 +42,7 @@ data class AppSettings(
     val librarySort: SortOrder = SortOrder.TITLE,
     val libraryTab: LibraryTab = LibraryTab.SONGS,
     val volume: Float = 1f,
+    val language: String = "",
 )
 
 @Immutable

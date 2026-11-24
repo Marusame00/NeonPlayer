@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_cancel">रद्द करें</string>
+    <string name="action_close">बंद करें</string>
+    <string name="action_dismiss">खारिज करें</string>
+    <string name="action_create">बनाएँ</string>
+    <string name="action_save">सहेजें</string>
+    <string name="action_delete">हटाएँ</string>
+    <string name="action_off">बंद</string>
+    <string name="action_choose">चुनें</string>
+
+    <string name="label_settings">सेटिंग्स</string>
+    <string name="label_library">लाइब्रेरी</string>
+    <string name="label_now_playing">अभी चल रहा है</string>
+    <string name="label_up_next">अगला</string>
+    <string name="label_equalizer">इक्वलाइज़र</string>
+    <string name="label_backdrops">बैकड्रॉप</string>
+    <string name="label_about">परिचय</string>
+    <string name="label_display">डिस्प्ले</string>
+    <string name="label_playback">प्लेबैक</string>
+    <string name="label_appearance">रूप</string>
+    <string name="label_visualizer">विज़ुअलाइज़र</string>
+    <string name="label_stage_mode">स्टेज मोड</string>
+    <string name="label_language">भाषा</string>
+    <string name="label_nothing_playing">कुछ नहीं चल रहा</string>
+
+    <string name="settings_close">सेटिंग्स बंद करें</string>
+    <string name="settings_glass_icons">ग्लास आइकन</string>
+    <string name="settings_glass_preview">ग्लास प्रीव्यू</string>
+    <string name="settings_flat_preview">फ्लैट प्रीव्यू</string>
+    <string name="settings_theme_accent">थीम एक्सेंट</string>
+    <string name="settings_reduce_motion">मोशन कम करें</string>
+    <string name="settings_reduce_motion_sub">पल्स और एनिमेशन बंद करता है</string>
+    <string name="settings_backdrop_current">मौजूदा बैकड्रॉप</string>
+    <string name="settings_dim_percent">डिम %1$d%%</string>
+    <string name="settings_vignette">विनेट</string>
+    <string name="settings_battery_saver">बैटरी सेवर</string>
+    <string name="settings_battery_saver_sub">वीडियो की जगह स्थिर छवि इस्तेमाल करें</string>
+    <string name="settings_sensitivity">संवेदनशीलता %1$s×</string>
+    <string name="settings_art_colors">कवर से रंग</string>
+    <string name="settings_show_album">एल्बम दिखाएँ</string>
+    <string name="settings_glow_sweep">ट्रैक बदलने पर ग्लो</string>
+    <string name="settings_auto_stage">अपने आप स्टेज में जाएँ</string>
+    <string name="settings_keep_screen_on">चलाते समय स्क्रीन चालू रखें</string>
+    <string name="settings_keep_screen_on_sub">स्टेज मोड स्क्रीन हमेशा जगाए रखता है</string>
+    <string name="settings_burn_in">बर्न-इन सुरक्षा</string>
+    <string name="settings_burn_in_sub">कवर और टेक्स्ट का धीमा पिक्सेल खिसकाव</string>
+    <string name="settings_dim_after">इतने बाद डिम</string>
+    <string name="settings_crossfade">क्रॉसफ़ेड</string>
+    <string name="settings_crossfade_sub">ट्रैक के बीच फ़ेड आउट/इन; बंद होने पर बिना रुकावट</string>
+    <string name="settings_replay_gain">ReplayGain</string>
+    <string name="settings_sleep_timer">स्लीप टाइमर</string>
+    <string name="settings_sleep_min">%1$d मिनट</string>
+    <string name="settings_sleep_end_of_track">ट्रैक के अंत में</string>
+    <string name="settings_rescan_now">अभी स्कैन करें</string>
+    <string name="settings_add_folder">फ़ोल्डर जोड़ें</string>
+    <string name="settings_version">NeonPlayer %1$s (बिल्ड %2$d)</string>
+    <string name="settings_backdrop_path">बैकड्रॉप वीडियो: app/src/main/assets/backdrops</string>
+    <string name="settings_language_sub">ऐप की भाषा</string>
+    <string name="settings_language_note">गानों और फ़ाइलों के नाम कभी अनुवादित नहीं होते।</string>
+    <string name="settings_minutes_short">%1$d मि</string>
+    <string name="settings_seconds_short">%1$d से</string>
+
+    <string name="library_add_files">फ़ाइलें जोड़ें</string>
+    <string name="library_add_folder">फ़ोल्डर जोड़ें</string>
+    <string name="library_rescan">लाइब्रेरी स्कैन करें</string>
+    <string name="library_filter">लाइब्रेरी फ़िल्टर करें</string>
+    <string name="library_no_signal">कोई सिग्नल नहीं</string>
+    <string name="library_no_signal_msg">ग्रिड भरने के लिए NeonPlayer को आपके संगीत तक पहुँच चाहिए। आप फ़ाइलें या फ़ोल्डर मैन्युअली भी जोड़ सकते हैं।</string>
+    <string name="library_grant_access">पहुँच दें</string>
+    <string name="library_grid_empty">ग्रिड खाली है</string>
+    <string name="library_grid_empty_msg">अभी कोई संगीत नहीं मिला। अपना डिवाइस स्कैन करें या फ़ाइलें और फ़ोल्डर जोड़ें।</string>
+    <string name="library_rescan_action">स्कैन करें</string>
+    <string name="library_no_matches">“%1$s” के लिए कोई परिणाम नहीं</string>
+    <string name="library_tracks_count">%1$d ट्रैक</string>
+    <string name="library_scan_idle">निष्क्रिय</string>
+    <string name="library_scan_scanning">स्कैन हो रहा है %1$d / %2$d</string>
+    <string name="library_scan_done">%1$d जोड़े · %2$d हटाए · कुल %3$d</string>
+    <string name="library_scan_failed">विफल: %1$s</string>
+
+    <string name="playlists_new">नई</string>
+    <string name="playlists_import_m3u">M3U आयात करें</string>
+    <string name="playlists_hold_drag">खींचने के लिए प्लेलिस्ट दबाए रखें · खोलने के लिए टैप करें</string>
+    <string name="playlists_new_title">नई प्लेलिस्ट</string>
+    <string name="playlists_name_placeholder">प्लेलिस्ट का नाम</string>
+    <string name="playlists_back">प्लेलिस्ट पर वापस</string>
+    <string name="playlists_play">प्लेलिस्ट चलाएँ</string>
+    <string name="playlists_shuffle">शफ़ल चलाएँ</string>
+    <string name="playlists_rename">प्लेलिस्ट का नाम बदलें</string>
+    <string name="playlists_export">M3U निर्यात करें</string>
+    <string name="playlists_delete">प्लेलिस्ट हटाएँ</string>
+    <string name="playlists_hold_track">खींचने के लिए ट्रैक दबाए रखें · और के लिए दबाए रखें</string>
+    <string name="playlists_delete_msg">“%1$s” हटाएँ? ट्रैक आपकी लाइब्रेरी में रहेंगे।</string>
+    <string name="playlists_detail_count">%1$d ट्रैक · %2$s</string>
+
+    <string name="track_play">चलाएँ</string>
+    <string name="track_play_next">अगला चलाएँ</string>
+    <string name="track_add_queue">क्यू में जोड़ें</string>
+    <string name="track_add_playlist">प्लेलिस्ट में जोड़ें</string>
+    <string name="track_info">ट्रैक जानकारी</string>
+    <string name="track_remove_library">लाइब्रेरी से हटाएँ</string>
+    <string name="track_drag_reorder">क्रम बदलने के लिए खींचें</string>
+    <string name="track_info_readonly">टैग संपादन केवल पढ़ने के लिए है।</string>
+    <string name="track_info_title">शीर्षक</string>
+    <string name="track_info_artist">कलाकार</string>
+    <string name="track_info_album">एल्बम</string>
+    <string name="track_info_album_artist">एल्बम कलाकार</string>
+    <string name="track_info_track_no">ट्रैक #</string>
+    <string name="track_info_disc_no">डिस्क #</string>
+    <string name="track_info_year">वर्ष</string>
+    <string name="track_info_duration">अवधि</string>
+    <string name="track_info_format">फ़ॉर्मेट</string>
+    <string name="track_info_mime">Mime</string>
+    <string name="track_info_size">आकार</string>
+    <string name="track_info_folder">फ़ोल्डर</string>
+    <string name="track_info_uri">URI</string>
+    <string name="track_info_date_added">जोड़ने की तिथि</string>
+    <string name="track_no_playlists">अभी कोई प्लेलिस्ट नहीं।</string>
+
+    <string name="np_shuffle">शफ़ल</string>
+    <string name="np_previous">पिछला</string>
+    <string name="np_stop">रोकें</string>
+    <string name="np_next">अगला</string>
+    <string name="np_repeat">दोहराएँ</string>
+    <string name="np_volume">वॉल्यूम</string>
+    <string name="np_sleep">स्लीप टाइमर</string>
+    <string name="np_queued">%1$d क्यू में</string>
+    <string name="np_clear_queue">क्यू साफ़ करें</string>
+    <string name="np_queue_empty">क्यू खाली है — जोड़ने के लिए ट्रैक दबाए रखें</string>
+    <string name="np_queue_shuffle_off">क्रम बदलने के लिए शफ़ल बंद करें</string>
+    <string name="np_reorder">क्रम बदलें</string>
+    <string name="np_sleep_badge_eot">स्लीप अंत</string>
+    <string name="np_sleep_badge_min">स्लीप %1$d मि</string>
+
+    <string name="stage_exit">स्टेज से बाहर</string>
+    <string name="stage_exit_label">स्टेज से बाहर</string>
+    <string name="stage_pick_track">स्टेज रोशन करने के लिए ट्रैक चुनें</string>
+    <string name="stage_queue_empty">क्यू खाली है</string>
+
+    <string name="eq_close">इक्वलाइज़र बंद करें</string>
+    <string name="eq_unavailable">इस डिवाइस / आउटपुट पर इक्वलाइज़र उपलब्ध नहीं है</string>
+    <string name="eq_start_playback">इक्वलाइज़र चालू करने के लिए एक बार प्लेबैक शुरू करें</string>
+    <string name="eq_bass_boost">बास बूस्ट %1$d%%</string>
+    <string name="eq_virtualizer">वर्चुअलाइज़र %1$d%%</string>
+    <string name="eq_saved_per_output">सेटिंग्स प्रति आउटपुट सहेजी जाती हैं (स्पीकर / वायर्ड / ब्लूटूथ)</string>
+
+    <string name="backdrop_close">बैकड्रॉप बंद करें</string>
+    <string name="backdrop_static">स्थिर सिंथवेव</string>
+    <string name="backdrop_my_video">मेरा वीडियो %1$d</string>
+    <string name="backdrop_remove">बैकड्रॉप हटाएँ</string>
+    <string name="backdrop_add_own">अपना वीडियो जोड़ें</string>
+    <string name="backdrop_drop_hint">अपने लूपिंग MP4 (H.264/HEVC, 720p–1080p, 30 fps) app/src/main/assets/backdrops में रखें और फिर से बिल्ड करें — वे यहाँ अपने आप दिखेंगे।</string>
+    <string name="backdrop_badge_video">वीडियो</string>
+    <string name="backdrop_badge_still">स्थिर</string>
+
+    <string name="main_stage">स्टेज</string>
+    <string name="main_equalizer">इक्वलाइज़र</string>
+    <string name="main_settings">सेटिंग्स</string>
+    <string name="main_play">चलाएँ</string>
+    <string name="main_pause">रोकें</string>
+    <string name="main_close_now_playing">प्लेबैक बंद करें</string>
+    <string name="main_now_playing_label">अभी चल रहा है</string>
+    <string name="search_clear">खोज साफ़ करें</string>
+
+    <string name="accent_cyan">सियान प्रमुख</string>
+    <string name="accent_magenta">मैजेंटा प्रमुख</string>
+    <string name="viz_bars">नियॉन बार</string>
+    <string name="viz_mirrored">प्रतिबिंबित बार</string>
+    <string name="viz_radial">रेडियल रिंग</string>
+    <string name="viz_oscilloscope">ऑसिलोस्कोप</string>
+    <string name="viz_retro_grid">रेट्रो ग्रिड</string>
+    <string name="stage_layout_art_left">कवर बाएँ, टेक्स्ट दाएँ</string>
+    <string name="stage_layout_centered">केंद्र में कवर + रिंग</string>
+    <string name="stage_layout_text_over">विज़ुअलाइज़र पर टेक्स्ट</string>
+    <string name="stage_layout_viz_only">केवल विज़ुअलाइज़र</string>
+    <string name="orientation_landscape">लैंडस्केप</string>
+    <string name="orientation_auto">ऑटो</string>
+    <string name="orientation_portrait">पोर्ट्रेट</string>
+    <string name="replaygain_off">बंद</string>
+    <string name="replaygain_track">ट्रैक गेन</string>
+    <string name="replaygain_album">एल्बम गेन</string>
+    <string name="sort_title">शीर्षक</string>
+    <string name="sort_artist">कलाकार</string>
+    <string name="sort_album">एल्बम</string>
+    <string name="sort_date_added">जोड़ने की तिथि</string>
+    <string name="sort_duration">अवधि</string>
+    <string name="sort_manual">मैन्युअल</string>
+    <string name="tab_songs">गाने</string>
+    <string name="tab_albums">एल्बम</string>
+    <string name="tab_artists">कलाकार</string>
+    <string name="tab_playlists">प्लेलिस्ट</string>
+    <string name="tab_folders">फ़ोल्डर</string>
+    <string name="lang_system">सिस्टम भाषा</string>
+    <!-- Toasts -->
+    <string name="action_expand">फ़ैलाएँ</string>
+    <string name="action_collapse">समेटें</string>
+    <string name="toast_playlist_created">"%1$s" प्लेलिस्ट बनाई गई</string>
+    <string name="toast_playlist_renamed">प्लेलिस्ट का नाम बदला गया</string>
+    <string name="toast_playlist_deleted">प्लेलिस्ट हटाई गई</string>
+    <string name="toast_playlist_exported">प्लेलिस्ट निर्यात की गई</string>
+    <string name="toast_export_failed">निर्यात विफल</string>
+    <string name="toast_sleep_off">स्लीप टाइमर बंद</string>
+    <string name="toast_sleep_eot">स्लीप टाइमर ट्रैक के अंत में</string>
+    <string name="toast_backdrop_added">बैकड्रॉप जोड़ा गया</string>
+    <plurals name="toast_queued_next">
+        <item quantity="one">अगला: %1$d ट्रैक</item>
+        <item quantity="other">अगला: %1$d ट्रैक</item>
+    </plurals>
+    <plurals name="toast_added_queue">
+        <item quantity="one">क्यू में जोड़ा: %1$d ट्रैक</item>
+        <item quantity="other">क्यू में जोड़ा: %1$d ट्रैक</item>
+    </plurals>
+    <plurals name="toast_added_playlist">
+        <item quantity="one">प्लेलिस्ट में जोड़ा: %1$d ट्रैक</item>
+        <item quantity="other">प्लेलिस्ट में जोड़ा: %1$d ट्रैक</item>
+    </plurals>
+    <plurals name="toast_imported">
+        <item quantity="one">%1$d ट्रैक आयात किए</item>
+        <item quantity="other">%1$d ट्रैक आयात किए</item>
+    </plurals>
+    <plurals name="toast_removed">
+        <item quantity="one">%1$d ट्रैक हटाए</item>
+        <item quantity="other">%1$d ट्रैक हटाए</item>
+    </plurals>
+    <plurals name="toast_added">
+        <item quantity="one">%1$d ट्रैक जोड़े</item>
+        <item quantity="other">%1$d ट्रैक जोड़े</item>
+    </plurals>
+    <plurals name="toast_sleep_set">
+        <item quantity="one">स्लीप टाइमर: %1$d मिनट</item>
+        <item quantity="other">स्लीप टाइमर: %1$d मिनट</item>
+    </plurals>
+</resources>

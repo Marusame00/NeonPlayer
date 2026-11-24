@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_cancel">취소</string>
+    <string name="action_close">닫기</string>
+    <string name="action_dismiss">무시</string>
+    <string name="action_create">만들기</string>
+    <string name="action_save">저장</string>
+    <string name="action_delete">삭제</string>
+    <string name="action_off">끔</string>
+    <string name="action_choose">선택</string>
+
+    <string name="label_settings">설정</string>
+    <string name="label_library">라이브러리</string>
+    <string name="label_now_playing">재생 중</string>
+    <string name="label_up_next">다음 재생</string>
+    <string name="label_equalizer">이퀄라이저</string>
+    <string name="label_backdrops">배경</string>
+    <string name="label_about">정보</string>
+    <string name="label_display">화면</string>
+    <string name="label_playback">재생</string>
+    <string name="label_appearance">모양</string>
+    <string name="label_visualizer">시각화</string>
+    <string name="label_stage_mode">스테이지 모드</string>
+    <string name="label_language">언어</string>
+    <string name="label_nothing_playing">재생 중인 곡 없음</string>
+
+    <string name="settings_close">설정 닫기</string>
+    <string name="settings_glass_icons">유리 아이콘</string>
+    <string name="settings_glass_preview">유리 미리보기</string>
+    <string name="settings_flat_preview">평면 미리보기</string>
+    <string name="settings_theme_accent">테마 강조색</string>
+    <string name="settings_reduce_motion">움직임 줄이기</string>
+    <string name="settings_reduce_motion_sub">맥동과 애니메이션을 끕니다</string>
+    <string name="settings_backdrop_current">현재 배경</string>
+    <string name="settings_dim_percent">어둡게 %1$d%%</string>
+    <string name="settings_vignette">비네트</string>
+    <string name="settings_battery_saver">배터리 절약</string>
+    <string name="settings_battery_saver_sub">동영상 대신 정지 이미지 사용</string>
+    <string name="settings_sensitivity">감도 %1$s×</string>
+    <string name="settings_art_colors">앨범 아트 색상 사용</string>
+    <string name="settings_show_album">앨범 표시</string>
+    <string name="settings_glow_sweep">곡 전환 시 빛 번짐</string>
+    <string name="settings_auto_stage">자동으로 스테이지 진입</string>
+    <string name="settings_keep_screen_on">재생 중 화면 켜 두기</string>
+    <string name="settings_keep_screen_on_sub">스테이지 모드는 항상 화면을 켜 둡니다</string>
+    <string name="settings_burn_in">번인 방지</string>
+    <string name="settings_burn_in_sub">앨범 아트와 텍스트를 천천히 이동</string>
+    <string name="settings_dim_after">어둡게 하기</string>
+    <string name="settings_crossfade">크로스페이드</string>
+    <string name="settings_crossfade_sub">곡 사이를 페이드 아웃/인, 끄면 끊김 없음</string>
+    <string name="settings_replay_gain">ReplayGain</string>
+    <string name="settings_sleep_timer">취침 타이머</string>
+    <string name="settings_sleep_min">%1$d분</string>
+    <string name="settings_sleep_end_of_track">곡 끝날 때</string>
+    <string name="settings_rescan_now">지금 다시 검색</string>
+    <string name="settings_add_folder">폴더 추가</string>
+    <string name="settings_version">NeonPlayer %1$s (빌드 %2$d)</string>
+    <string name="settings_backdrop_path">배경 동영상: app/src/main/assets/backdrops</string>
+    <string name="settings_language_sub">앱 언어</string>
+    <string name="settings_language_note">곡과 파일 이름은 번역되지 않습니다.</string>
+    <string name="settings_minutes_short">%1$d분</string>
+    <string name="settings_seconds_short">%1$d초</string>
+
+    <string name="library_add_files">파일 추가</string>
+    <string name="library_add_folder">폴더 추가</string>
+    <string name="library_rescan">라이브러리 다시 검색</string>
+    <string name="library_filter">라이브러리 필터</string>
+    <string name="library_no_signal">신호 없음</string>
+    <string name="library_no_signal_msg">그리드를 채우려면 음악 접근 권한이 필요합니다. 파일이나 폴더를 직접 추가할 수도 있습니다.</string>
+    <string name="library_grant_access">접근 허용</string>
+    <string name="library_grid_empty">그리드가 비어 있습니다</string>
+    <string name="library_grid_empty_msg">아직 음악이 없습니다. 기기를 검색하거나 파일과 폴더를 추가하세요.</string>
+    <string name="library_rescan_action">다시 검색</string>
+    <string name="library_no_matches">“%1$s”에 대한 결과 없음</string>
+    <string name="library_tracks_count">%1$d곡</string>
+    <string name="library_scan_idle">대기</string>
+    <string name="library_scan_scanning">검색 중 %1$d / %2$d</string>
+    <string name="library_scan_done">%1$d 추가 · %2$d 제거 · 총 %3$d</string>
+    <string name="library_scan_failed">실패: %1$s</string>
+
+    <string name="playlists_new">새로 만들기</string>
+    <string name="playlists_import_m3u">M3U 가져오기</string>
+    <string name="playlists_hold_drag">길게 눌러 재생목록 드래그 · 탭하여 열기</string>
+    <string name="playlists_new_title">새 재생목록</string>
+    <string name="playlists_name_placeholder">재생목록 이름</string>
+    <string name="playlists_back">재생목록으로 돌아가기</string>
+    <string name="playlists_play">재생목록 재생</string>
+    <string name="playlists_shuffle">셔플 재생</string>
+    <string name="playlists_rename">재생목록 이름 변경</string>
+    <string name="playlists_export">M3U 내보내기</string>
+    <string name="playlists_delete">재생목록 삭제</string>
+    <string name="playlists_hold_track">길게 눌러 곡 드래그 · 길게 눌러 더 보기</string>
+    <string name="playlists_delete_msg">“%1$s”을(를) 삭제할까요? 곡은 라이브러리에 남습니다.</string>
+    <string name="playlists_detail_count">%1$d곡 · %2$s</string>
+
+    <string name="track_play">재생</string>
+    <string name="track_play_next">다음에 재생</string>
+    <string name="track_add_queue">대기열에 추가</string>
+    <string name="track_add_playlist">재생목록에 추가</string>
+    <string name="track_info">곡 정보</string>
+    <string name="track_remove_library">라이브러리에서 제거</string>
+    <string name="track_drag_reorder">드래그하여 순서 변경</string>
+    <string name="track_info_readonly">태그 편집은 읽기 전용입니다.</string>
+    <string name="track_info_title">제목</string>
+    <string name="track_info_artist">아티스트</string>
+    <string name="track_info_album">앨범</string>
+    <string name="track_info_album_artist">앨범 아티스트</string>
+    <string name="track_info_track_no">트랙 #</string>
+    <string name="track_info_disc_no">디스크 #</string>
+    <string name="track_info_year">연도</string>
+    <string name="track_info_duration">길이</string>
+    <string name="track_info_format">형식</string>
+    <string name="track_info_mime">Mime</string>
+    <string name="track_info_size">크기</string>
+    <string name="track_info_folder">폴더</string>
+    <string name="track_info_uri">URI</string>
+    <string name="track_info_date_added">추가한 날짜</string>
+    <string name="track_no_playlists">아직 재생목록이 없습니다.</string>
+
+    <string name="np_shuffle">셔플</string>
+    <string name="np_previous">이전</string>
+    <string name="np_stop">정지</string>
+    <string name="np_next">다음</string>
+    <string name="np_repeat">반복</string>
+    <string name="np_volume">볼륨</string>
+    <string name="np_sleep">취침 타이머</string>
+    <string name="np_queued">대기열 %1$d곡</string>
+    <string name="np_clear_queue">대기열 비우기</string>
+    <string name="np_queue_empty">대기열이 비어 있습니다 — 곡을 길게 눌러 추가하세요</string>
+    <string name="np_queue_shuffle_off">순서를 바꾸려면 셔플을 끄세요</string>
+    <string name="np_reorder">순서 변경</string>
+    <string name="np_sleep_badge_eot">취침 끝</string>
+    <string name="np_sleep_badge_min">취침 %1$d분</string>
+
+    <string name="stage_exit">스테이지 나가기</string>
+    <string name="stage_exit_label">스테이지 나가기</string>
+    <string name="stage_pick_track">곡을 선택해 스테이지를 밝히세요</string>
+    <string name="stage_queue_empty">대기열이 비어 있습니다</string>
+
+    <string name="eq_close">이퀄라이저 닫기</string>
+    <string name="eq_unavailable">이 기기 / 출력에서는 이퀄라이저를 사용할 수 없습니다</string>
+    <string name="eq_start_playback">이퀄라이저를 사용하려면 한 번 재생하세요</string>
+    <string name="eq_bass_boost">저음 강조 %1$d%%</string>
+    <string name="eq_virtualizer">버추얼라이저 %1$d%%</string>
+    <string name="eq_saved_per_output">설정은 출력별로 저장됩니다 (스피커 / 유선 / 블루투스)</string>
+
+    <string name="backdrop_close">배경 닫기</string>
+    <string name="backdrop_static">정적 synthwave</string>
+    <string name="backdrop_my_video">내 동영상 %1$d</string>
+    <string name="backdrop_remove">배경 제거</string>
+    <string name="backdrop_add_own">내 동영상 추가</string>
+    <string name="backdrop_drop_hint">반복 MP4(H.264/HEVC, 720p–1080p, 30fps)를 app/src/main/assets/backdrops에 넣고 다시 빌드하면 여기에 자동으로 표시됩니다.</string>
+    <string name="backdrop_badge_video">동영상</string>
+    <string name="backdrop_badge_still">정지</string>
+
+    <string name="main_stage">스테이지</string>
+    <string name="main_equalizer">이퀄라이저</string>
+    <string name="main_settings">설정</string>
+    <string name="main_play">재생</string>
+    <string name="main_pause">일시정지</string>
+    <string name="main_close_now_playing">재생 화면 닫기</string>
+    <string name="main_now_playing_label">재생 중</string>
+    <string name="search_clear">검색 지우기</string>
+
+    <string name="accent_cyan">시안 중심</string>
+    <string name="accent_magenta">마젠타 중심</string>
+    <string name="viz_bars">네온 바</string>
+    <string name="viz_mirrored">대칭 바</string>
+    <string name="viz_radial">방사형 링</string>
+    <string name="viz_oscilloscope">오실로스코프</string>
+    <string name="viz_retro_grid">레트로 그리드</string>
+    <string name="stage_layout_art_left">앨범 왼쪽, 텍스트 오른쪽</string>
+    <string name="stage_layout_centered">중앙 앨범 + 링</string>
+    <string name="stage_layout_text_over">시각화 위에 텍스트</string>
+    <string name="stage_layout_viz_only">시각화만</string>
+    <string name="orientation_landscape">가로</string>
+    <string name="orientation_auto">자동</string>
+    <string name="orientation_portrait">세로</string>
+    <string name="replaygain_off">끔</string>
+    <string name="replaygain_track">트랙 게인</string>
+    <string name="replaygain_album">앨범 게인</string>
+    <string name="sort_title">제목</string>
+    <string name="sort_artist">아티스트</string>
+    <string name="sort_album">앨범</string>
+    <string name="sort_date_added">추가한 날짜</string>
+    <string name="sort_duration">길이</string>
+    <string name="sort_manual">수동</string>
+    <string name="tab_songs">곡</string>
+    <string name="tab_albums">앨범</string>
+    <string name="tab_artists">아티스트</string>
+    <string name="tab_playlists">재생목록</string>
+    <string name="tab_folders">폴더</string>
+    <string name="lang_system">시스템 언어</string>
+    <!-- Toasts -->
+    <string name="action_expand">펼치기</string>
+    <string name="action_collapse">접기</string>
+    <string name="toast_playlist_created">재생목록 "%1$s"을(를) 만들었습니다</string>
+    <string name="toast_playlist_renamed">재생목록 이름을 변경했습니다</string>
+    <string name="toast_playlist_deleted">재생목록을 삭제했습니다</string>
+    <string name="toast_playlist_exported">재생목록을 내보냈습니다</string>
+    <string name="toast_export_failed">내보내기 실패</string>
+    <string name="toast_sleep_off">슬립 타이머 꾸짐</string>
+    <string name="toast_sleep_eot">슬립 타이머가 곡 끝에 설정됨</string>
+    <string name="toast_backdrop_added">배경을 추가했습니다</string>
+    <plurals name="toast_queued_next">
+        <item quantity="one">다음 재생: %1$d곡</item>
+        <item quantity="other">다음 재생: %1$d곡</item>
+    </plurals>
+    <plurals name="toast_added_queue">
+        <item quantity="one">대기열에 추가: %1$d곡</item>
+        <item quantity="other">대기열에 추가: %1$d곡</item>
+    </plurals>
+    <plurals name="toast_added_playlist">
+        <item quantity="one">재생목록에 추가: %1$d곡</item>
+        <item quantity="other">재생목록에 추가: %1$d곡</item>
+    </plurals>
+    <plurals name="toast_imported">
+        <item quantity="one">%1$d곡을 가져왔습니다</item>
+        <item quantity="other">%1$d곡을 가져왔습니다</item>
+    </plurals>
+    <plurals name="toast_removed">
+        <item quantity="one">%1$d곡을 제거했습니다</item>
+        <item quantity="other">%1$d곡을 제거했습니다</item>
+    </plurals>
+    <plurals name="toast_added">
+        <item quantity="one">%1$d곡을 추가했습니다</item>
+        <item quantity="other">%1$d곡을 추가했습니다</item>
+    </plurals>
+    <plurals name="toast_sleep_set">
+        <item quantity="one">슬립 탼이머: %1$d분</item>
+        <item quantity="other">슬립 탼이머: %1$d분</item>
+    </plurals>
+</resources>

@@ -41,6 +41,10 @@ import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import androidx.annotation.PluralsRes
+import androidx.annotation.StringRes
+import com.neonplayer.R
+import com.neonplayer.data.settings.AppLocale
 
 enum class Overlay { NONE, SETTINGS, EQUALIZER, BACKDROPS }
 
@@ -169,20 +173,20 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     fun playNext(tracks: List<Track>) {
         if (tracks.isEmpty()) return
         connection.playNext(tracks)
-        _messages.tryEmit(queuedMessage("Queued next", tracks.size))
+        _messages.tryEmit(qty(R.plurals.toast_queued_next, tracks.size))
     }
 
     fun addToQueue(tracks: List<Track>) {
         if (tracks.isEmpty()) return
         connection.addToQueue(tracks)
-        _messages.tryEmit(queuedMessage("Added to queue", tracks.size))
+        _messages.tryEmit(qty(R.plurals.toast_added_queue, tracks.size))
     }
 
     fun addToPlaylist(playlistId: Long, tracks: List<Track>) {
         if (tracks.isEmpty()) return
         scope.launch {
             playlistRepository.addTracks(playlistId, tracks.map { it.id })
-            _messages.tryEmit(queuedMessage("Added to playlist", tracks.size))
+            _messages.tryEmit(qty(R.plurals.toast_added_playlist, tracks.size))
         }
     }
 
@@ -190,14 +194,14 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         scope.launch {
             val id = playlistRepository.create(name)
             if (tracks.isNotEmpty()) playlistRepository.addTracks(id, tracks.map { it.id })
-            _messages.tryEmit("Created playlist \"${name.trim().ifEmpty { "Playlist" }}\"")
+            _messages.tryEmit(str(R.string.toast_playlist_created, name.trim().ifEmpty { "Playlist" }))
         }
     }
 
     fun renamePlaylist(id: Long, name: String) {
         scope.launch {
             playlistRepository.rename(id, name)
-            _messages.tryEmit("Playlist renamed")
+            _messages.tryEmit(str(R.string.toast_playlist_renamed))
         }
     }
 
@@ -205,7 +209,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         scope.launch {
             playlistRepository.delete(id)
             if (_openPlaylistId.value == id) _openPlaylistId.value = null
-            _messages.tryEmit("Playlist deleted")
+            _messages.tryEmit(str(R.string.toast_playlist_deleted))
         }
     }
 
@@ -232,15 +236,15 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     fun importM3u(uri: Uri) {
         scope.launch {
             val (_, count) = playlistRepository.importM3u(uri)
-            _messages.tryEmit(if (count == 1) "Imported 1 track" else "Imported $count tracks")
+            _messages.tryEmit(qty(R.plurals.toast_imported, count))
         }
     }
 
     fun exportM3u(id: Long, uri: Uri) {
         scope.launch {
             runCatching { playlistRepository.exportM3u(id, uri) }
-                .onSuccess { _messages.tryEmit("Playlist exported") }
-                .onFailure { _messages.tryEmit("Export failed") }
+                .onSuccess { _messages.tryEmit(str(R.string.toast_playlist_exported)) }
+                .onFailure { _messages.tryEmit(str(R.string.toast_export_failed)) }
         }
     }
 
@@ -248,7 +252,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         if (ids.isEmpty()) return
         scope.launch {
             libraryRepository.removeTracks(ids)
-            _messages.tryEmit(if (ids.size == 1) "Removed 1 track" else "Removed ${ids.size} tracks")
+            _messages.tryEmit(qty(R.plurals.toast_removed, ids.size))
         }
     }
 
@@ -261,14 +265,14 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         if (uris.isEmpty()) return
         scope.launch {
             val added = runCatching { libraryRepository.importFiles(uris) }.getOrDefault(0)
-            _messages.tryEmit(if (added == 1) "Added 1 track" else "Added $added tracks")
+            _messages.tryEmit(qty(R.plurals.toast_added, added))
         }
     }
 
     fun importFolder(uri: Uri) {
         scope.launch {
             val added = runCatching { libraryRepository.importFolder(uri) }.getOrDefault(0)
-            _messages.tryEmit(if (added == 1) "Added 1 track" else "Added $added tracks")
+            _messages.tryEmit(qty(R.plurals.toast_added, added))
         }
     }
 
@@ -324,17 +328,19 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
     fun startSleepTimer(minutes: Int) {
         sleep.start(minutes)
-        _messages.tryEmit(if (minutes > 0) "Sleep timer set for $minutes min" else "Sleep timer off")
+        _messages.tryEmit(
+            if (minutes > 0) qty(R.plurals.toast_sleep_set, minutes) else str(R.string.toast_sleep_off),
+        )
     }
 
     fun startSleepTimerEndOfTrack() {
         sleep.startEndOfTrack()
-        _messages.tryEmit("Sleep timer set for end of track")
+        _messages.tryEmit(str(R.string.toast_sleep_eot))
     }
 
     fun cancelSleepTimer() {
         sleep.cancel()
-        _messages.tryEmit("Sleep timer off")
+        _messages.tryEmit(str(R.string.toast_sleep_off))
     }
 
     fun addCustomBackdrop(uri: Uri) {
@@ -352,7 +358,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                 }
                 current.copy(customBackdrops = list, backdropId = BACKDROP_CUSTOM_PREFIX + value)
             }
-            _messages.tryEmit("Backdrop added")
+            _messages.tryEmit(str(R.string.toast_backdrop_added))
         }
     }
 
@@ -371,8 +377,11 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    private fun queuedMessage(prefix: String, count: Int): String =
-        if (count == 1) "$prefix 1 track" else "$prefix $count tracks"
+    private fun str(@StringRes id: Int, vararg args: Any): String =
+        AppLocale.localized(container.context).getString(id, *args)
+
+    private fun qty(@PluralsRes id: Int, count: Int): String =
+        AppLocale.localized(container.context).resources.getQuantityString(id, count, count)
 
     private companion object {
         const val SUBSCRIPTION_MS = 5_000L

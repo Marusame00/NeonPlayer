@@ -43,6 +43,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.neonplayer.R
 import com.neonplayer.ui.theme.Neon
 
 @Composable
@@ -353,7 +355,9 @@ fun PlayPauseButton(
         ) { playing ->
             Icon(
                 imageVector = if (playing) Icons.Rounded.Pause else Icons.Rounded.PlayArrow,
-                contentDescription = if (playing) "Pause" else "Play",
+                contentDescription = stringResource(
+                    if (playing) R.string.main_pause else R.string.main_play,
+                ),
                 tint = if (glass) palette.textPrimary else palette.base0,
                 modifier = Modifier.size(size * 0.42f),
             )

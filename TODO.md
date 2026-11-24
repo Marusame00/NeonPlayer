@@ -2,6 +2,12 @@
 
 Deferred work. Nothing here is in progress; pick items up when there is a reason to cut a new build.
 
+## Done in versionCode 5 (built, not yet verified on the Pixel 6)
+
+- [x] **UI was English-only and hardcoded in Kotlin.** All user-facing text now lives in `res/values/strings.xml` (about 180 `string`/`plurals` entries) and 14 locale folders: `values-es`, `values-pt-rBR`, `values-fr`, `values-de`, `values-it`, `values-ru`, `values-pl`, `values-tr`, `values-hi`, `values-id`, `values-zh-rTW`, `values-zh-rCN`, `values-ja`, `values-ko`.
+- [x] **No way to pick a language.** Settings → Language now lists *System default* plus the 15 languages. `AppSettings.language` (empty = system) is persisted by `SettingsRepository`, mirrored into SharedPreferences by `data/settings/AppLocale.kt`, applied in `MainActivity.attachBaseContext`, and a change recreates the activity.
+- [ ] Verify on the Pixel 6: Settings → Language → Español / 日本語 / System default, and confirm the UI text and toasts follow.
+
 ## Done in versionCode 3 and 4 (verified on the Pixel 6)
 
 - [x] **Folders tab is clipped** in the landscape library tab row (rendered as "FOL" at the right edge in vc2). Fixed in `ui/components/Inputs.kt`: `NeonTabs` row spacing 14dp → 10dp and tab label letter spacing 1.2sp, so all five tabs fit without clipping.

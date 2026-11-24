@@ -43,6 +43,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.neonplayer.R
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.neonplayer.ui.components.ArtImage
 import com.neonplayer.ui.components.NeonCard
@@ -128,7 +130,7 @@ private fun MiniPlayer(
                 )
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = track?.title ?: "Nothing playing",
+                        text = track?.title ?: stringResource(R.string.label_nothing_playing),
                         style = NeonType.Body,
                         color = palette.textPrimary,
                         maxLines = 1,
@@ -144,14 +146,16 @@ private fun MiniPlayer(
                 }
                 NeonIconButton(
                     icon = if (player.isPlaying) Icons.Rounded.Pause else Icons.Rounded.PlayArrow,
-                    contentDescription = if (player.isPlaying) "Pause" else "Play",
+                    contentDescription = stringResource(
+                        if (player.isPlaying) R.string.main_pause else R.string.main_play,
+                    ),
                     onClick = vm::togglePlayPause,
                     size = 44.dp,
                     active = player.isPlaying,
                 )
                 NeonIconButton(
                     icon = Icons.Rounded.SkipNext,
-                    contentDescription = "Next",
+                    contentDescription = stringResource(R.string.np_next),
                     onClick = vm::next,
                     size = 36.dp,
                 )
@@ -215,13 +219,13 @@ private fun NowPlayingSheet(
                 ) {
                     NeonIconButton(
                         icon = Icons.Rounded.KeyboardArrowDown,
-                        contentDescription = "Close now playing",
+                        contentDescription = stringResource(R.string.main_close_now_playing),
                         onClick = onClose,
                         size = 34.dp,
                     )
                     Spacer(Modifier.width(8.dp))
                     Text(
-                        text = "NOW PLAYING",
+                        text = stringResource(R.string.main_now_playing_label),
                         style = NeonType.Label,
                         color = palette.secondary,
                     )

@@ -35,6 +35,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.neonplayer.R
 import com.neonplayer.domain.model.Playlist
 import com.neonplayer.domain.model.Track
 import com.neonplayer.domain.model.formatDuration
@@ -52,7 +54,7 @@ data class TrackMenuActions(
     val onPlay: (() -> Unit)? = null,
     val onInfo: (() -> Unit)? = null,
     val onRemove: (() -> Unit)? = null,
-    val removeLabel: String = "Remove from library",
+    val removeLabel: String = "",
 )
 
 @Composable
@@ -72,33 +74,36 @@ fun TrackContextMenu(
     ) {
         val play = actions.onPlay
         if (play != null) {
-            MenuEntry("Play", Icons.Rounded.PlayArrow) {
+            MenuEntry(stringResource(R.string.track_play), Icons.Rounded.PlayArrow) {
                 onDismiss()
                 play()
             }
         }
-        MenuEntry("Play next", Icons.Rounded.SkipNext) {
+        MenuEntry(stringResource(R.string.track_play_next), Icons.Rounded.SkipNext) {
             onDismiss()
             actions.onPlayNext()
         }
-        MenuEntry("Add to queue", Icons.Rounded.QueueMusic) {
+        MenuEntry(stringResource(R.string.track_add_queue), Icons.Rounded.QueueMusic) {
             onDismiss()
             actions.onAddToQueue()
         }
-        MenuEntry("Add to playlist", Icons.Rounded.PlaylistAdd) {
+        MenuEntry(stringResource(R.string.track_add_playlist), Icons.Rounded.PlaylistAdd) {
             onDismiss()
             actions.onAddToPlaylist()
         }
         val info = actions.onInfo
         if (info != null) {
-            MenuEntry("Track info", Icons.Rounded.Info) {
+            MenuEntry(stringResource(R.string.track_info), Icons.Rounded.Info) {
                 onDismiss()
                 info()
             }
         }
         val remove = actions.onRemove
         if (remove != null) {
-            MenuEntry(actions.removeLabel, Icons.Rounded.Delete, danger = true) {
+            val removeLabel = actions.removeLabel.ifBlank {
+                stringResource(R.string.track_remove_library)
+            }
+            MenuEntry(removeLabel, Icons.Rounded.Delete, danger = true) {
                 onDismiss()
                 remove()
             }
@@ -140,7 +145,7 @@ fun NeonDialog(
     confirmLabel: String,
     onConfirm: () -> Unit,
     modifier: Modifier = Modifier,
-    dismissLabel: String = "Cancel",
+    dismissLabel: String = stringResource(R.string.action_cancel),
     confirmEnabled: Boolean = true,
     content: @Composable ColumnScope.() -> Unit,
 ) {
@@ -208,29 +213,38 @@ fun NeonTextField(
 fun TrackInfoDialog(track: Track, onDismiss: () -> Unit) {
     val palette = Neon.palette
     NeonDialog(
-        title = "Track info",
+        title = stringResource(R.string.track_info),
         onDismiss = onDismiss,
-        confirmLabel = "Close",
+        confirmLabel = stringResource(R.string.action_close),
         onConfirm = onDismiss,
-        dismissLabel = "Dismiss",
+        dismissLabel = stringResource(R.string.action_dismiss),
     ) {
-        InfoRow("Title", track.title)
-        InfoRow("Artist", track.displayArtist)
-        InfoRow("Album", track.displayAlbum)
-        InfoRow("Album artist", track.groupArtist)
-        InfoRow("Track #", if (track.trackNumber > 0) track.trackNumber.toString() else "—")
-        InfoRow("Disc #", if (track.discNumber > 0) track.discNumber.toString() else "—")
-        InfoRow("Year", if (track.year > 0) track.year.toString() else "—")
-        InfoRow("Duration", formatDuration(track.durationMs))
-        InfoRow("Format", track.format.ifBlank { "—" })
-        InfoRow("Mime", track.mimeType.ifBlank { "—" })
-        InfoRow("Size", formatSize(track.sizeBytes))
-        InfoRow("Folder", track.folder.ifBlank { "—" })
-        InfoRow("URI", track.uri)
-        InfoRow("Date added", formatDate(track.dateAdded))
+        InfoRow(stringResource(R.string.track_info_title), track.title)
+        InfoRow(stringResource(R.string.track_info_artist), track.displayArtist)
+        InfoRow(stringResource(R.string.track_info_album), track.displayAlbum)
+        InfoRow(stringResource(R.string.track_info_album_artist), track.groupArtist)
+        InfoRow(
+            stringResource(R.string.track_info_track_no),
+            if (track.trackNumber > 0) track.trackNumber.toString() else "—",
+        )
+        InfoRow(
+            stringResource(R.string.track_info_disc_no),
+            if (track.discNumber > 0) track.discNumber.toString() else "—",
+        )
+        InfoRow(
+            stringResource(R.string.track_info_year),
+            if (track.year > 0) track.year.toString() else "—",
+        )
+        InfoRow(stringResource(R.string.track_info_duration), formatDuration(track.durationMs))
+        InfoRow(stringResource(R.string.track_info_format), track.format.ifBlank { "—" })
+        InfoRow(stringResource(R.string.track_info_mime), track.mimeType.ifBlank { "—" })
+        InfoRow(stringResource(R.string.track_info_size), formatSize(track.sizeBytes))
+        InfoRow(stringResource(R.string.track_info_folder), track.folder.ifBlank { "—" })
+        InfoRow(stringResource(R.string.track_info_uri), track.uri)
+        InfoRow(stringResource(R.string.track_info_date_added), formatDate(track.dateAdded))
         Spacer(Modifier.height(6.dp))
         Text(
-            text = "Edit tags display is read-only.",
+            text = stringResource(R.string.track_info_readonly),
             style = NeonType.BodySmall,
             color = palette.textMuted,
         )
@@ -262,15 +276,15 @@ fun AddToPlaylistDialog(
 ) {
     val palette = Neon.palette
     NeonDialog(
-        title = "Add to playlist",
+        title = stringResource(R.string.track_add_playlist),
         onDismiss = onDismiss,
-        confirmLabel = "New playlist",
+        confirmLabel = stringResource(R.string.playlists_new_title),
         onConfirm = onCreate,
-        dismissLabel = "Cancel",
+        dismissLabel = stringResource(R.string.action_cancel),
     ) {
         if (playlists.isEmpty()) {
             Text(
-                text = "No playlists yet.",
+                text = stringResource(R.string.track_no_playlists),
                 style = NeonType.BodySmall,
                 color = palette.textMuted,
             )

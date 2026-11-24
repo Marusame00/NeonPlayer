@@ -20,6 +20,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.res.stringResource
+import com.neonplayer.R
 import com.neonplayer.ui.components.NeonIconButton
 import com.neonplayer.ui.components.NeonTextButton
 import com.neonplayer.ui.library.LibraryPanel
@@ -88,7 +90,7 @@ fun NeonTopBar(
         )
         Spacer(Modifier.weight(1f))
         NeonTextButton(
-            text = "Stage",
+            text = stringResource(R.string.main_stage),
             icon = Icons.Rounded.Fullscreen,
             primary = true,
             onClick = vm::enterStage,
@@ -96,14 +98,14 @@ fun NeonTopBar(
         Spacer(Modifier.width(8.dp))
         NeonIconButton(
             icon = Icons.Rounded.GraphicEq,
-            contentDescription = "Equalizer",
+            contentDescription = stringResource(R.string.main_equalizer),
             onClick = { vm.openOverlay(Overlay.EQUALIZER) },
             size = 34.dp,
         )
         Spacer(Modifier.width(6.dp))
         NeonIconButton(
             icon = Icons.Rounded.Settings,
-            contentDescription = "Settings",
+            contentDescription = stringResource(R.string.main_settings),
             onClick = { vm.openOverlay(Overlay.SETTINGS) },
             size = 34.dp,
         )

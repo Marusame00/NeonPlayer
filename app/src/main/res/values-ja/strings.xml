@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_cancel">キャンセル</string>
+    <string name="action_close">閉じる</string>
+    <string name="action_dismiss">無視</string>
+    <string name="action_create">作成</string>
+    <string name="action_save">保存</string>
+    <string name="action_delete">削除</string>
+    <string name="action_off">オフ</string>
+    <string name="action_choose">選択</string>
+
+    <string name="label_settings">設定</string>
+    <string name="label_library">ライブラリ</string>
+    <string name="label_now_playing">再生中</string>
+    <string name="label_up_next">次に再生</string>
+    <string name="label_equalizer">イコライザー</string>
+    <string name="label_backdrops">背景</string>
+    <string name="label_about">このアプリについて</string>
+    <string name="label_display">画面</string>
+    <string name="label_playback">再生</string>
+    <string name="label_appearance">外観</string>
+    <string name="label_visualizer">ビジュアライザー</string>
+    <string name="label_stage_mode">ステージモード</string>
+    <string name="label_language">言語</string>
+    <string name="label_nothing_playing">再生していません</string>
+
+    <string name="settings_close">設定を閉じる</string>
+    <string name="settings_glass_icons">ガラスアイコン</string>
+    <string name="settings_glass_preview">ガラス表示</string>
+    <string name="settings_flat_preview">フラット表示</string>
+    <string name="settings_theme_accent">テーマのアクセント</string>
+    <string name="settings_reduce_motion">動きを減らす</string>
+    <string name="settings_reduce_motion_sub">脈動とアニメーションを無効にします</string>
+    <string name="settings_backdrop_current">現在の背景</string>
+    <string name="settings_dim_percent">減光 %1$d%%</string>
+    <string name="settings_vignette">ビネット</string>
+    <string name="settings_battery_saver">バッテリー節約</string>
+    <string name="settings_battery_saver_sub">動画の代わりに静止画を使用</string>
+    <string name="settings_sensitivity">感度 %1$s×</string>
+    <string name="settings_art_colors">ジャケットの色を使用</string>
+    <string name="settings_show_album">アルバムを表示</string>
+    <string name="settings_glow_sweep">曲切り替え時のグロー</string>
+    <string name="settings_auto_stage">自動でステージへ</string>
+    <string name="settings_keep_screen_on">再生中は画面をオンのまま</string>
+    <string name="settings_keep_screen_on_sub">ステージモードは常に画面をオンのままにします</string>
+    <string name="settings_burn_in">焼き付き防止</string>
+    <string name="settings_burn_in_sub">ジャケットとテキストをゆっくり移動</string>
+    <string name="settings_dim_after">減光まで</string>
+    <string name="settings_crossfade">クロスフェード</string>
+    <string name="settings_crossfade_sub">曲間でフェードアウト/イン。オフなら無音なし</string>
+    <string name="settings_replay_gain">ReplayGain</string>
+    <string name="settings_sleep_timer">スリープタイマー</string>
+    <string name="settings_sleep_min">%1$d 分</string>
+    <string name="settings_sleep_end_of_track">曲の終わり</string>
+    <string name="settings_rescan_now">今すぐ再スキャン</string>
+    <string name="settings_add_folder">フォルダーを追加</string>
+    <string name="settings_version">NeonPlayer %1$s（ビルド %2$d）</string>
+    <string name="settings_backdrop_path">背景動画: app/src/main/assets/backdrops</string>
+    <string name="settings_language_sub">アプリの言語</string>
+    <string name="settings_language_note">曲名とファイル名は翻訳されません。</string>
+    <string name="settings_minutes_short">%1$d 分</string>
+    <string name="settings_seconds_short">%1$d 秒</string>
+
+    <string name="library_add_files">ファイルを追加</string>
+    <string name="library_add_folder">フォルダーを追加</string>
+    <string name="library_rescan">ライブラリを再スキャン</string>
+    <string name="library_filter">ライブラリを絞り込む</string>
+    <string name="library_no_signal">信号なし</string>
+    <string name="library_no_signal_msg">グリッドを埋めるには音楽へのアクセスが必要です。ファイルやフォルダーを手動で追加することもできます。</string>
+    <string name="library_grant_access">アクセスを許可</string>
+    <string name="library_grid_empty">グリッドは空です</string>
+    <string name="library_grid_empty_msg">音楽が見つかりません。端末をスキャンするか、ファイルとフォルダーを追加してください。</string>
+    <string name="library_rescan_action">再スキャン</string>
+    <string name="library_no_matches">「%1$s」の一致なし</string>
+    <string name="library_tracks_count">%1$d 曲</string>
+    <string name="library_scan_idle">待機中</string>
+    <string name="library_scan_scanning">スキャン中 %1$d / %2$d</string>
+    <string name="library_scan_done">%1$d 追加 · %2$d 削除 · 合計 %3$d</string>
+    <string name="library_scan_failed">失敗: %1$s</string>
+
+    <string name="playlists_new">新規</string>
+    <string name="playlists_import_m3u">M3U をインポート</string>
+    <string name="playlists_hold_drag">長押しでプレイリストをドラッグ · タップで開く</string>
+    <string name="playlists_new_title">新しいプレイリスト</string>
+    <string name="playlists_name_placeholder">プレイリスト名</string>
+    <string name="playlists_back">プレイリストに戻る</string>
+    <string name="playlists_play">プレイリストを再生</string>
+    <string name="playlists_shuffle">シャッフル再生</string>
+    <string name="playlists_rename">プレイリスト名を変更</string>
+    <string name="playlists_export">M3U をエクスポート</string>
+    <string name="playlists_delete">プレイリストを削除</string>
+    <string name="playlists_hold_track">長押しで曲をドラッグ · 長押しで詳細</string>
+    <string name="playlists_delete_msg">「%1$s」を削除しますか？曲はライブラリに残ります。</string>
+    <string name="playlists_detail_count">%1$d 曲 · %2$s</string>
+
+    <string name="track_play">再生</string>
+    <string name="track_play_next">次に再生</string>
+    <string name="track_add_queue">キューに追加</string>
+    <string name="track_add_playlist">プレイリストに追加</string>
+    <string name="track_info">曲の情報</string>
+    <string name="track_remove_library">ライブラリから削除</string>
+    <string name="track_drag_reorder">ドラッグで並べ替え</string>
+    <string name="track_info_readonly">タグ編集は読み取り専用です。</string>
+    <string name="track_info_title">タイトル</string>
+    <string name="track_info_artist">アーティスト</string>
+    <string name="track_info_album">アルバム</string>
+    <string name="track_info_album_artist">アルバムアーティスト</string>
+    <string name="track_info_track_no">トラック #</string>
+    <string name="track_info_disc_no">ディスク #</string>
+    <string name="track_info_year">年</string>
+    <string name="track_info_duration">長さ</string>
+    <string name="track_info_format">形式</string>
+    <string name="track_info_mime">Mime</string>
+    <string name="track_info_size">サイズ</string>
+    <string name="track_info_folder">フォルダー</string>
+    <string name="track_info_uri">URI</string>
+    <string name="track_info_date_added">追加日</string>
+    <string name="track_no_playlists">プレイリストはまだありません。</string>
+
+    <string name="np_shuffle">シャッフル</string>
+    <string name="np_previous">前へ</string>
+    <string name="np_stop">停止</string>
+    <string name="np_next">次へ</string>
+    <string name="np_repeat">リピート</string>
+    <string name="np_volume">音量</string>
+    <string name="np_sleep">スリープタイマー</string>
+    <string name="np_queued">キュー %1$d 曲</string>
+    <string name="np_clear_queue">キューを空にする</string>
+    <string name="np_queue_empty">キューは空です — 曲を長押しで追加</string>
+    <string name="np_queue_shuffle_off">並べ替えるにはシャッフルをオフに</string>
+    <string name="np_reorder">並べ替え</string>
+    <string name="np_sleep_badge_eot">スリープ 終了</string>
+    <string name="np_sleep_badge_min">スリープ %1$d 分</string>
+
+    <string name="stage_exit">ステージを終了</string>
+    <string name="stage_exit_label">ステージを終了</string>
+    <string name="stage_pick_track">曲を選んでステージを照らす</string>
+    <string name="stage_queue_empty">キューは空です</string>
+
+    <string name="eq_close">イコライザーを閉じる</string>
+    <string name="eq_unavailable">この端末 / 出力ではイコライザーを使用できません</string>
+    <string name="eq_start_playback">一度再生してイコライザーを有効にしてください</string>
+    <string name="eq_bass_boost">低音ブースト %1$d%%</string>
+    <string name="eq_virtualizer">バーチャライザー %1$d%%</string>
+    <string name="eq_saved_per_output">設定は出力ごとに保存されます（スピーカー / 有線 / Bluetooth）</string>
+
+    <string name="backdrop_close">背景を閉じる</string>
+    <string name="backdrop_static">静止 synthwave</string>
+    <string name="backdrop_my_video">マイ動画 %1$d</string>
+    <string name="backdrop_remove">背景を削除</string>
+    <string name="backdrop_add_own">自分の動画を追加</string>
+    <string name="backdrop_drop_hint">ループ MP4（H.264/HEVC、720p–1080p、30fps）を app/src/main/assets/backdrops に入れて再ビルドすると、ここに自動で表示されます。</string>
+    <string name="backdrop_badge_video">動画</string>
+    <string name="backdrop_badge_still">静止画</string>
+
+    <string name="main_stage">ステージ</string>
+    <string name="main_equalizer">イコライザー</string>
+    <string name="main_settings">設定</string>
+    <string name="main_play">再生</string>
+    <string name="main_pause">一時停止</string>
+    <string name="main_close_now_playing">再生画面を閉じる</string>
+    <string name="main_now_playing_label">再生中</string>
+    <string name="search_clear">検索をクリア</string>
+
+    <string name="accent_cyan">シアン基調</string>
+    <string name="accent_magenta">マゼンタ基調</string>
+    <string name="viz_bars">ネオンバー</string>
+    <string name="viz_mirrored">ミラーバー</string>
+    <string name="viz_radial">ラジアルリング</string>
+    <string name="viz_oscilloscope">オシロスコープ</string>
+    <string name="viz_retro_grid">レトログリッド</string>
+    <string name="stage_layout_art_left">ジャケット左・テキスト右</string>
+    <string name="stage_layout_centered">中央ジャケット + リング</string>
+    <string name="stage_layout_text_over">ビジュアライザー上にテキスト</string>
+    <string name="stage_layout_viz_only">ビジュアライザーのみ</string>
+    <string name="orientation_landscape">横向き</string>
+    <string name="orientation_auto">自動</string>
+    <string name="orientation_portrait">縦向き</string>
+    <string name="replaygain_off">オフ</string>
+    <string name="replaygain_track">トラックゲイン</string>
+    <string name="replaygain_album">アルバムゲイン</string>
+    <string name="sort_title">タイトル</string>
+    <string name="sort_artist">アーティスト</string>
+    <string name="sort_album">アルバム</string>
+    <string name="sort_date_added">追加日</string>
+    <string name="sort_duration">長さ</string>
+    <string name="sort_manual">手動</string>
+    <string name="tab_songs">曲</string>
+    <string name="tab_albums">アルバム</string>
+    <string name="tab_artists">アーティスト</string>
+    <string name="tab_playlists">プレイリスト</string>
+    <string name="tab_folders">フォルダー</string>
+    <string name="lang_system">システム言語</string>
+    <!-- Toasts -->
+    <string name="action_expand">展開</string>
+    <string name="action_collapse">折りたたみ</string>
+    <string name="toast_playlist_created">プレイリスト「%1$s」を作成しました</string>
+    <string name="toast_playlist_renamed">プレイリスト名を変更しました</string>
+    <string name="toast_playlist_deleted">プレイリストを削除しました</string>
+    <string name="toast_playlist_exported">プレイリストを書き出しました</string>
+    <string name="toast_export_failed">書き出しに失敗しました</string>
+    <string name="toast_sleep_off">スリープタイマーをオフにしました</string>
+    <string name="toast_sleep_eot">スリープタイマーを曲の終わりに設定しました</string>
+    <string name="toast_backdrop_added">背景を追加しました</string>
+    <plurals name="toast_queued_next">
+        <item quantity="one">次に再生：%1$d 曲</item>
+        <item quantity="other">次に再生：%1$d 曲</item>
+    </plurals>
+    <plurals name="toast_added_queue">
+        <item quantity="one">キューに追加：%1$d 曲</item>
+        <item quantity="other">キューに追加：%1$d 曲</item>
+    </plurals>
+    <plurals name="toast_added_playlist">
+        <item quantity="one">プレイリストに追加：%1$d 曲</item>
+        <item quantity="other">プレイリストに追加：%1$d 曲</item>
+    </plurals>
+    <plurals name="toast_imported">
+        <item quantity="one">%1$d 曲をインポートしました</item>
+        <item quantity="other">%1$d 曲をインポートしました</item>
+    </plurals>
+    <plurals name="toast_removed">
+        <item quantity="one">%1$d 曲を削除しました</item>
+        <item quantity="other">%1$d 曲を削除しました</item>
+    </plurals>
+    <plurals name="toast_added">
+        <item quantity="one">%1$d 曲を追加しました</item>
+        <item quantity="other">%1$d 曲を追加しました</item>
+    </plurals>
+    <plurals name="toast_sleep_set">
+        <item quantity="one">スリープタイマー：%1$d 分</item>
+        <item quantity="other">スリープタイマー：%1$d 分</item>
+    </plurals>
+</resources>

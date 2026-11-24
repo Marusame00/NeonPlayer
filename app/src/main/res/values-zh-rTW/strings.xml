@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_cancel">取消</string>
+    <string name="action_close">關閉</string>
+    <string name="action_dismiss">略過</string>
+    <string name="action_create">建立</string>
+    <string name="action_save">儲存</string>
+    <string name="action_delete">刪除</string>
+    <string name="action_off">關閉</string>
+    <string name="action_choose">選擇</string>
+
+    <string name="label_settings">設定</string>
+    <string name="label_library">音樂庫</string>
+    <string name="label_now_playing">正在播放</string>
+    <string name="label_up_next">接下來</string>
+    <string name="label_equalizer">等化器</string>
+    <string name="label_backdrops">背景</string>
+    <string name="label_about">關於</string>
+    <string name="label_display">顯示</string>
+    <string name="label_playback">播放</string>
+    <string name="label_appearance">外觀</string>
+    <string name="label_visualizer">視覺效果</string>
+    <string name="label_stage_mode">舞台模式</string>
+    <string name="label_language">語言</string>
+    <string name="label_nothing_playing">沒有播放內容</string>
+
+    <string name="settings_close">關閉設定</string>
+    <string name="settings_glass_icons">玻璃圖示</string>
+    <string name="settings_glass_preview">玻璃預覽</string>
+    <string name="settings_flat_preview">平面預覽</string>
+    <string name="settings_theme_accent">主題強調色</string>
+    <string name="settings_reduce_motion">減少動態</string>
+    <string name="settings_reduce_motion_sub">關閉脈動與動畫</string>
+    <string name="settings_backdrop_current">目前背景</string>
+    <string name="settings_dim_percent">調暗 %1$d%%</string>
+    <string name="settings_vignette">暗角</string>
+    <string name="settings_battery_saver">省電模式</string>
+    <string name="settings_battery_saver_sub">使用靜態圖片取代影片</string>
+    <string name="settings_sensitivity">靈敏度 %1$s×</string>
+    <string name="settings_art_colors">取自專輯封面的顏色</string>
+    <string name="settings_show_album">顯示專輯</string>
+    <string name="settings_glow_sweep">切換曲目時的光暈掃過</string>
+    <string name="settings_auto_stage">自動進入舞台</string>
+    <string name="settings_keep_screen_on">播放時保持螢幕開啟</string>
+    <string name="settings_keep_screen_on_sub">舞台模式一律保持螢幕開啟</string>
+    <string name="settings_burn_in">烙印保護</string>
+    <string name="settings_burn_in_sub">封面與文字緩慢位移像素</string>
+    <string name="settings_dim_after">調暗於</string>
+    <string name="settings_crossfade">交叉淡入淡出</string>
+    <string name="settings_crossfade_sub">曲目之間淡出／淡入；關閉時無間隙</string>
+    <string name="settings_replay_gain">ReplayGain</string>
+    <string name="settings_sleep_timer">睡眠計時器</string>
+    <string name="settings_sleep_min">%1$d 分鐘</string>
+    <string name="settings_sleep_end_of_track">曲目結束時</string>
+    <string name="settings_rescan_now">立即重新掃描</string>
+    <string name="settings_add_folder">新增資料夾</string>
+    <string name="settings_version">NeonPlayer %1$s（組建 %2$d）</string>
+    <string name="settings_backdrop_path">背景影片：app/src/main/assets/backdrops</string>
+    <string name="settings_language_sub">應用程式語言</string>
+    <string name="settings_language_note">歌曲與檔案名稱不會被翻譯。</string>
+    <string name="settings_minutes_short">%1$d 分</string>
+    <string name="settings_seconds_short">%1$d 秒</string>
+
+    <string name="library_add_files">新增檔案</string>
+    <string name="library_add_folder">新增資料夾</string>
+    <string name="library_rescan">重新掃描音樂庫</string>
+    <string name="library_filter">篩選音樂庫</string>
+    <string name="library_no_signal">沒有訊號</string>
+    <string name="library_no_signal_msg">NeonPlayer 需要存取你的音樂才能填滿方格。你也可以手動新增檔案或資料夾。</string>
+    <string name="library_grant_access">授予存取權</string>
+    <string name="library_grid_empty">方格是空的</string>
+    <string name="library_grid_empty_msg">尚未找到音樂。掃描你的裝置，或新增檔案與資料夾。</string>
+    <string name="library_rescan_action">重新掃描</string>
+    <string name="library_no_matches">找不到「%1$s」的結果</string>
+    <string name="library_tracks_count">%1$d 首曲目</string>
+    <string name="library_scan_idle">閒置</string>
+    <string name="library_scan_scanning">掃描中 %1$d / %2$d</string>
+    <string name="library_scan_done">新增 %1$d · 移除 %2$d · 共 %3$d</string>
+    <string name="library_scan_failed">失敗：%1$s</string>
+
+    <string name="playlists_new">新增</string>
+    <string name="playlists_import_m3u">匯入 M3U</string>
+    <string name="playlists_hold_drag">長按播放清單可拖曳 · 輕觸可開啟</string>
+    <string name="playlists_new_title">新增播放清單</string>
+    <string name="playlists_name_placeholder">播放清單名稱</string>
+    <string name="playlists_back">返回播放清單</string>
+    <string name="playlists_play">播放清單</string>
+    <string name="playlists_shuffle">隨機播放</string>
+    <string name="playlists_rename">重新命名播放清單</string>
+    <string name="playlists_export">匯出 M3U</string>
+    <string name="playlists_delete">刪除播放清單</string>
+    <string name="playlists_hold_track">長按曲目可拖曳 · 長按可查看更多</string>
+    <string name="playlists_delete_msg">刪除「%1$s」？曲目仍會保留在音樂庫中。</string>
+    <string name="playlists_detail_count">%1$d 首曲目 · %2$s</string>
+
+    <string name="track_play">播放</string>
+    <string name="track_play_next">下一首播放</string>
+    <string name="track_add_queue">加入佇列</string>
+    <string name="track_add_playlist">加入播放清單</string>
+    <string name="track_info">曲目資訊</string>
+    <string name="track_remove_library">從音樂庫移除</string>
+    <string name="track_drag_reorder">拖曳以重新排序</string>
+    <string name="track_info_readonly">標籤編輯為唯讀。</string>
+    <string name="track_info_title">標題</string>
+    <string name="track_info_artist">演出者</string>
+    <string name="track_info_album">專輯</string>
+    <string name="track_info_album_artist">專輯演出者</string>
+    <string name="track_info_track_no">曲目 #</string>
+    <string name="track_info_disc_no">光碟 #</string>
+    <string name="track_info_year">年份</string>
+    <string name="track_info_duration">長度</string>
+    <string name="track_info_format">格式</string>
+    <string name="track_info_mime">Mime</string>
+    <string name="track_info_size">大小</string>
+    <string name="track_info_folder">資料夾</string>
+    <string name="track_info_uri">URI</string>
+    <string name="track_info_date_added">加入日期</string>
+    <string name="track_no_playlists">尚無播放清單。</string>
+
+    <string name="np_shuffle">隨機</string>
+    <string name="np_previous">上一首</string>
+    <string name="np_stop">停止</string>
+    <string name="np_next">下一首</string>
+    <string name="np_repeat">重複</string>
+    <string name="np_volume">音量</string>
+    <string name="np_sleep">睡眠計時器</string>
+    <string name="np_queued">佇列中 %1$d 首</string>
+    <string name="np_clear_queue">清空佇列</string>
+    <string name="np_queue_empty">佇列是空的 — 長按曲目即可加入</string>
+    <string name="np_queue_shuffle_off">關閉隨機才能重新排序</string>
+    <string name="np_reorder">重新排序</string>
+    <string name="np_sleep_badge_eot">睡眠 結束</string>
+    <string name="np_sleep_badge_min">睡眠 %1$d 分</string>
+
+    <string name="stage_exit">離開舞台</string>
+    <string name="stage_exit_label">離開舞台</string>
+    <string name="stage_pick_track">選擇曲目來點亮舞台</string>
+    <string name="stage_queue_empty">佇列是空的</string>
+
+    <string name="eq_close">關閉等化器</string>
+    <string name="eq_unavailable">此裝置／輸出無法使用等化器</string>
+    <string name="eq_start_playback">先開始播放一次以啟用等化器</string>
+    <string name="eq_bass_boost">低音增強 %1$d%%</string>
+    <string name="eq_virtualizer">虛擬環繞 %1$d%%</string>
+    <string name="eq_saved_per_output">設定依輸出分別儲存（喇叭／有線／藍牙）</string>
+
+    <string name="backdrop_close">關閉背景</string>
+    <string name="backdrop_static">靜態 synthwave</string>
+    <string name="backdrop_my_video">我的影片 %1$d</string>
+    <string name="backdrop_remove">移除背景</string>
+    <string name="backdrop_add_own">新增自己的影片</string>
+    <string name="backdrop_drop_hint">將你自己的循環 MP4（H.264/HEVC、720p–1080p、30fps）放入 app/src/main/assets/backdrops 並重新建置 — 它們會自動出現在這裡。</string>
+    <string name="backdrop_badge_video">影片</string>
+    <string name="backdrop_badge_still">靜態</string>
+
+    <string name="main_stage">舞台</string>
+    <string name="main_equalizer">等化器</string>
+    <string name="main_settings">設定</string>
+    <string name="main_play">播放</string>
+    <string name="main_pause">暫停</string>
+    <string name="main_close_now_playing">關閉播放畫面</string>
+    <string name="main_now_playing_label">正在播放</string>
+    <string name="search_clear">清除搜尋</string>
+
+    <string name="accent_cyan">以青色為主</string>
+    <string name="accent_magenta">以洋紅為主</string>
+    <string name="viz_bars">霓虹長條</string>
+    <string name="viz_mirrored">鏡像長條</string>
+    <string name="viz_radial">環形放射</string>
+    <string name="viz_oscilloscope">示波器</string>
+    <string name="viz_retro_grid">復古網格</string>
+    <string name="stage_layout_art_left">封面在左，文字在右</string>
+    <string name="stage_layout_centered">封面置中 + 環</string>
+    <string name="stage_layout_text_over">文字疊在視覺效果上</string>
+    <string name="stage_layout_viz_only">僅視覺效果</string>
+    <string name="orientation_landscape">橫向</string>
+    <string name="orientation_auto">自動</string>
+    <string name="orientation_portrait">直向</string>
+    <string name="replaygain_off">關閉</string>
+    <string name="replaygain_track">曲目增益</string>
+    <string name="replaygain_album">專輯增益</string>
+    <string name="sort_title">標題</string>
+    <string name="sort_artist">演出者</string>
+    <string name="sort_album">專輯</string>
+    <string name="sort_date_added">加入日期</string>
+    <string name="sort_duration">長度</string>
+    <string name="sort_manual">手動</string>
+    <string name="tab_songs">歌曲</string>
+    <string name="tab_albums">專輯</string>
+    <string name="tab_artists">演出者</string>
+    <string name="tab_playlists">播放清單</string>
+    <string name="tab_folders">資料夾</string>
+    <string name="lang_system">系統語言</string>
+    <!-- Toasts -->
+    <string name="action_expand">展開</string>
+    <string name="action_collapse">收合</string>
+    <string name="toast_playlist_created">已建立播放清單「%1$s」</string>
+    <string name="toast_playlist_renamed">已重新命名播放清單</string>
+    <string name="toast_playlist_deleted">已刪除播放清單</string>
+    <string name="toast_playlist_exported">已匯出播放清單</string>
+    <string name="toast_export_failed">匯出失敗</string>
+    <string name="toast_sleep_off">睡眠計時器已關閉</string>
+    <string name="toast_sleep_eot">睡眠計時器設於曲目結束</string>
+    <string name="toast_backdrop_added">已新增背景</string>
+    <plurals name="toast_queued_next">
+        <item quantity="one">下一首：%1$d 首</item>
+        <item quantity="other">下一首：%1$d 首</item>
+    </plurals>
+    <plurals name="toast_added_queue">
+        <item quantity="one">已加入佇列：%1$d 首</item>
+        <item quantity="other">已加入佇列：%1$d 首</item>
+    </plurals>
+    <plurals name="toast_added_playlist">
+        <item quantity="one">已加入播放清單：%1$d 首</item>
+        <item quantity="other">已加入播放清單：%1$d 首</item>
+    </plurals>
+    <plurals name="toast_imported">
+        <item quantity="one">已匯入 %1$d 首</item>
+        <item quantity="other">已匯入 %1$d 首</item>
+    </plurals>
+    <plurals name="toast_removed">
+        <item quantity="one">已移除 %1$d 首</item>
+        <item quantity="other">已移除 %1$d 首</item>
+    </plurals>
+    <plurals name="toast_added">
+        <item quantity="one">已新增 %1$d 首</item>
+        <item quantity="other">已新增 %1$d 首</item>
+    </plurals>
+    <plurals name="toast_sleep_set">
+        <item quantity="one">睡眠計時器：%1$d 分鐘</item>
+        <item quantity="other">睡眠計時器：%1$d 分鐘</item>
+    </plurals>
+</resources>

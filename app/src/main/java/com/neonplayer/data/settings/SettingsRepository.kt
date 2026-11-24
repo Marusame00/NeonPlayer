@@ -65,6 +65,7 @@ class SettingsRepository(
             prefs[Keys.LIBRARY_SORT] = next.librarySort.name
             prefs[Keys.LIBRARY_TAB] = next.libraryTab.name
             prefs[Keys.VOLUME] = next.volume
+            prefs[Keys.LANGUAGE] = next.language
         }
     }
 
@@ -125,6 +126,7 @@ class SettingsRepository(
             librarySort = enumOf(this[Keys.LIBRARY_SORT], defaults.librarySort),
             libraryTab = enumOf(this[Keys.LIBRARY_TAB], defaults.libraryTab),
             volume = this[Keys.VOLUME] ?: defaults.volume,
+            language = this[Keys.LANGUAGE] ?: defaults.language,
         )
     }
 
@@ -195,6 +197,7 @@ class SettingsRepository(
         val LIBRARY_SORT = stringPreferencesKey("library_sort")
         val LIBRARY_TAB = stringPreferencesKey("library_tab")
         val VOLUME = floatPreferencesKey("volume")
+        val LANGUAGE = stringPreferencesKey("language")
         val EQ_PROFILES = stringPreferencesKey("eq_profiles")
         val PLAYBACK_INDEX = intPreferencesKey("playback_index")
         val PLAYBACK_POSITION = longPreferencesKey("playback_position")

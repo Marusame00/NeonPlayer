@@ -33,6 +33,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import com.neonplayer.R
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.neonplayer.domain.model.LibraryTab
 import com.neonplayer.domain.model.ScanState
@@ -47,6 +50,7 @@ import com.neonplayer.ui.components.NeonIconButton
 import com.neonplayer.ui.components.NeonSearchField
 import com.neonplayer.ui.components.NeonTabs
 import com.neonplayer.ui.components.SectionLabel
+import com.neonplayer.ui.components.label
 import com.neonplayer.ui.main.MainViewModel
 import com.neonplayer.ui.theme.Neon
 import com.neonplayer.ui.theme.NeonType
@@ -59,6 +63,7 @@ fun LibraryPanel(
     modifier: Modifier = Modifier,
 ) {
     val palette = Neon.palette
+    val context = LocalContext.current
     val reduceMotion = Neon.style.reduceMotion
     val tab by vm.tab.collectAsStateWithLifecycle()
     val sort by vm.sort.collectAsStateWithLifecycle()
@@ -127,18 +132,18 @@ fun LibraryPanel(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            SectionLabel(text = "Library")
+            SectionLabel(text = stringResource(R.string.label_library))
             CountBadge(trackCount)
             Spacer(Modifier.weight(1f))
             NeonIconButton(
                 icon = Icons.Rounded.Add,
-                contentDescription = "Add files",
+                contentDescription = stringResource(R.string.library_add_files),
                 onClick = { filesLauncher.launch(arrayOf("audio/*")) },
                 size = 32.dp,
             )
             NeonIconButton(
                 icon = Icons.Rounded.CreateNewFolder,
-                contentDescription = "Add folder",
+                contentDescription = stringResource(R.string.library_add_folder),
                 onClick = { folderLauncher.launch(null) },
                 size = 32.dp,
             )
@@ -146,7 +151,7 @@ fun LibraryPanel(
         }
         Spacer(Modifier.height(4.dp))
         NeonTabs(
-            tabs = LibraryTab.entries.map { it.label },
+            tabs = LibraryTab.entries.map { it.label(context) },
             selectedIndex = LibraryTab.entries.indexOf(tab),
             onSelect = { vm.setTab(LibraryTab.entries[it]) },
         )
@@ -159,14 +164,14 @@ fun LibraryPanel(
             NeonSearchField(
                 value = query,
                 onValueChange = { vm.query.value = it },
-                placeholder = "Filter library",
+                placeholder = stringResource(R.string.library_filter),
                 modifier = Modifier.weight(1f),
             )
             if (tab == LibraryTab.SONGS) {
                 NeonDropdown(
                     selected = sort,
                     options = SortOrder.entries,
-                    label = { it.label },
+                    label = { it.label(context) },
                     onSelect = { vm.setSort(it) },
                 )
             }
@@ -181,12 +186,11 @@ fun LibraryPanel(
                 contentAlignment = Alignment.Center,
             ) {
                 EmptyState(
-                    title = "NO SIGNAL",
-                    message = "NeonPlayer needs access to your music to fill the grid. " +
-                        "You can also add files or folders manually.",
-                    actionLabel = "Grant access",
+                    title = stringResource(R.string.library_no_signal),
+                    message = stringResource(R.string.library_no_signal_msg),
+                    actionLabel = stringResource(R.string.library_grant_access),
                     onAction = onGrantAccess,
-                    secondaryActionLabel = "Add folder",
+                    secondaryActionLabel = stringResource(R.string.library_add_folder),
                     onSecondaryAction = { folderLauncher.launch(null) },
                 )
             }
@@ -228,17 +232,17 @@ fun LibraryPanel(
                 ) {
                     if (query.isNotBlank()) {
                         Text(
-                            text = "No matches for \"$query\"",
+                            text = stringResource(R.string.library_no_matches, query),
                             style = NeonType.BodySmall,
                             color = palette.textMuted,
                         )
                     } else {
                         EmptyState(
-                            title = "THE GRID IS EMPTY",
-                            message = "No music found yet. Scan your device or add files and folders.",
-                            actionLabel = "Rescan",
+                            title = stringResource(R.string.library_grid_empty),
+                            message = stringResource(R.string.library_grid_empty_msg),
+                            actionLabel = stringResource(R.string.library_rescan_action),
                             onAction = vm::rescan,
-                            secondaryActionLabel = "Add folder",
+                            secondaryActionLabel = stringResource(R.string.library_add_folder),
                             onSecondaryAction = { folderLauncher.launch(null) },
                         )
                     }
@@ -276,7 +280,7 @@ fun LibraryPanel(
                         groups = artists,
                         groupKey = { it.name },
                         groupTitle = { it.name },
-                        groupSubtitle = { "${it.tracks.size} tracks" },
+                        groupSubtitle = { context.getString(R.string.library_tracks_count, it.tracks.size) },
                         groupTracks = { it.tracks },
                         currentTrackId = currentTrackId,
                         isPlaying = isPlaying,
@@ -331,9 +335,9 @@ fun LibraryPanel(
     val pendingTracks = newPlaylistTracks.value
     if (pendingTracks != null) {
         NeonDialog(
-            title = "New playlist",
+            title = stringResource(R.string.playlists_new_title),
             onDismiss = { newPlaylistTracks.value = null },
-            confirmLabel = "Create",
+            confirmLabel = stringResource(R.string.action_create),
             onConfirm = {
                 vm.createPlaylist(newPlaylistName, pendingTracks)
                 newPlaylistTracks.value = null
@@ -342,7 +346,7 @@ fun LibraryPanel(
             NeonTextField(
                 value = newPlaylistName,
                 onValueChange = { newPlaylistName = it },
-                placeholder = "Playlist name",
+                placeholder = stringResource(R.string.playlists_name_placeholder),
             )
         }
     }
@@ -375,7 +379,7 @@ private fun RescanButton(
     ) {
         NeonIconButton(
             icon = Icons.Rounded.Refresh,
-            contentDescription = "Rescan library",
+            contentDescription = stringResource(R.string.library_rescan),
             onClick = onClick,
             size = 34.dp,
             active = scanning,
@@ -387,10 +391,19 @@ private fun RescanButton(
 fun ScanStatusText(scanState: ScanState, modifier: Modifier = Modifier) {
     val palette = Neon.palette
     val text = when (scanState) {
-        is ScanState.Idle -> "Idle"
-        is ScanState.Scanning -> "Scanning ${scanState.processed} / ${scanState.total}"
-        is ScanState.Done -> "Added ${scanState.added} · removed ${scanState.removed} · ${scanState.total} total"
-        is ScanState.Failed -> "Failed: ${scanState.message}"
+        is ScanState.Idle -> stringResource(R.string.library_scan_idle)
+        is ScanState.Scanning -> stringResource(
+            R.string.library_scan_scanning,
+            scanState.processed,
+            scanState.total,
+        )
+        is ScanState.Done -> stringResource(
+            R.string.library_scan_done,
+            scanState.added,
+            scanState.removed,
+            scanState.total,
+        )
+        is ScanState.Failed -> stringResource(R.string.library_scan_failed, scanState.message)
     }
     Text(
         text = text,

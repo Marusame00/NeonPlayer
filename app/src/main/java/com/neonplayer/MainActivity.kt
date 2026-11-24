@@ -1,6 +1,7 @@
 package com.neonplayer
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
@@ -28,6 +29,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.neonplayer.data.settings.AppLocale
 import com.neonplayer.domain.model.OrientationLock
 import com.neonplayer.ui.main.MainViewModel
 import com.neonplayer.ui.main.NeonPlayerApp
@@ -58,6 +60,10 @@ class MainActivity : ComponentActivity() {
         if (audioPermissionGranted) viewModel.rescan()
     }
 
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(AppLocale.wrap(newBase))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -71,6 +77,7 @@ class MainActivity : ComponentActivity() {
         }
         observeOrientation()
         observeKeepScreenOn()
+        observeLanguage()
         observeEvents()
         setContent {
             val settings by viewModel.settings.collectAsState()
@@ -191,6 +198,19 @@ class MainActivity : ComponentActivity() {
                         } else {
                             window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
                         }
+                    }
+            }
+        }
+    }
+
+    private fun observeLanguage() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.settings
+                    .map { it.language }
+                    .distinctUntilChanged()
+                    .collect { tag ->
+                        if (AppLocale.store(this@MainActivity, tag)) recreate()
                     }
             }
         }

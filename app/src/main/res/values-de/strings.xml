@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_cancel">Abbrechen</string>
+    <string name="action_close">Schließen</string>
+    <string name="action_dismiss">Verwerfen</string>
+    <string name="action_create">Erstellen</string>
+    <string name="action_save">Speichern</string>
+    <string name="action_delete">Löschen</string>
+    <string name="action_off">Aus</string>
+    <string name="action_choose">Wählen</string>
+
+    <string name="label_settings">Einstellungen</string>
+    <string name="label_library">Bibliothek</string>
+    <string name="label_now_playing">Aktuelle Wiedergabe</string>
+    <string name="label_up_next">Als Nächstes</string>
+    <string name="label_equalizer">Equalizer</string>
+    <string name="label_backdrops">Hintergründe</string>
+    <string name="label_about">Über</string>
+    <string name="label_display">Anzeige</string>
+    <string name="label_playback">Wiedergabe</string>
+    <string name="label_appearance">Darstellung</string>
+    <string name="label_visualizer">Visualizer</string>
+    <string name="label_stage_mode">Bühnenmodus</string>
+    <string name="label_language">Sprache</string>
+    <string name="label_nothing_playing">Keine Wiedergabe</string>
+
+    <string name="settings_close">Einstellungen schließen</string>
+    <string name="settings_glass_icons">Glas-Symbole</string>
+    <string name="settings_glass_preview">Glas-Vorschau</string>
+    <string name="settings_flat_preview">Flache Vorschau</string>
+    <string name="settings_theme_accent">Akzentfarbe</string>
+    <string name="settings_reduce_motion">Bewegung reduzieren</string>
+    <string name="settings_reduce_motion_sub">Deaktiviert Pulsieren und Animationen</string>
+    <string name="settings_backdrop_current">Aktueller Hintergrund</string>
+    <string name="settings_dim_percent">Abdunkeln %1$d%%</string>
+    <string name="settings_vignette">Vignette</string>
+    <string name="settings_battery_saver">Akkuschoner</string>
+    <string name="settings_battery_saver_sub">Nutzt das Standbild statt des Videos</string>
+    <string name="settings_sensitivity">Empfindlichkeit %1$s×</string>
+    <string name="settings_art_colors">Farben aus dem Cover</string>
+    <string name="settings_show_album">Album anzeigen</string>
+    <string name="settings_glow_sweep">Leuchtsweep beim Titelwechsel</string>
+    <string name="settings_auto_stage">Automatisch zur Bühne</string>
+    <string name="settings_keep_screen_on">Bildschirm bei Wiedergabe anlassen</string>
+    <string name="settings_keep_screen_on_sub">Der Bühnenmodus hält den Bildschirm immer wach</string>
+    <string name="settings_burn_in">Einbrennschutz</string>
+    <string name="settings_burn_in_sub">Langsame Pixelverschiebung von Cover und Text</string>
+    <string name="settings_dim_after">Abdunkeln nach</string>
+    <string name="settings_crossfade">Überblenden</string>
+    <string name="settings_crossfade_sub">Blendet zwischen Titeln aus/ein; lückenlos wenn aus</string>
+    <string name="settings_replay_gain">ReplayGain</string>
+    <string name="settings_sleep_timer">Sleep-Timer</string>
+    <string name="settings_sleep_min">%1$d Min.</string>
+    <string name="settings_sleep_end_of_track">Titelende</string>
+    <string name="settings_rescan_now">Jetzt neu scannen</string>
+    <string name="settings_add_folder">Ordner hinzufügen</string>
+    <string name="settings_version">NeonPlayer %1$s (Build %2$d)</string>
+    <string name="settings_backdrop_path">Hintergrundvideos: app/src/main/assets/backdrops</string>
+    <string name="settings_language_sub">App-Sprache</string>
+    <string name="settings_language_note">Titel- und Dateinamen werden nie übersetzt.</string>
+    <string name="settings_minutes_short">%1$d Min.</string>
+    <string name="settings_seconds_short">%1$d s</string>
+
+    <string name="library_add_files">Dateien hinzufügen</string>
+    <string name="library_add_folder">Ordner hinzufügen</string>
+    <string name="library_rescan">Bibliothek neu scannen</string>
+    <string name="library_filter">Bibliothek filtern</string>
+    <string name="library_no_signal">KEIN SIGNAL</string>
+    <string name="library_no_signal_msg">NeonPlayer braucht Zugriff auf deine Musik, um das Raster zu füllen. Du kannst auch Dateien oder Ordner manuell hinzufügen.</string>
+    <string name="library_grant_access">Zugriff erlauben</string>
+    <string name="library_grid_empty">DAS RASTER IST LEER</string>
+    <string name="library_grid_empty_msg">Noch keine Musik gefunden. Scanne dein Gerät oder füge Dateien und Ordner hinzu.</string>
+    <string name="library_rescan_action">Neu scannen</string>
+    <string name="library_no_matches">Keine Treffer für „%1$s“</string>
+    <string name="library_tracks_count">%1$d Titel</string>
+    <string name="library_scan_idle">Bereit</string>
+    <string name="library_scan_scanning">Scanne %1$d / %2$d</string>
+    <string name="library_scan_done">%1$d hinzugefügt · %2$d entfernt · %3$d gesamt</string>
+    <string name="library_scan_failed">Fehlgeschlagen: %1$s</string>
+
+    <string name="playlists_new">Neu</string>
+    <string name="playlists_import_m3u">M3U importieren</string>
+    <string name="playlists_hold_drag">PLAYLIST HALTEN ZUM ZIEHEN · TIPPEN ZUM ÖFFNEN</string>
+    <string name="playlists_new_title">Neue Playlist</string>
+    <string name="playlists_name_placeholder">Playlist-Name</string>
+    <string name="playlists_back">Zurück zu den Playlists</string>
+    <string name="playlists_play">Playlist abspielen</string>
+    <string name="playlists_shuffle">Zufällig abspielen</string>
+    <string name="playlists_rename">Playlist umbenennen</string>
+    <string name="playlists_export">M3U exportieren</string>
+    <string name="playlists_delete">Playlist löschen</string>
+    <string name="playlists_hold_track">TITEL HALTEN ZUM ZIEHEN · HALTEN FÜR MEHR</string>
+    <string name="playlists_delete_msg">„%1$s“ löschen? Die Titel bleiben in deiner Bibliothek.</string>
+    <string name="playlists_detail_count">%1$d Titel · %2$s</string>
+
+    <string name="track_play">Abspielen</string>
+    <string name="track_play_next">Als Nächstes abspielen</string>
+    <string name="track_add_queue">Zur Warteschlange</string>
+    <string name="track_add_playlist">Zu Playlist hinzufügen</string>
+    <string name="track_info">Titelinfo</string>
+    <string name="track_remove_library">Aus Bibliothek entfernen</string>
+    <string name="track_drag_reorder">Ziehen zum Umsortieren</string>
+    <string name="track_info_readonly">Die Tag-Anzeige ist schreibgeschützt.</string>
+    <string name="track_info_title">Titel</string>
+    <string name="track_info_artist">Interpret</string>
+    <string name="track_info_album">Album</string>
+    <string name="track_info_album_artist">Album-Interpret</string>
+    <string name="track_info_track_no">Titel-Nr.</string>
+    <string name="track_info_disc_no">Disc-Nr.</string>
+    <string name="track_info_year">Jahr</string>
+    <string name="track_info_duration">Dauer</string>
+    <string name="track_info_format">Format</string>
+    <string name="track_info_mime">Mime</string>
+    <string name="track_info_size">Größe</string>
+    <string name="track_info_folder">Ordner</string>
+    <string name="track_info_uri">URI</string>
+    <string name="track_info_date_added">Hinzugefügt am</string>
+    <string name="track_no_playlists">Noch keine Playlists.</string>
+
+    <string name="np_shuffle">Zufall</string>
+    <string name="np_previous">Zurück</string>
+    <string name="np_stop">Stopp</string>
+    <string name="np_next">Weiter</string>
+    <string name="np_repeat">Wiederholen</string>
+    <string name="np_volume">Lautstärke</string>
+    <string name="np_sleep">Sleep-Timer</string>
+    <string name="np_queued">%1$d in Warteschlange</string>
+    <string name="np_clear_queue">Warteschlange leeren</string>
+    <string name="np_queue_empty">Warteschlange ist leer — Titel halten, um ihn hinzuzufügen</string>
+    <string name="np_queue_shuffle_off">Zufall ausschalten zum Umsortieren</string>
+    <string name="np_reorder">Umsortieren</string>
+    <string name="np_sleep_badge_eot">SLEEP ENDE</string>
+    <string name="np_sleep_badge_min">SLEEP %1$d Min.</string>
+
+    <string name="stage_exit">Bühne verlassen</string>
+    <string name="stage_exit_label">BÜHNE VERLASSEN</string>
+    <string name="stage_pick_track">Wähle einen Titel, um die Bühne zu erleuchten</string>
+    <string name="stage_queue_empty">Warteschlange ist leer</string>
+
+    <string name="eq_close">Equalizer schließen</string>
+    <string name="eq_unavailable">Equalizer ist auf diesem Gerät / Ausgang nicht verfügbar</string>
+    <string name="eq_start_playback">Starte einmal die Wiedergabe, um den Equalizer zu aktivieren</string>
+    <string name="eq_bass_boost">Bassverstärkung %1$d%%</string>
+    <string name="eq_virtualizer">Virtualizer %1$d%%</string>
+    <string name="eq_saved_per_output">Einstellungen werden pro Ausgang gespeichert (Lautsprecher / Kabel / Bluetooth)</string>
+
+    <string name="backdrop_close">Hintergründe schließen</string>
+    <string name="backdrop_static">Statisches Synthwave</string>
+    <string name="backdrop_my_video">Mein Video %1$d</string>
+    <string name="backdrop_remove">Hintergrund entfernen</string>
+    <string name="backdrop_add_own">Eigenes Video hinzufügen</string>
+    <string name="backdrop_drop_hint">Lege eigene Loop-MP4s (H.264/HEVC, 720p–1080p, 30 fps) in app/src/main/assets/backdrops und baue neu — sie erscheinen hier automatisch.</string>
+    <string name="backdrop_badge_video">VIDEO</string>
+    <string name="backdrop_badge_still">STANDBILD</string>
+
+    <string name="main_stage">Bühne</string>
+    <string name="main_equalizer">Equalizer</string>
+    <string name="main_settings">Einstellungen</string>
+    <string name="main_play">Abspielen</string>
+    <string name="main_pause">Pause</string>
+    <string name="main_close_now_playing">Wiedergabe schließen</string>
+    <string name="main_now_playing_label">AKTUELLE WIEDERGABE</string>
+    <string name="search_clear">Suche löschen</string>
+
+    <string name="accent_cyan">Cyan-dominant</string>
+    <string name="accent_magenta">Magenta-dominant</string>
+    <string name="viz_bars">Neon-Balken</string>
+    <string name="viz_mirrored">Gespiegelte Balken</string>
+    <string name="viz_radial">Radialer Ring</string>
+    <string name="viz_oscilloscope">Oszilloskop</string>
+    <string name="viz_retro_grid">Retro-Raster</string>
+    <string name="stage_layout_art_left">Cover links, Text rechts</string>
+    <string name="stage_layout_centered">Cover mittig + Ring</string>
+    <string name="stage_layout_text_over">Text über Visualizer</string>
+    <string name="stage_layout_viz_only">Nur Visualizer</string>
+    <string name="orientation_landscape">Querformat</string>
+    <string name="orientation_auto">Automatisch</string>
+    <string name="orientation_portrait">Hochformat</string>
+    <string name="replaygain_off">Aus</string>
+    <string name="replaygain_track">Titel-Gain</string>
+    <string name="replaygain_album">Album-Gain</string>
+    <string name="sort_title">Titel</string>
+    <string name="sort_artist">Interpret</string>
+    <string name="sort_album">Album</string>
+    <string name="sort_date_added">Hinzugefügt am</string>
+    <string name="sort_duration">Dauer</string>
+    <string name="sort_manual">Manuell</string>
+    <string name="tab_songs">Titel</string>
+    <string name="tab_albums">Alben</string>
+    <string name="tab_artists">Interpreten</string>
+    <string name="tab_playlists">Playlists</string>
+    <string name="tab_folders">Ordner</string>
+    <string name="lang_system">Systemsprache</string>
+    <!-- Toasts -->
+    <string name="action_expand">Erweitern</string>
+    <string name="action_collapse">Einklappen</string>
+    <string name="toast_playlist_created">Playlist "%1$s" erstellt</string>
+    <string name="toast_playlist_renamed">Playlist umbenannt</string>
+    <string name="toast_playlist_deleted">Playlist gelöscht</string>
+    <string name="toast_playlist_exported">Playlist exportiert</string>
+    <string name="toast_export_failed">Export fehlgeschlagen</string>
+    <string name="toast_sleep_off">Timer aus</string>
+    <string name="toast_sleep_eot">Timer bis Titelende</string>
+    <string name="toast_backdrop_added">Hintergrund hinzugefügt</string>
+    <plurals name="toast_queued_next">
+        <item quantity="one">Als Nächstes: %1$d Titel</item>
+        <item quantity="other">Als Nächstes: %1$d Titel</item>
+    </plurals>
+    <plurals name="toast_added_queue">
+        <item quantity="one">Zur Warteschlange: %1$d Titel</item>
+        <item quantity="other">Zur Warteschlange: %1$d Titel</item>
+    </plurals>
+    <plurals name="toast_added_playlist">
+        <item quantity="one">Zur Playlist: %1$d Titel</item>
+        <item quantity="other">Zur Playlist: %1$d Titel</item>
+    </plurals>
+    <plurals name="toast_imported">
+        <item quantity="one">%1$d Titel importiert</item>
+        <item quantity="other">%1$d Titel importiert</item>
+    </plurals>
+    <plurals name="toast_removed">
+        <item quantity="one">%1$d Titel entfernt</item>
+        <item quantity="other">%1$d Titel entfernt</item>
+    </plurals>
+    <plurals name="toast_added">
+        <item quantity="one">%1$d Titel hinzugefügt</item>
+        <item quantity="other">%1$d Titel hinzugefügt</item>
+    </plurals>
+    <plurals name="toast_sleep_set">
+        <item quantity="one">Timer: %1$d Min.</item>
+        <item quantity="other">Timer: %1$d Min.</item>
+    </plurals>
+</resources>

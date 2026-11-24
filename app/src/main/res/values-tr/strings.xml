@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_cancel">İptal</string>
+    <string name="action_close">Kapat</string>
+    <string name="action_dismiss">Yoksay</string>
+    <string name="action_create">Oluştur</string>
+    <string name="action_save">Kaydet</string>
+    <string name="action_delete">Sil</string>
+    <string name="action_off">Kapalı</string>
+    <string name="action_choose">Seç</string>
+
+    <string name="label_settings">Ayarlar</string>
+    <string name="label_library">Kitaplık</string>
+    <string name="label_now_playing">Şimdi çalıyor</string>
+    <string name="label_up_next">Sıradaki</string>
+    <string name="label_equalizer">Ekolayzer</string>
+    <string name="label_backdrops">Arka planlar</string>
+    <string name="label_about">Hakkında</string>
+    <string name="label_display">Ekran</string>
+    <string name="label_playback">Oynatma</string>
+    <string name="label_appearance">Görünüm</string>
+    <string name="label_visualizer">Görselleştirici</string>
+    <string name="label_stage_mode">Sahne modu</string>
+    <string name="label_language">Dil</string>
+    <string name="label_nothing_playing">Çalan yok</string>
+
+    <string name="settings_close">Ayarları kapat</string>
+    <string name="settings_glass_icons">Cam simgeler</string>
+    <string name="settings_glass_preview">Cam önizleme</string>
+    <string name="settings_flat_preview">Düz önizleme</string>
+    <string name="settings_theme_accent">Tema vurgusu</string>
+    <string name="settings_reduce_motion">Hareketi azalt</string>
+    <string name="settings_reduce_motion_sub">Nabızları ve animasyonları kapatır</string>
+    <string name="settings_backdrop_current">Geçerli arka plan</string>
+    <string name="settings_dim_percent">Karartma %1$d%%</string>
+    <string name="settings_vignette">Vinyet</string>
+    <string name="settings_battery_saver">Pil tasarrufu</string>
+    <string name="settings_battery_saver_sub">Video yerine sabit görsel kullanır</string>
+    <string name="settings_sensitivity">Hassasiyet %1$s×</string>
+    <string name="settings_art_colors">Albüm kapağından renkler</string>
+    <string name="settings_show_album">Albümü göster</string>
+    <string name="settings_glow_sweep">Parça değişiminde parlama</string>
+    <string name="settings_auto_stage">Otomatik Sahneye gir</string>
+    <string name="settings_keep_screen_on">Çalarken ekranı açık tut</string>
+    <string name="settings_keep_screen_on_sub">Sahne modu ekranı her zaman açık tutar</string>
+    <string name="settings_burn_in">Yanma koruması</string>
+    <string name="settings_burn_in_sub">Kapak ve metinde yavaş piksel kayması</string>
+    <string name="settings_dim_after">Şundan sonra karart</string>
+    <string name="settings_crossfade">Çapraz geçiş</string>
+    <string name="settings_crossfade_sub">Parçalar arasında yumuşak geçiş; kapalıyken kesintisiz</string>
+    <string name="settings_replay_gain">ReplayGain</string>
+    <string name="settings_sleep_timer">Uyku zamanlayıcısı</string>
+    <string name="settings_sleep_min">%1$d dk</string>
+    <string name="settings_sleep_end_of_track">Parça sonu</string>
+    <string name="settings_rescan_now">Şimdi tara</string>
+    <string name="settings_add_folder">Klasör ekle</string>
+    <string name="settings_version">NeonPlayer %1$s (derleme %2$d)</string>
+    <string name="settings_backdrop_path">Arka plan videoları: app/src/main/assets/backdrops</string>
+    <string name="settings_language_sub">Uygulama dili</string>
+    <string name="settings_language_note">Şarkı ve dosya adları asla çevrilmez.</string>
+    <string name="settings_minutes_short">%1$d dk</string>
+    <string name="settings_seconds_short">%1$d sn</string>
+
+    <string name="library_add_files">Dosya ekle</string>
+    <string name="library_add_folder">Klasör ekle</string>
+    <string name="library_rescan">Kitaplığı tara</string>
+    <string name="library_filter">Kitaplığı filtrele</string>
+    <string name="library_no_signal">SİNYAL YOK</string>
+    <string name="library_no_signal_msg">NeonPlayer’ın ızgarayı doldurmak için müziğine erişmesi gerekiyor. Dosya veya klasörleri elle de ekleyebilirsin.</string>
+    <string name="library_grant_access">Erişim ver</string>
+    <string name="library_grid_empty">IZGARA BOŞ</string>
+    <string name="library_grid_empty_msg">Henüz müzik bulunamadı. Cihazını tara veya dosya ve klasör ekle.</string>
+    <string name="library_rescan_action">Tara</string>
+    <string name="library_no_matches">“%1$s” için sonuç yok</string>
+    <string name="library_tracks_count">%1$d parça</string>
+    <string name="library_scan_idle">Boşta</string>
+    <string name="library_scan_scanning">Taranıyor %1$d / %2$d</string>
+    <string name="library_scan_done">%1$d eklendi · %2$d kaldırıldı · toplam %3$d</string>
+    <string name="library_scan_failed">Başarısız: %1$s</string>
+
+    <string name="playlists_new">Yeni</string>
+    <string name="playlists_import_m3u">M3U içe aktar</string>
+    <string name="playlists_hold_drag">SÜRÜKLEMEK İÇİN LİSTEYİ BASILI TUT · AÇMAK İÇİN DOKUN</string>
+    <string name="playlists_new_title">Yeni çalma listesi</string>
+    <string name="playlists_name_placeholder">Liste adı</string>
+    <string name="playlists_back">Listelere dön</string>
+    <string name="playlists_play">Listeyi çal</string>
+    <string name="playlists_shuffle">Karışık çal</string>
+    <string name="playlists_rename">Listeyi yeniden adlandır</string>
+    <string name="playlists_export">M3U dışa aktar</string>
+    <string name="playlists_delete">Listeyi sil</string>
+    <string name="playlists_hold_track">SÜRÜKLEMEK İÇİN PARÇAYI BASILI TUT · DAHA FAZLASI İÇİN BASILI TUT</string>
+    <string name="playlists_delete_msg">“%1$s” silinsin mi? Parçalar kitaplığında kalır.</string>
+    <string name="playlists_detail_count">%1$d parça · %2$s</string>
+
+    <string name="track_play">Çal</string>
+    <string name="track_play_next">Sırada çal</string>
+    <string name="track_add_queue">Kuyruğa ekle</string>
+    <string name="track_add_playlist">Listeye ekle</string>
+    <string name="track_info">Parça bilgisi</string>
+    <string name="track_remove_library">Kitaplıktan kaldır</string>
+    <string name="track_drag_reorder">Sıralamak için sürükle</string>
+    <string name="track_info_readonly">Etiket düzenleme yalnızca okunabilir.</string>
+    <string name="track_info_title">Başlık</string>
+    <string name="track_info_artist">Sanatçı</string>
+    <string name="track_info_album">Albüm</string>
+    <string name="track_info_album_artist">Albüm sanatçısı</string>
+    <string name="track_info_track_no">Parça no</string>
+    <string name="track_info_disc_no">Disk no</string>
+    <string name="track_info_year">Yıl</string>
+    <string name="track_info_duration">Süre</string>
+    <string name="track_info_format">Biçim</string>
+    <string name="track_info_mime">Mime</string>
+    <string name="track_info_size">Boyut</string>
+    <string name="track_info_folder">Klasör</string>
+    <string name="track_info_uri">URI</string>
+    <string name="track_info_date_added">Eklenme tarihi</string>
+    <string name="track_no_playlists">Henüz liste yok.</string>
+
+    <string name="np_shuffle">Karıştır</string>
+    <string name="np_previous">Önceki</string>
+    <string name="np_stop">Durdur</string>
+    <string name="np_next">Sonraki</string>
+    <string name="np_repeat">Tekrarla</string>
+    <string name="np_volume">Ses</string>
+    <string name="np_sleep">Uyku zamanlayıcısı</string>
+    <string name="np_queued">%1$d kuyrukta</string>
+    <string name="np_clear_queue">Kuyruğu temizle</string>
+    <string name="np_queue_empty">Kuyruk boş — eklemek için parçayı basılı tut</string>
+    <string name="np_queue_shuffle_off">Sıralamak için karıştırmayı kapat</string>
+    <string name="np_reorder">Yeniden sırala</string>
+    <string name="np_sleep_badge_eot">UYKU SON</string>
+    <string name="np_sleep_badge_min">UYKU %1$d dk</string>
+
+    <string name="stage_exit">Sahneden çık</string>
+    <string name="stage_exit_label">SAHNEDEN ÇIK</string>
+    <string name="stage_pick_track">Sahneyi aydınlatmak için bir parça seç</string>
+    <string name="stage_queue_empty">Kuyruk boş</string>
+
+    <string name="eq_close">Ekolayzeri kapat</string>
+    <string name="eq_unavailable">Ekolayzer bu cihazda / çıkışta kullanılamıyor</string>
+    <string name="eq_start_playback">Ekolayzeri etkinleştirmek için bir kez çalmayı başlat</string>
+    <string name="eq_bass_boost">Bas güçlendirme %1$d%%</string>
+    <string name="eq_virtualizer">Sanallaştırıcı %1$d%%</string>
+    <string name="eq_saved_per_output">Ayarlar her çıkış için kaydedilir (hoparlör / kablolu / bluetooth)</string>
+
+    <string name="backdrop_close">Arka planları kapat</string>
+    <string name="backdrop_static">Statik synthwave</string>
+    <string name="backdrop_my_video">Videom %1$d</string>
+    <string name="backdrop_remove">Arka planı kaldır</string>
+    <string name="backdrop_add_own">Kendi videomu ekle</string>
+    <string name="backdrop_drop_hint">Kendi döngülü MP4’lerini (H.264/HEVC, 720p–1080p, 30 fps) app/src/main/assets/backdrops içine koy ve yeniden derle — burada otomatik görünürler.</string>
+    <string name="backdrop_badge_video">VİDEO</string>
+    <string name="backdrop_badge_still">GÖRSEL</string>
+
+    <string name="main_stage">Sahne</string>
+    <string name="main_equalizer">Ekolayzer</string>
+    <string name="main_settings">Ayarlar</string>
+    <string name="main_play">Çal</string>
+    <string name="main_pause">Duraklat</string>
+    <string name="main_close_now_playing">Oynatmayı kapat</string>
+    <string name="main_now_playing_label">ŞİMDİ ÇALIYOR</string>
+    <string name="search_clear">Aramayı temizle</string>
+
+    <string name="accent_cyan">Camgöbeği ağırlıklı</string>
+    <string name="accent_magenta">Macenta ağırlıklı</string>
+    <string name="viz_bars">Neon çubuklar</string>
+    <string name="viz_mirrored">Yansımalı çubuklar</string>
+    <string name="viz_radial">Radyal halka</string>
+    <string name="viz_oscilloscope">Osiloskop</string>
+    <string name="viz_retro_grid">Retro ızgara</string>
+    <string name="stage_layout_art_left">Kapak solda, metin sağda</string>
+    <string name="stage_layout_centered">Ortada kapak + halka</string>
+    <string name="stage_layout_text_over">Görselleştirici üzerinde metin</string>
+    <string name="stage_layout_viz_only">Yalnızca görselleştirici</string>
+    <string name="orientation_landscape">Yatay</string>
+    <string name="orientation_auto">Otomatik</string>
+    <string name="orientation_portrait">Dikey</string>
+    <string name="replaygain_off">Kapalı</string>
+    <string name="replaygain_track">Parça kazancı</string>
+    <string name="replaygain_album">Albüm kazancı</string>
+    <string name="sort_title">Başlık</string>
+    <string name="sort_artist">Sanatçı</string>
+    <string name="sort_album">Albüm</string>
+    <string name="sort_date_added">Eklenme tarihi</string>
+    <string name="sort_duration">Süre</string>
+    <string name="sort_manual">Elle</string>
+    <string name="tab_songs">Şarkılar</string>
+    <string name="tab_albums">Albümler</string>
+    <string name="tab_artists">Sanatçılar</string>
+    <string name="tab_playlists">Listeler</string>
+    <string name="tab_folders">Klasörler</string>
+    <string name="lang_system">Sistem dili</string>
+    <!-- Toasts -->
+    <string name="action_expand">Genişlet</string>
+    <string name="action_collapse">Daralt</string>
+    <string name="toast_playlist_created">"%1$s" listesi oluşturuldu</string>
+    <string name="toast_playlist_renamed">Liste yeniden adlandırıldı</string>
+    <string name="toast_playlist_deleted">Liste silindi</string>
+    <string name="toast_playlist_exported">Liste dışa aktarıldı</string>
+    <string name="toast_export_failed">Dışa aktarma başarısız</string>
+    <string name="toast_sleep_off">Zamanlayıcı kapalı</string>
+    <string name="toast_sleep_eot">Zamanlayıcı parça sonunda</string>
+    <string name="toast_backdrop_added">Arka plan eklendi</string>
+    <plurals name="toast_queued_next">
+        <item quantity="one">Sırada: %1$d parça</item>
+        <item quantity="other">Sırada: %1$d parça</item>
+    </plurals>
+    <plurals name="toast_added_queue">
+        <item quantity="one">Kuyruğa eklendi: %1$d parça</item>
+        <item quantity="other">Kuyruğa eklendi: %1$d parça</item>
+    </plurals>
+    <plurals name="toast_added_playlist">
+        <item quantity="one">Listeye eklendi: %1$d parça</item>
+        <item quantity="other">Listeye eklendi: %1$d parça</item>
+    </plurals>
+    <plurals name="toast_imported">
+        <item quantity="one">%1$d parça içe aktarıldı</item>
+        <item quantity="other">%1$d parça içe aktarıldı</item>
+    </plurals>
+    <plurals name="toast_removed">
+        <item quantity="one">%1$d parça kaldırıldı</item>
+        <item quantity="other">%1$d parça kaldırıldı</item>
+    </plurals>
+    <plurals name="toast_added">
+        <item quantity="one">%1$d parça eklendi</item>
+        <item quantity="other">%1$d parça eklendi</item>
+    </plurals>
+    <plurals name="toast_sleep_set">
+        <item quantity="one">Zamanlayıcı: %1$d dk</item>
+        <item quantity="other">Zamanlayıcı: %1$d dk</item>
+    </plurals>
+</resources>

@@ -63,6 +63,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.neonplayer.R
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.neonplayer.domain.model.RepeatMode
 import com.neonplayer.domain.model.VisualizerStyle
@@ -182,11 +184,11 @@ private fun NowPlayingHeader(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     PulsingDot(playing = player.isPlaying)
                     Spacer(Modifier.width(7.dp))
-                    SectionLabel(text = "Now playing", color = palette.secondary)
+                    SectionLabel(text = stringResource(R.string.label_now_playing), color = palette.secondary)
                 }
                 Spacer(Modifier.height(6.dp))
                 Text(
-                    text = track?.title ?: "Nothing playing",
+                    text = track?.title ?: stringResource(R.string.label_nothing_playing),
                     style = NeonType.TitleL,
                     color = palette.textPrimary,
                     maxLines = 2,
@@ -258,11 +260,11 @@ private fun CompactNowPlayingCard(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     PulsingDot(playing = player.isPlaying)
                     Spacer(Modifier.width(7.dp))
-                    SectionLabel(text = "Now playing", color = palette.secondary)
+                    SectionLabel(text = stringResource(R.string.label_now_playing), color = palette.secondary)
                 }
                 Spacer(Modifier.height(4.dp))
                 Text(
-                    text = track?.title ?: "Nothing playing",
+                    text = track?.title ?: stringResource(R.string.label_nothing_playing),
                     style = NeonType.TitleL,
                     color = palette.textPrimary,
                     maxLines = 2,
@@ -350,10 +352,13 @@ private fun SleepBadge(state: SleepTimerState) {
         }
     }
     val label = if (state.endOfTrack) {
-        "SLEEP EOT"
+        stringResource(R.string.np_sleep_badge_eot)
     } else {
         val remaining = ((state.endsAtMs ?: now) - now).coerceAtLeast(0L)
-        "SLEEP ${(remaining / 60_000L).coerceAtLeast(1L)}m"
+        stringResource(
+            R.string.np_sleep_badge_min,
+            (remaining / 60_000L).coerceAtLeast(1L),
+        )
     }
     PillBadge(text = label, color = palette.tertiary)
 }
@@ -383,7 +388,7 @@ private fun TransportRow(vm: MainViewModel, player: PlayerUiState, compact: Bool
     ) {
         NeonIconButton(
             icon = Icons.Rounded.Shuffle,
-            contentDescription = "Shuffle",
+            contentDescription = stringResource(R.string.np_shuffle),
             onClick = vm::toggleShuffle,
             size = edge,
             active = player.shuffle,
@@ -391,7 +396,7 @@ private fun TransportRow(vm: MainViewModel, player: PlayerUiState, compact: Bool
         Spacer(Modifier.width(gap))
         NeonIconButton(
             icon = Icons.Rounded.SkipPrevious,
-            contentDescription = "Previous",
+            contentDescription = stringResource(R.string.np_previous),
             onClick = vm::previous,
             size = mid,
         )
@@ -404,21 +409,21 @@ private fun TransportRow(vm: MainViewModel, player: PlayerUiState, compact: Bool
         Spacer(Modifier.width(playGap))
         NeonIconButton(
             icon = Icons.Rounded.Stop,
-            contentDescription = "Stop",
+            contentDescription = stringResource(R.string.np_stop),
             onClick = vm::stop,
             size = mid,
         )
         Spacer(Modifier.width(gap))
         NeonIconButton(
             icon = Icons.Rounded.SkipNext,
-            contentDescription = "Next",
+            contentDescription = stringResource(R.string.np_next),
             onClick = vm::next,
             size = mid,
         )
         Spacer(Modifier.width(gap))
         NeonIconButton(
             icon = if (player.repeat == RepeatMode.ONE) Icons.Rounded.RepeatOne else Icons.Rounded.Repeat,
-            contentDescription = "Repeat",
+            contentDescription = stringResource(R.string.np_repeat),
             onClick = vm::cycleRepeat,
             size = edge,
             active = player.repeat != RepeatMode.OFF,
@@ -442,7 +447,7 @@ private fun VolumeRow(vm: MainViewModel, volume: Float, sleepTimer: SleepTimerSt
                 volume < 0.5f -> Icons.Rounded.VolumeDown
                 else -> Icons.Rounded.VolumeUp
             },
-            contentDescription = "Volume",
+            contentDescription = stringResource(R.string.np_volume),
             tint = palette.textSecondary,
             modifier = Modifier.size(18.dp),
         )
@@ -461,7 +466,7 @@ private fun VolumeRow(vm: MainViewModel, volume: Float, sleepTimer: SleepTimerSt
         Box {
             NeonIconButton(
                 icon = Icons.Rounded.Bedtime,
-                contentDescription = "Sleep timer",
+                contentDescription = stringResource(R.string.np_sleep),
                 onClick = { sleepMenu = true },
                 size = 34.dp,
                 active = sleepActive,
@@ -472,17 +477,17 @@ private fun VolumeRow(vm: MainViewModel, volume: Float, sleepTimer: SleepTimerSt
                 containerColor = palette.surfaceHigh,
                 shape = RoundedCornerShape(NeonShapes.SmallRadius),
             ) {
-                SleepEntry("Off") {
+                SleepEntry(stringResource(R.string.action_off)) {
                     sleepMenu = false
                     vm.cancelSleepTimer()
                 }
                 SLEEP_MINUTES.forEach { minutes ->
-                    SleepEntry("$minutes min") {
+                    SleepEntry(stringResource(R.string.settings_sleep_min, minutes)) {
                         sleepMenu = false
                         vm.startSleepTimer(minutes)
                     }
                 }
-                SleepEntry("End of track") {
+                SleepEntry(stringResource(R.string.settings_sleep_end_of_track)) {
                     sleepMenu = false
                     vm.startSleepTimerEndOfTrack()
                 }
@@ -530,16 +535,16 @@ private fun UpNextCard(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            SectionLabel(text = "Up next")
+            SectionLabel(text = stringResource(R.string.label_up_next))
             Text(
-                text = "${upNext.size} queued",
+                text = stringResource(R.string.np_queued, upNext.size),
                 style = NeonType.MonoSmall,
                 color = palette.textMuted,
             )
             Spacer(Modifier.weight(1f))
             NeonIconButton(
                 icon = Icons.Rounded.ClearAll,
-                contentDescription = "Clear up next",
+                contentDescription = stringResource(R.string.np_clear_queue),
                 onClick = vm::clearUpNext,
                 size = 30.dp,
                 enabled = upNext.isNotEmpty(),
@@ -554,7 +559,7 @@ private fun UpNextCard(
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
-                    text = "Queue is empty — hold a track to add it",
+                    text = stringResource(R.string.np_queue_empty),
                     style = NeonType.BodySmall,
                     color = palette.textMuted,
                     textAlign = TextAlign.Center,
@@ -563,7 +568,7 @@ private fun UpNextCard(
         } else {
             if (shuffle) {
                 Text(
-                    text = "Turn off shuffle to reorder",
+                    text = stringResource(R.string.np_queue_shuffle_off),
                     style = NeonType.MonoSmall,
                     color = palette.textMuted,
                 )
@@ -595,7 +600,7 @@ private fun UpNextCard(
                                 Box(Modifier.draggableHandle(enabled = !shuffle)) {
                                     Icon(
                                         imageVector = Icons.Rounded.DragIndicator,
-                                        contentDescription = "Reorder",
+                                        contentDescription = stringResource(R.string.np_reorder),
                                         tint = palette.textMuted,
                                         modifier = Modifier.size(16.dp),
                                     )

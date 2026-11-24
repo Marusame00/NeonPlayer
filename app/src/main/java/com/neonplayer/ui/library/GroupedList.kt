@@ -40,6 +40,8 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.neonplayer.R
 import com.neonplayer.domain.model.Track
 import com.neonplayer.ui.components.CountBadge
 import com.neonplayer.ui.theme.Neon
@@ -158,7 +160,9 @@ private fun GroupHeader(
         ) {
             Icon(
                 imageVector = Icons.Rounded.ExpandMore,
-                contentDescription = if (expanded) "Collapse" else "Expand",
+                contentDescription = stringResource(
+                    if (expanded) R.string.action_collapse else R.string.action_expand,
+                ),
                 tint = palette.primary,
                 modifier = Modifier
                     .size(18.dp)

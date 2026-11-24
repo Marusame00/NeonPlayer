@@ -74,6 +74,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.neonplayer.R
 import com.neonplayer.domain.model.AppSettings
 import com.neonplayer.domain.model.StageLayout
 import com.neonplayer.domain.model.Track
@@ -304,13 +306,13 @@ fun StageScreen(
                 ) {
                     NeonIconButton(
                         icon = Icons.Rounded.FullscreenExit,
-                        contentDescription = "Exit stage",
+                        contentDescription = stringResource(R.string.stage_exit),
                         onClick = onExit,
                         size = 44.dp,
                     )
                     Spacer(Modifier.height(4.dp))
                     Text(
-                        text = "EXIT STAGE",
+                        text = stringResource(R.string.stage_exit_label),
                         style = NeonType.Label,
                         color = palette.textSecondary,
                     )
@@ -328,7 +330,7 @@ fun StageScreen(
                 ) {
                     NeonIconButton(
                         icon = Icons.Rounded.SkipPrevious,
-                        contentDescription = "Previous",
+                        contentDescription = stringResource(R.string.np_previous),
                         onClick = onPrevious,
                         size = 42.dp,
                     )
@@ -341,7 +343,7 @@ fun StageScreen(
                     Spacer(Modifier.width(12.dp))
                     NeonIconButton(
                         icon = Icons.Rounded.SkipNext,
-                        contentDescription = "Next",
+                        contentDescription = stringResource(R.string.np_next),
                         onClick = onNext,
                         size = 42.dp,
                     )
@@ -378,10 +380,10 @@ private fun EmptyStage(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        SectionLabel(text = "Nothing playing", dotColor = palette.secondary)
+        SectionLabel(text = stringResource(R.string.label_nothing_playing), dotColor = palette.secondary)
         Spacer(Modifier.height(8.dp))
         Text(
-            text = "Pick a track to light up the stage",
+            text = stringResource(R.string.stage_pick_track),
             style = NeonType.BodySmall,
             color = palette.textSecondary,
             textAlign = TextAlign.Center,
@@ -421,7 +423,7 @@ private fun ArtLeftLayout(
                     .weight(0.58f)
                     .padding(start = 28.dp),
             ) {
-                SectionLabel(text = "Now playing", dotColor = secondary)
+                SectionLabel(text = stringResource(R.string.label_now_playing), dotColor = secondary)
                 Spacer(Modifier.height(10.dp))
                 TrackTextBlock(
                     track = state.currentTrack,
@@ -668,12 +670,12 @@ private fun QueuePeek(upNext: List<QueueEntry>, modifier: Modifier = Modifier) {
     NeonCard(
         modifier = modifier.padding(horizontal = 24.dp, vertical = 96.dp),
     ) {
-        SectionLabel(text = "Up next", dotColor = palette.secondary)
+        SectionLabel(text = stringResource(R.string.label_up_next), dotColor = palette.secondary)
         Spacer(Modifier.height(8.dp))
         val entries = upNext.take(5)
         if (entries.isEmpty()) {
             Text(
-                text = "Queue is empty",
+                text = stringResource(R.string.stage_queue_empty),
                 style = NeonType.BodySmall,
                 color = palette.textMuted,
             )
