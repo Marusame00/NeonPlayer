@@ -41,6 +41,23 @@ Rules that matter on all of them:
 
 Niche communities usually beat tester subs for real feedback: a synthwave or retrowave sub will have people who actually want the app, while tester subs are mostly other developers.
 
+## Google Groups instead of collecting emails
+
+Play Console lets a closed test pull its tester list from a Google Group instead of a hand-typed email list. From Google's docs: *"With a closed test, you can manage testers with email lists or Google Groups... You can also create a personal group or use a Google Workspace group connected to your developer account."* Google Groups have **no size limit**; email lists cap at 2,000 testers per list, 200 lists per developer account and 50 per track.
+
+**What it changes:** you never collect or type individual addresses. You publish one group join link, people add themselves, and Play reads membership from the group.
+
+**What it does not change:** each tester still needs a Google Account or Google Workspace account, and Google states that *"for closed tests using a Google Group, users must join the group before opting into your test."* So the tester does two steps instead of one: join the group, then open the opt-in link.
+
+Setup outline:
+
+1. groups.google.com → **Create group**, name it something like `neonplayer-testers`.
+2. Set **Who can join group** to allow people to join themselves (for example "Anyone can join"), otherwise you are back to inviting each address by hand.
+3. Play Console → Closed testing → Alpha → **Testers** tab → **Google Groups** → add the group address.
+4. Share the group join link and the opt-in link together: https://play.google.com/apps/testing/com.neonplayer
+
+Use a plain personal Gmail account to own the group. Some developers report Play Console failing to resolve groups owned by Google Workspace domains.
+
 ## Post you can paste
 
 > **Looking for 12 testers for a synthwave music player (Android)**
