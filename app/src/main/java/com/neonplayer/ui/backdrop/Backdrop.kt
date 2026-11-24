@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
@@ -112,7 +113,6 @@ fun VideoBackdrop(uri: String, modifier: Modifier = Modifier) {
         animationSpec = tween(600),
         label = "videoFade",
     )
-    val viewHolder = remember(uri) { mutableStateOf<PlayerView?>(null) }
     val exo = remember(uri) {
         ExoPlayer.Builder(context)
             .setAudioAttributes(AudioAttributes.DEFAULT, false)
@@ -152,8 +152,6 @@ fun VideoBackdrop(uri: String, modifier: Modifier = Modifier) {
         exo.addListener(listener)
         onDispose {
             exo.removeListener(listener)
-            viewHolder.value?.player = null
-            viewHolder.value = null
             exo.release()
         }
     }
@@ -173,20 +171,22 @@ fun VideoBackdrop(uri: String, modifier: Modifier = Modifier) {
     }
     Box(modifier.fillMaxSize()) {
         StaticBackdrop(Modifier.fillMaxSize())
-        AndroidView(
-            factory = { ctx ->
-                PlayerView(ctx).apply {
-                    useController = false
-                    resizeMode = AspectRatioFrameLayout.RESIZE_MODE_ZOOM
-                    setShutterBackgroundColor(AndroidColor.TRANSPARENT)
-                    player = exo
-                    viewHolder.value = this
-                }
-            },
-            modifier = Modifier
-                .fillMaxSize()
-                .graphicsLayer { alpha = fade },
-        )
+        key(uri) {
+            AndroidView(
+                factory = { ctx ->
+                    PlayerView(ctx).apply {
+                        useController = false
+                        resizeMode = AspectRatioFrameLayout.RESIZE_MODE_ZOOM
+                        setShutterBackgroundColor(AndroidColor.TRANSPARENT)
+                    }
+                },
+                update = { view -> view.player = exo },
+                onRelease = { view -> view.player = null },
+                modifier = Modifier
+                    .fillMaxSize()
+                    .graphicsLayer { alpha = fade },
+            )
+        }
     }
 }
 

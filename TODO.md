@@ -2,7 +2,7 @@
 
 Deferred work. Nothing here is in progress; pick items up when there is a reason to cut a new build.
 
-## Done in versionCode 3 (verified on the Pixel 6)
+## Done in versionCode 3 and 4 (verified on the Pixel 6)
 
 - [x] **Folders tab is clipped** in the landscape library tab row (rendered as "FOL" at the right edge in vc2). Fixed in `ui/components/Inputs.kt`: `NeonTabs` row spacing 14dp → 10dp and tab label letter spacing 1.2sp, so all five tabs fit without clipping.
 - [x] **Visualizer idle state looked like a dotted line.** Fixed in `ui/visualizer/Visualizer.kt`: `drawBars` skips bands below a 0.015 floor and draws a single faint baseline when the level is ~0, instead of minimum-height bars. Not a seek-bar bug — the seek bar renders correctly.
@@ -10,6 +10,7 @@ Deferred work. Nothing here is in progress; pick items up when there is a reason
 - [x] **Video backdrop played once and then stopped**, including in Stage Mode. Fixed in `ui/backdrop/Backdrop.kt`: `VideoBackdrop` now has a player listener (`STATE_ENDED` → `seekTo(0)` + `play()`, `onRenderedFirstFrame` → `rendered = true`, `onPlayerError` → `rendered = false`) plus a lifecycle observer that pauses on `ON_STOP` and resumes on `ON_START`. Looping confirmed in the main player and in Stage Mode.
 - [x] **Settings → About showed a hardcoded "NeonPlayer 1.0".** Fixed in `ui/settings/SettingsScreen.kt`: reads `BuildConfig.VERSION_NAME` / `VERSION_CODE` (with `buildFeatures.buildConfig = true`), so it now shows `NeonPlayer 1.0.0 (build 3)`.
 - [x] **Backdrops picker gave no hint whether a tile is a picture or a video.** Added a small `STILL` / `VIDEO` pill in the bottom-start corner of every tile in `ui/settings/BackdropPickerScreen.kt` (cyan for video, magenta for still).
+- [x] **Switching backdrops froze every video until an app restart** (reported on the Pixel 6, vc3). Fixed in `ui/backdrop/Backdrop.kt`: the `AndroidView` factory only runs once, so after a switch the `PlayerView` still held the old, released player and nothing rendered. The view is now keyed on the URI with `update = { it.player = exo }` and `onRelease = { it.player = null }`, and the `viewHolder` state was removed. Verified by switching Neon Horizon → Sunset Drift → Grid Run → Neon Horizon and back into Stage Mode, each confirmed moving by frame diff.
 
 ## Play Store
 
