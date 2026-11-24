@@ -8,6 +8,12 @@ Deferred work. Nothing here is in progress; pick items up when there is a reason
 
 - [ ] **Glass icon buttons do not respond to taps.** With Settings → glass icons enabled, tapping the glass icon buttons does nothing (everything else works). `NeonIconButton` routes to `GlassButton` in `ui/components/GlassButton.kt`; `FlatIconButton` in the same file is the non-glass path. Check the modifier order there — `neonGlow(...)` sits between `alpha` and `clip(shape)`/`clickable(...)`, so verify whether the glow layer is swallowing the pointer input, and compare against `FlatIconButton`, which has no glow. Reproduce on the Pixel 6 with glass icons on, then confirm the same buttons work with glass icons off.
 
+- [ ] **Library tab row clips on narrower screens.** A tester's screenshot (2000x900, narrower in dp than the Pixel 6) shows the tab row as `SONGS ALBUMS ARTISTS PLAYLISTS FOLDEI` — FOLDERS cut off at the card edge. `NeonTabs` in `ui/components/Inputs.kt:168` is a `horizontalScroll` Row with a fixed 10dp gap and 1.2sp letter spacing, so the vc3 spacing fix only fits the Pixel 6's width; it is scrollable but gives no affordance that it is. Make it fit or make the overflow obvious (adaptive spacing by available width, or an edge fade).
+- [ ] **Play Console "For your next release" warnings** (all tagged Release name: 4 (1.0.0)):
+  - [ ] *Edge-to-edge may not display for all users.* Apps targeting SDK 35+ display edge-to-edge by default and must handle insets. `enableEdgeToEdge()` is already called at `MainActivity.kt:69`; verify insets on Android 15+ rather than assuming.
+  - [ ] *Deprecated APIs or parameters for edge-to-edge.* `android:statusBarColor` and `android:navigationBarColor` in `res/values/themes.xml:5-6` are the deprecated parameters; drop them and rely on `enableEdgeToEdge()`.
+  - [ ] *Remove resizability and orientation restrictions for large screen devices.* From Android 16 these are ignored on foldables and tablets. `android:screenOrientation="sensorLandscape"` in `AndroidManifest.xml` is the restriction; decide whether to drop it and let the layout adapt, given the app is landscape-first.
+
 ## Done in versionCode 5 (verified on the Pixel 6)
 
 - [x] **UI was English-only and hardcoded in Kotlin.** All user-facing text now lives in `res/values/strings.xml` (about 180 `string`/`plurals` entries) and 14 locale folders: `values-es`, `values-pt-rBR`, `values-fr`, `values-de`, `values-it`, `values-ru`, `values-pl`, `values-tr`, `values-hi`, `values-id`, `values-zh-rTW`, `values-zh-rCN`, `values-ja`, `values-ko`.
