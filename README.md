@@ -20,7 +20,7 @@ Captured on a Pixel 6.
 
 ## Download
 
-Grab `NeonPlayer-v1.0.0-build2.apk` from the [latest release](https://github.com/Marusame00/NeonPlayer/releases/latest), open it on your phone and allow "Install unknown apps" for your browser or file manager when Android asks. Android 8.0 (API 26) or newer.
+Grab `NeonPlayer-v1.0.0-build7.apk` from the [latest release](https://github.com/Marusame00/NeonPlayer/releases/latest), open it on your phone and allow "Install unknown apps" for your browser or file manager when Android asks. Android 8.0 (API 26) or newer.
 
 This is the same build that ships on Google Play (`versionCode 2`, `versionName 1.0.0`).
 
