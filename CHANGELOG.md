@@ -9,7 +9,7 @@ The UI is now translatable, with a language picker in Settings.
 - **Every user-facing string moved out of Kotlin into `res/values/strings.xml`** — about 180 `string` and `plurals` entries covering the library, Now Playing, Stage Mode, equalizer, backdrops, playlists, settings and the toast messages. Enum labels (`AccentMode`, `VisualizerStyle`, `StageLayout`, `OrientationLock`, `ReplayGainMode`, `SortOrder`, `LibraryTab`) are now resolved through `ui/components/EnumLabels.kt` instead of hardcoded `label` properties.
 - **14 translations ship in the APK**: Spanish, Portuguese (Brazil), French, German, Italian, Russian, Polish, Turkish, Hindi, Indonesian, Chinese (Traditional), Chinese (Simplified), Japanese and Korean. Language names are always shown in their own language and are marked `translatable="false"`.
 - **Settings → Language** offers *System default* plus the 15 languages. The default is the system language, so nothing changes for existing users. The choice is stored in `AppSettings.language` and mirrored into SharedPreferences by `data/settings/AppLocale.kt`, which `MainActivity.attachBaseContext` applies before any resource is resolved; a change recreates the activity so the whole UI switches immediately.
-- Not yet verified on the Pixel 6 — the build was cut while the phone was off. Verify by opening Settings → Language and switching between System default, Español and 日本語.
+- Verified on the Pixel 6 (2026-11-24): tapping through the languages in Settings → Language swaps the UI text immediately.
 
 ## versionCode 4 — build 4
 

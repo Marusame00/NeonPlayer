@@ -2,11 +2,11 @@
 
 Deferred work. Nothing here is in progress; pick items up when there is a reason to cut a new build.
 
-## Done in versionCode 5 (built, not yet verified on the Pixel 6)
+## Done in versionCode 5 (verified on the Pixel 6)
 
 - [x] **UI was English-only and hardcoded in Kotlin.** All user-facing text now lives in `res/values/strings.xml` (about 180 `string`/`plurals` entries) and 14 locale folders: `values-es`, `values-pt-rBR`, `values-fr`, `values-de`, `values-it`, `values-ru`, `values-pl`, `values-tr`, `values-hi`, `values-id`, `values-zh-rTW`, `values-zh-rCN`, `values-ja`, `values-ko`.
 - [x] **No way to pick a language.** Settings → Language now lists *System default* plus the 15 languages. `AppSettings.language` (empty = system) is persisted by `SettingsRepository`, mirrored into SharedPreferences by `data/settings/AppLocale.kt`, applied in `MainActivity.attachBaseContext`, and a change recreates the activity.
-- [ ] Verify on the Pixel 6: Settings → Language → Español / 日本語 / System default, and confirm the UI text and toasts follow.
+- [x] Verified on the Pixel 6 (2026-11-24): tapping through the languages in Settings → Language swaps the UI text immediately.
 
 ## Done in versionCode 3 and 4 (verified on the Pixel 6)
 
