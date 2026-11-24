@@ -61,6 +61,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.stringResource
@@ -376,58 +377,75 @@ private fun SeekBarHost(vm: MainViewModel, durationMs: Long) {
 
 @Composable
 private fun TransportRow(vm: MainViewModel, player: PlayerUiState, compact: Boolean = false) {
-    val edge = if (compact) 36.dp else 40.dp
-    val mid = if (compact) 40.dp else 44.dp
-    val play = if (compact) 56.dp else 68.dp
-    val gap = if (compact) 4.dp else 6.dp
-    val playGap = if (compact) 8.dp else 10.dp
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        NeonIconButton(
-            icon = Icons.Rounded.Shuffle,
-            contentDescription = stringResource(R.string.np_shuffle),
-            onClick = vm::toggleShuffle,
-            size = edge,
-            active = player.shuffle,
-        )
-        Spacer(Modifier.width(gap))
-        NeonIconButton(
-            icon = Icons.Rounded.SkipPrevious,
-            contentDescription = stringResource(R.string.np_previous),
-            onClick = vm::previous,
-            size = mid,
-        )
-        Spacer(Modifier.width(playGap))
-        PlayPauseButton(
-            isPlaying = player.isPlaying,
-            onClick = vm::togglePlayPause,
-            size = play,
-        )
-        Spacer(Modifier.width(playGap))
-        NeonIconButton(
-            icon = Icons.Rounded.Stop,
-            contentDescription = stringResource(R.string.np_stop),
-            onClick = vm::stop,
-            size = mid,
-        )
-        Spacer(Modifier.width(gap))
-        NeonIconButton(
-            icon = Icons.Rounded.SkipNext,
-            contentDescription = stringResource(R.string.np_next),
-            onClick = vm::next,
-            size = mid,
-        )
-        Spacer(Modifier.width(gap))
-        NeonIconButton(
-            icon = if (player.repeat == RepeatMode.ONE) Icons.Rounded.RepeatOne else Icons.Rounded.Repeat,
-            contentDescription = stringResource(R.string.np_repeat),
-            onClick = vm::cycleRepeat,
-            size = edge,
-            active = player.repeat != RepeatMode.OFF,
-        )
+    val baseEdge = if (compact) 36.dp else 40.dp
+    val baseMid = if (compact) 40.dp else 44.dp
+    val basePlay = if (compact) 56.dp else 68.dp
+    val baseGap = if (compact) 4.dp else 6.dp
+    val basePlayGap = if (compact) 8.dp else 10.dp
+    BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
+        val density = LocalDensity.current
+        val needed = with(density) {
+            (baseEdge * 2 + baseMid * 3 + basePlay + baseGap * 3 + basePlayGap * 2).toPx()
+        }
+        val available = with(density) { maxWidth.toPx() }
+        val scale = if (needed > available && needed > 0f) {
+            (available / needed).coerceIn(0.62f, 1f)
+        } else {
+            1f
+        }
+        val edge = baseEdge * scale
+        val mid = baseMid * scale
+        val play = basePlay * scale
+        val gap = baseGap * scale
+        val playGap = basePlayGap * scale
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            NeonIconButton(
+                icon = Icons.Rounded.Shuffle,
+                contentDescription = stringResource(R.string.np_shuffle),
+                onClick = vm::toggleShuffle,
+                size = edge,
+                active = player.shuffle,
+            )
+            Spacer(Modifier.width(gap))
+            NeonIconButton(
+                icon = Icons.Rounded.SkipPrevious,
+                contentDescription = stringResource(R.string.np_previous),
+                onClick = vm::previous,
+                size = mid,
+            )
+            Spacer(Modifier.width(playGap))
+            PlayPauseButton(
+                isPlaying = player.isPlaying,
+                onClick = vm::togglePlayPause,
+                size = play,
+            )
+            Spacer(Modifier.width(playGap))
+            NeonIconButton(
+                icon = Icons.Rounded.Stop,
+                contentDescription = stringResource(R.string.np_stop),
+                onClick = vm::stop,
+                size = mid,
+            )
+            Spacer(Modifier.width(gap))
+            NeonIconButton(
+                icon = Icons.Rounded.SkipNext,
+                contentDescription = stringResource(R.string.np_next),
+                onClick = vm::next,
+                size = mid,
+            )
+            Spacer(Modifier.width(gap))
+            NeonIconButton(
+                icon = if (player.repeat == RepeatMode.ONE) Icons.Rounded.RepeatOne else Icons.Rounded.Repeat,
+                contentDescription = stringResource(R.string.np_repeat),
+                onClick = vm::cycleRepeat,
+                size = edge,
+                active = player.repeat != RepeatMode.OFF,
+            )
+        }
     }
 }
 

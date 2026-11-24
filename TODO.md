@@ -6,6 +6,11 @@ Deferred work. Nothing here is in progress; pick items up when there is a reason
 
 Nothing outstanding.
 
+## Done in versionCode 7 (verified on the Pixel 6)
+
+- [x] **Keyboard covers the search field.** Reported by a tester: "The keyboard covers the text field making it hard to see what to type." The root content in `NeonPlayerApp` now applies `imePadding()`. Verified: the filter field stays fully visible with the keyboard open and typed text renders with the cursor.
+- [x] **Missing button in the now-playing transport row.** Reported by the same tester. `TransportRow` needs 318dp but the panel is about 289dp wide in landscape, so the repeat button was clipped off the right edge. The row now measures with `BoxWithConstraints` and scales all six buttons proportionally (floor 62%) when it would overflow. Verified: all six buttons render.
+
 ## Done in versionCode 6 (verified on the Pixel 6)
 
 - [x] **Playback error popup on app launch.** `restoreQueue()` re-added saved queue entries without checking the media URI was still readable, so a stale entry raised `ERROR_CODE_IO_NO_PERMISSION` and surfaced as a "Source error" popup. Restored tracks are now filtered through `isReadable()` on the IO dispatcher. Verified: `state=ERROR` count 0 and no `ExoPlayerImplInternal` exceptions after a cold start.

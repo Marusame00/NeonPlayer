@@ -2,6 +2,13 @@
 
 Version codes are what Google Play tracks. `versionName` stays `1.0.0` for all of these.
 
+## versionCode 7 — build 7
+
+Fixes from tester feedback.
+
+- **The keyboard no longer covers the search field.** The root content in `NeonPlayerApp` now applies `imePadding()`, so the library panel and its filter field stay above the keyboard instead of being pushed behind it. Verified on the Pixel 6: the field is fully visible with the keyboard open and typed text renders with the cursor.
+- **The repeat button is no longer clipped.** `TransportRow` needs 318dp but the now-playing panel is about 289dp wide in landscape, so the last button fell off the panel edge. The row now measures its available width with `BoxWithConstraints` and scales all six buttons down proportionally (never below 62%) when it would overflow. Verified on the Pixel 6: shuffle, previous, play, stop, next and repeat all render.
+
 ## versionCode 6 — build 6
 
 Fixes from the Play Console release warnings and tester reports.
