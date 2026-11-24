@@ -30,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.neonplayer.BuildConfig
 import com.neonplayer.domain.model.AccentMode
 import com.neonplayer.domain.model.AppSettings
 import com.neonplayer.domain.model.OrientationLock
@@ -536,7 +537,11 @@ private fun LibrarySection(
 private fun AboutSection() {
     val palette = Neon.palette
     SettingsSection(title = "About") {
-        Text(text = "NeonPlayer 1.0", style = NeonType.Body, color = palette.textPrimary)
+        Text(
+            text = "NeonPlayer ${BuildConfig.VERSION_NAME} (build ${BuildConfig.VERSION_CODE})",
+            style = NeonType.Body,
+            color = palette.textPrimary,
+        )
         Spacer(Modifier.height(2.dp))
         Text(
             text = "Backdrop videos: app/src/main/assets/backdrops",

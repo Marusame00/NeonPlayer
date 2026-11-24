@@ -163,8 +163,17 @@ private fun DrawScope.drawBars(
     val gap = w * 0.006f
     val barW = ((w - gap * (n - 1)) / n).coerceAtLeast(1f)
     val maxH = h * 0.92f
+    val floor = 0.015f
+    drawLine(
+        color = glow,
+        start = Offset(0f, h - 1.dp.toPx()),
+        end = Offset(w, h - 1.dp.toPx()),
+        strokeWidth = 1.dp.toPx(),
+        cap = StrokeCap.Round,
+    )
     for (i in 0 until n) {
         val v = bands[i].coerceIn(0f, 1f)
+        if (v < floor) continue
         val bh = (v * maxH).coerceAtLeast(barW * 0.6f)
         val x = i * (barW + gap)
         val top = h - bh
@@ -182,6 +191,7 @@ private fun DrawScope.drawBars(
         )
         if (!reduceMotion) {
             val pv = peaks[i].coerceIn(0f, 1f)
+            if (pv < floor) continue
             val py = (h - (pv * maxH).coerceAtLeast(barW * 0.6f) - barW * 1.1f).coerceAtLeast(0f)
             drawRoundRect(
                 color = peakColor.copy(alpha = 0.85f),

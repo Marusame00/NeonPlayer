@@ -45,6 +45,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.neonplayer.domain.model.BACKDROP_CUSTOM_PREFIX
 import com.neonplayer.ui.backdrop.BackdropCatalog
+import com.neonplayer.ui.backdrop.BackdropKind
 import com.neonplayer.ui.backdrop.BackdropOption
 import com.neonplayer.ui.backdrop.BackdropThumbnail
 import com.neonplayer.ui.components.NeonIconButton
@@ -180,6 +181,12 @@ private fun BackdropTile(
                 .clip(RoundedCornerShape(10.dp)),
         ) {
             BackdropThumbnail(option = option, modifier = Modifier.fillMaxSize())
+            BackdropKindBadge(
+                kind = option.kind,
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .padding(6.dp),
+            )
             if (selected) {
                 Box(
                     modifier = Modifier
@@ -220,6 +227,29 @@ private fun BackdropTile(
             color = if (selected) palette.primary else palette.textPrimary,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
+        )
+    }
+}
+
+@Composable
+private fun BackdropKindBadge(
+    kind: BackdropKind,
+    modifier: Modifier = Modifier,
+) {
+    val palette = Neon.palette
+    val video = kind == BackdropKind.VIDEO
+    val accent = if (video) palette.secondary else palette.primary
+    Box(
+        modifier = modifier
+            .clip(RoundedCornerShape(6.dp))
+            .background(palette.base0.copy(alpha = 0.66f), RoundedCornerShape(6.dp))
+            .border(1.dp, accent.copy(alpha = 0.55f), RoundedCornerShape(6.dp))
+            .padding(horizontal = 6.dp, vertical = 2.dp),
+    ) {
+        Text(
+            text = if (video) "VIDEO" else "STILL",
+            style = NeonType.MonoSmall,
+            color = accent,
         )
     }
 }

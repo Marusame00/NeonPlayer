@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -42,6 +43,9 @@ import com.neonplayer.R
 import com.neonplayer.domain.model.AppSettings
 import com.neonplayer.ui.components.gridTexture
 import com.neonplayer.ui.theme.Neon
+import java.io.File
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 @Composable
 fun Backdrop(
@@ -134,6 +138,13 @@ fun VideoBackdrop(uri: String, modifier: Modifier = Modifier) {
                 rendered = true
             }
 
+            override fun onPlaybackStateChanged(playbackState: Int) {
+                if (playbackState == Player.STATE_ENDED) {
+                    exo.seekTo(0)
+                    exo.play()
+                }
+            }
+
             override fun onPlayerError(error: PlaybackException) {
                 rendered = false
             }
@@ -150,7 +161,10 @@ fun VideoBackdrop(uri: String, modifier: Modifier = Modifier) {
         val observer = LifecycleEventObserver { _, event ->
             when (event) {
                 Lifecycle.Event.ON_STOP -> exo.pause()
-                Lifecycle.Event.ON_START -> exo.play()
+                Lifecycle.Event.ON_START -> {
+                    if (exo.playbackState == Player.STATE_ENDED) exo.seekTo(0)
+                    exo.play()
+                }
                 else -> Unit
             }
         }
@@ -179,28 +193,48 @@ fun VideoBackdrop(uri: String, modifier: Modifier = Modifier) {
 @Composable
 fun BackdropThumbnail(option: BackdropOption, modifier: Modifier = Modifier) {
     val context = LocalContext.current
-    val thumb = option.thumbUri
-    if (option.kind == BackdropKind.STATIC || thumb == null) {
+    val assetFile = option.assetFile
+    if (option.kind == BackdropKind.STATIC || option.thumbUri == null) {
         StaticBackdrop(modifier)
-    } else {
-        var failed by remember(thumb) { mutableStateOf(false) }
-        Box(modifier) {
-            if (!failed) {
-                AsyncImage(
-                    model = ImageRequest.Builder(context)
-                        .data(thumb)
-                        .videoFrameMillis(1000)
-                        .size(320)
-                        .build(),
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize(),
-                    onState = { state ->
-                        if (state is AsyncImagePainter.State.Error) failed = true
-                    },
-                )
-            }
-            if (failed) StaticBackdrop(Modifier.fillMaxSize())
+        return
+    }
+    if (assetFile != null) {
+        val poster by produceState<String?>(initialValue = null, assetFile) {
+            value = withContext(Dispatchers.IO) { BackdropCatalog.posterFor(context, assetFile) }
         }
+        val path = poster
+        if (path != null) {
+            AsyncImage(
+                model = ImageRequest.Builder(context)
+                    .data(File(path))
+                    .size(320)
+                    .build(),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = modifier,
+            )
+        } else {
+            StaticBackdrop(modifier)
+        }
+        return
+    }
+    var failed by remember(option.thumbUri) { mutableStateOf(false) }
+    Box(modifier) {
+        if (!failed) {
+            AsyncImage(
+                model = ImageRequest.Builder(context)
+                    .data(option.thumbUri)
+                    .videoFrameMillis(1000)
+                    .size(320)
+                    .build(),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize(),
+                onState = { state ->
+                    if (state is AsyncImagePainter.State.Error) failed = true
+                },
+            )
+        }
+        if (failed) StaticBackdrop(Modifier.fillMaxSize())
     }
 }

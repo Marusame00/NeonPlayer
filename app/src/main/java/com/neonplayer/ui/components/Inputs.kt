@@ -43,6 +43,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.neonplayer.ui.theme.Neon
 import com.neonplayer.ui.theme.NeonShapes
 import com.neonplayer.ui.theme.NeonType
@@ -171,7 +172,7 @@ fun NeonTabs(
     val palette = Neon.palette
     Row(
         modifier = modifier.horizontalScroll(rememberScrollState()),
-        horizontalArrangement = Arrangement.spacedBy(14.dp),
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         tabs.forEachIndexed { index, tab ->
@@ -204,7 +205,7 @@ fun NeonTabs(
             ) {
                 Text(
                     text = tab.uppercase(),
-                    style = NeonType.Label,
+                    style = NeonType.Label.copy(letterSpacing = 1.2.sp),
                     color = if (selected) palette.primary else palette.textSecondary,
                 )
             }

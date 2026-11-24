@@ -1,12 +1,17 @@
 package com.neonplayer.ui.backdrop
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.provider.OpenableColumns
 import androidx.documentfile.provider.DocumentFile
 import com.neonplayer.domain.model.BACKDROP_ASSET_PREFIX
 import com.neonplayer.domain.model.BACKDROP_CUSTOM_PREFIX
 import com.neonplayer.domain.model.BACKDROP_STATIC
+import java.io.File
+import java.io.FileOutputStream
+import java.util.concurrent.ConcurrentHashMap
 
 enum class BackdropKind { STATIC, VIDEO }
 
@@ -16,6 +21,7 @@ data class BackdropOption(
     val kind: BackdropKind,
     val playUri: String?,
     val thumbUri: String?,
+    val assetFile: String? = null,
 )
 
 object BackdropCatalog {
@@ -25,6 +31,8 @@ object BackdropCatalog {
 
     @Volatile
     private var assetCache: List<String>? = null
+
+    private val posterCache = ConcurrentHashMap<String, String>()
 
     fun list(context: Context, custom: List<String>): List<BackdropOption> {
         val options = ArrayList<BackdropOption>(custom.size + 4)
@@ -37,6 +45,7 @@ object BackdropCatalog {
                     kind = BackdropKind.VIDEO,
                     playUri = "asset:///$ASSET_DIR/$file",
                     thumbUri = "file:///android_asset/$ASSET_DIR/$file",
+                    assetFile = file,
                 ),
             )
         }
@@ -69,6 +78,38 @@ object BackdropCatalog {
         }.getOrDefault(emptyList())
         assetCache = files
         return files
+    }
+
+    fun posterFor(context: Context, assetFile: String): String? {
+        posterCache[assetFile]?.let { return it }
+        val out = File(
+            context.cacheDir,
+            "backdrop_poster_" + assetFile.substringBeforeLast('.').replace(Regex("[^A-Za-z0-9]"), "_") + ".jpg",
+        )
+        if (out.exists() && out.length() > 0L) {
+            posterCache[assetFile] = out.absolutePath
+            return out.absolutePath
+        }
+        val retriever = MediaMetadataRetriever()
+        return try {
+            context.assets.openFd("$ASSET_DIR/$assetFile").use { afd ->
+                retriever.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
+            }
+            val frame = retriever.getFrameAtTime(1_000_000L, MediaMetadataRetriever.OPTION_CLOSEST_SYNC)
+                ?: retriever.frameAtTime
+                ?: return null
+            FileOutputStream(out).use { stream ->
+                frame.compress(Bitmap.CompressFormat.JPEG, 85, stream)
+            }
+            frame.recycle()
+            if (out.length() <= 0L) return null
+            posterCache[assetFile] = out.absolutePath
+            out.absolutePath
+        } catch (t: Throwable) {
+            null
+        } finally {
+            runCatching { retriever.release() }
+        }
     }
 
     private fun labelFor(fileName: String): String {
