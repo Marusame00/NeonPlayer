@@ -2,6 +2,14 @@
 
 Version codes are what Google Play tracks. `versionName` stays `1.0.0` for all of these.
 
+## versionCode 8 — build 8
+
+Targets the two Play Console edge-to-edge warnings that survived build 6.
+
+- **"Edge-to-edge may not display for all users"** — Play's scanner looks for a direct `enableEdgeToEdge()` call in the dex. R8 was inlining it into `MainActivity.onCreate`, so the call was invisible and the warning fired even though the app called it. `proguard-rules.pro` now keeps `androidx.activity.EdgeToEdge`, `EdgeToEdgeKt` and `EdgeToEdgeApi*`, which blocks the inlining. Verified in the built APK: `enableEdgeToEdge` and the `EdgeToEdgeApi23/26/28/29/30/35` classes are present in `classes.dex`.
+- **"Deprecated APIs or parameters for edge-to-edge"** — removed the deprecated `LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES` parameter from `MainActivity.applyCutoutMode()` and changed `android:windowLayoutInDisplayCutoutMode` in `themes.xml` from `shortEdges` to `always`. The remaining `setStatusBarColor`/`setNavigationBarColor` references come from `androidx.activity.EdgeToEdgeApi29/35` inside `enableEdgeToEdge()` itself and cannot be removed while calling it; Google documents that case as advisory.
+- Verified on the Pixel 6: installs and launches with no crashes, insets and cutout rendering unchanged.
+
 ## versionCode 7 — build 7
 
 Fixes from tester feedback.

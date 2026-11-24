@@ -149,11 +149,7 @@ class MainActivity : ComponentActivity() {
     private fun applyCutoutMode() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) return
         val attributes = window.attributes
-        attributes.layoutInDisplayCutoutMode = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS
-        } else {
-            WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
-        }
+        attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS
         window.attributes = attributes
     }
 

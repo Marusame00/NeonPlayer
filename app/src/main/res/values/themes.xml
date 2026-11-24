@@ -2,6 +2,6 @@
 <resources>
     <style name="Theme.NeonPlayer" parent="android:Theme.Material.NoActionBar">
         <item name="android:windowBackground">@color/neon_base</item>
-        <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="28" xmlns:tools="http://schemas.android.com/tools">shortEdges</item>
+        <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="28" xmlns:tools="http://schemas.android.com/tools">always</item>
     </style>
 </resources>
