@@ -21,6 +21,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveableStateHolder
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -49,6 +50,7 @@ fun NeonPlayerApp(
     val fadeMs = if (reduceMotion) 150 else 500
 
     var lastOverlay by remember { mutableStateOf(Overlay.SETTINGS) }
+    val stateHolder = rememberSaveableStateHolder()
     LaunchedEffect(overlay) {
         if (overlay != Overlay.NONE) lastOverlay = overlay
     }
@@ -91,25 +93,27 @@ fun NeonPlayerApp(
                     onSeek = vm::seekTo,
                 )
             } else {
-                BoxWithConstraints(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .windowInsetsPadding(WindowInsets.safeDrawing),
-                ) {
-                    val landscape = windowSizeClass.widthSizeClass != WindowWidthSizeClass.Compact ||
-                        maxWidth > maxHeight
-                    if (landscape) {
-                        LandscapeMain(
-                            vm = vm,
-                            audioPermissionGranted = audioPermissionGranted,
-                            onGrantAccess = onGrantAccess,
-                        )
-                    } else {
-                        PortraitMain(
-                            vm = vm,
-                            audioPermissionGranted = audioPermissionGranted,
-                            onGrantAccess = onGrantAccess,
-                        )
+                stateHolder.SaveableStateProvider("main") {
+                    BoxWithConstraints(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .windowInsetsPadding(WindowInsets.safeDrawing),
+                    ) {
+                        val landscape = windowSizeClass.widthSizeClass != WindowWidthSizeClass.Compact ||
+                            maxWidth > maxHeight
+                        if (landscape) {
+                            LandscapeMain(
+                                vm = vm,
+                                audioPermissionGranted = audioPermissionGranted,
+                                onGrantAccess = onGrantAccess,
+                            )
+                        } else {
+                            PortraitMain(
+                                vm = vm,
+                                audioPermissionGranted = audioPermissionGranted,
+                                onGrantAccess = onGrantAccess,
+                            )
+                        }
                     }
                 }
             }

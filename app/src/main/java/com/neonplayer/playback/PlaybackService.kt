@@ -145,10 +145,11 @@ class PlaybackService : MediaSessionService() {
                 val ids = container.queueRepository.load()
                 val saved = container.settingsRepository.loadPlaybackState()
                 val tracks = container.libraryRepository.getTracks(ids)
-                if (tracks.isNotEmpty()) {
+                val playable = withContext(Dispatchers.IO) { tracks.filter { isReadable(it.uri.toString()) } }
+                if (playable.isNotEmpty()) {
                     player.setMediaItems(
-                        tracks.map { it.toMediaItem() },
-                        saved.index.coerceIn(0, tracks.size - 1),
+                        playable.map { it.toMediaItem() },
+                        saved.index.coerceIn(0, playable.size - 1),
                         saved.positionMs,
                     )
                     player.shuffleModeEnabled = saved.shuffle
@@ -162,6 +163,10 @@ class PlaybackService : MediaSessionService() {
             }
         }
     }
+
+    private fun isReadable(uri: String): Boolean = runCatching {
+        contentResolver.openAssetFileDescriptor(android.net.Uri.parse(uri), "r")?.use { true } ?: false
+    }.getOrDefault(false)
 
     private fun applyVolume() {
         player.volume = (settingsVolume * fade).coerceIn(0f, 1f)

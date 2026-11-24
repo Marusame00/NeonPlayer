@@ -41,6 +41,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -173,14 +174,15 @@ fun NeonTabs(
 ) {
     val palette = Neon.palette
     Row(
-        modifier = modifier.horizontalScroll(rememberScrollState()),
-        horizontalArrangement = Arrangement.spacedBy(10.dp),
+        modifier = modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         tabs.forEachIndexed { index, tab ->
             val selected = index == selectedIndex
             Column(
                 modifier = Modifier
+                    .weight(tab.length.coerceAtLeast(4).toFloat())
                     .clip(RoundedCornerShape(6.dp))
                     .clickable { onSelect(index) }
                     .drawBehind {
@@ -207,8 +209,11 @@ fun NeonTabs(
             ) {
                 Text(
                     text = tab.uppercase(),
-                    style = NeonType.Label.copy(letterSpacing = 1.2.sp),
+                    style = NeonType.Label.copy(letterSpacing = 0.8.sp),
                     color = if (selected) palette.primary else palette.textSecondary,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    textAlign = TextAlign.Center,
                 )
             }
         }

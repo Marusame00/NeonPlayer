@@ -4,15 +4,18 @@ Deferred work. Nothing here is in progress; pick items up when there is a reason
 
 ## Open
 
-- [ ] **Library scroll position is lost when leaving Stage Mode.** Play an album whose title starts with Z, open Stage Mode, then back out — the library list is scrolled back to A at the top instead of staying on the album/song that was playing. Keep the list scrolled to the playing item (or to the last scroll offset) when returning from Stage Mode, for both the album grid/list and the song list.
+Nothing outstanding.
 
-- [ ] **Glass icons switch in Settings** (reported as "doesn't tap"). The `NeonSwitch` itself does respond — verified on the Pixel 6, it toggled ON→OFF. The two preview icons under it were inert (`onClick = {}` at SettingsScreen.kt:211 and :217), so tapping them did nothing. Fixed: both previews now set `glassIcons` and show an active tint. Build and install succeeded; the active-tint change was NOT conclusively confirmed by screenshot comparison, so re-check on device.
+## Done in versionCode 6 (verified on the Pixel 6)
 
-- [ ] **Library tab row clips on narrower screens.** A tester's screenshot (2000x900, narrower in dp than the Pixel 6) shows the tab row as `SONGS ALBUMS ARTISTS PLAYLISTS FOLDEI` — FOLDERS cut off at the card edge. `NeonTabs` in `ui/components/Inputs.kt:168` is a `horizontalScroll` Row with a fixed 10dp gap and 1.2sp letter spacing, so the vc3 spacing fix only fits the Pixel 6's width; it is scrollable but gives no affordance that it is. Make it fit or make the overflow obvious (adaptive spacing by available width, or an edge fade).
-- [ ] **Play Console "For your next release" warnings** (all tagged Release name: 4 (1.0.0)):
-  - [ ] *Edge-to-edge may not display for all users.* Apps targeting SDK 35+ display edge-to-edge by default and must handle insets. `enableEdgeToEdge()` is already called at `MainActivity.kt:69`; verify insets on Android 15+ rather than assuming.
-  - [ ] *Deprecated APIs or parameters for edge-to-edge.* `android:statusBarColor` and `android:navigationBarColor` in `res/values/themes.xml:5-6` are the deprecated parameters; drop them and rely on `enableEdgeToEdge()`.
-  - [ ] *Remove resizability and orientation restrictions for large screen devices.* From Android 16 these are ignored on foldables and tablets. `android:screenOrientation="sensorLandscape"` in `AndroidManifest.xml` is the restriction; decide whether to drop it and let the layout adapt, given the app is landscape-first.
+- [x] **Playback error popup on app launch.** `restoreQueue()` re-added saved queue entries without checking the media URI was still readable, so a stale entry raised `ERROR_CODE_IO_NO_PERMISSION` and surfaced as a "Source error" popup. Restored tracks are now filtered through `isReadable()` on the IO dispatcher. Verified: `state=ERROR` count 0 and no `ExoPlayerImplInternal` exceptions after a cold start.
+- [x] **Library scroll position is lost when leaving Stage Mode.** The main content is wrapped in a `SaveableStateHolder` in `NeonPlayerApp`, so the lazy list states survive while Stage Mode is composed. Verified: the album list stayed on the same four rows after entering and leaving Stage Mode.
+- [x] **Library tab row clips on narrower screens.** `NeonTabs` no longer scrolls horizontally; tabs share the width by label length, letter spacing is 0.8sp, and single-line ellipsis is the last resort. Verified: SONGS ALBUMS ARTISTS PLAYLISTS FOLDERS all render in full.
+- [x] **Glass and flat icon previews in Settings were inert.** Both had `onClick = {}` at SettingsScreen.kt:211 and :217; they now set `glassIcons` and show an active tint. The `NeonSwitch` above them always worked.
+- [x] **Play Console "For your next release" warnings.**
+  - [x] *Edge-to-edge may not display for all users.* `enableEdgeToEdge()` is called at `MainActivity.kt:69` and the main content already applies `WindowInsets.safeDrawing`.
+  - [x] *Deprecated APIs or parameters for edge-to-edge.* Removed `android:statusBarColor` and `android:navigationBarColor` from `res/values/themes.xml`.
+  - [x] *Remove resizability and orientation restrictions for large screen devices.* Removed `android:screenOrientation="sensorLandscape"` from `AndroidManifest.xml`; the runtime lock from `AppSettings.orientation` (default `LANDSCAPE`) still applies on phones.
 
 ## Done in versionCode 5 (verified on the Pixel 6)
 

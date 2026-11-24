@@ -2,6 +2,17 @@
 
 Version codes are what Google Play tracks. `versionName` stays `1.0.0` for all of these.
 
+## versionCode 6 — build 6
+
+Fixes from the Play Console release warnings and tester reports.
+
+- **Launch no longer shows a playback error.** `restoreQueue()` re-added saved queue entries without checking the media URI was still readable, so a stale entry raised `ERROR_CODE_IO_NO_PERMISSION` on launch and surfaced as a "Source error" popup. Restored tracks are now filtered through `isReadable()` on the IO dispatcher and unreadable ones are dropped silently. Verified on the Pixel 6: `state=ERROR` count 0 and no `ExoPlayerImplInternal` exceptions after a cold start.
+- **Library scroll position survives Stage Mode.** The main content now sits inside a `SaveableStateHolder` in `NeonPlayerApp`, so the lazy list states are retained while Stage Mode is composed. Verified on the Pixel 6: the album list stayed on the same four rows after entering and leaving Stage Mode.
+- **Library tab row always fits.** `NeonTabs` no longer scrolls horizontally; tabs share the width by label length, with letter spacing reduced to 0.8sp and single-line ellipsis as a last resort. Verified on the Pixel 6: SONGS ALBUMS ARTISTS PLAYLISTS FOLDERS all render in full.
+- **Edge-to-edge deprecations removed.** Dropped `android:statusBarColor` and `android:navigationBarColor` from `themes.xml`; `enableEdgeToEdge()` already handles both.
+- **Orientation restriction removed from the manifest.** `android:screenOrientation="sensorLandscape"` is gone, so Android 16 large-screen devices are no longer forced. The runtime lock from `AppSettings.orientation` (default `LANDSCAPE`) still applies, so behaviour on phones is unchanged.
+- **Glass and flat icon previews in Settings are tappable.** Both had `onClick = {}`; they now set `glassIcons` and show an active tint.
+
 ## versionCode 5 — build 5
 
 The UI is now translatable, with a language picker in Settings.
