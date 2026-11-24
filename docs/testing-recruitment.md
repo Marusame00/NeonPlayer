@@ -58,6 +58,41 @@ Setup outline:
 
 Use a plain personal Gmail account to own the group. Some developers report Play Console failing to resolve groups owned by Google Workspace domains.
 
+## Google Group listing text
+
+Group name: `NeonPlayer Testers`
+Group email: `neonplayer-testers@googlegroups.com`
+
+Description (paste into the group's Description field):
+
+```
+Closed testing group for NeonPlayer, a landscape-first synthwave music player for Android.
+
+Members of this group can install pre-release builds of NeonPlayer through Google Play and receive updates as new builds are published. Testing builds may be unstable and can change without notice.
+
+What testers do: install the app from the Play opt-in link, keep it installed for the duration of the test, and use it as you normally would. Feedback is welcome but optional, by email or through the project's GitHub issues page.
+
+NeonPlayer works entirely offline. It has no internet permission, no accounts, no ads and no analytics, and it collects no data. Nothing you listen to leaves your device.
+
+Project: https://github.com/Marusame00/NeonPlayer
+Privacy policy: https://marusame00.github.io/NeonPlayer/privacy.html
+```
+
+Welcome message (paste into the group's Welcome Message field):
+
+```
+Welcome, and thanks for testing NeonPlayer.
+
+To install the test build:
+1. Join this group with the same Google Account you use on your Android phone.
+2. Open https://play.google.com/apps/testing/com.neonplayer and tap "Become a tester".
+3. Install NeonPlayer from the Play Store link that appears.
+
+Please keep the app installed and stay in the group for the full test period. Leaving the group or opting out ends your participation.
+
+Feedback, bugs or ideas: reply to this group, or open an issue at https://github.com/Marusame00/NeonPlayer/issues
+```
+
 ## Post you can paste
 
 > **Looking for 12 testers for a synthwave music player (Android)**
