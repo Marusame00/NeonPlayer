@@ -230,4 +230,5 @@
         <item quantity="one">Temporizador: %1$d min</item>
         <item quantity="other">Temporizador: %1$d min</item>
     </plurals>
+    <string name="album_various_artists">Vários artistas</string>
 </resources>

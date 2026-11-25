@@ -230,4 +230,5 @@
         <item quantity="one">睡眠計時器：%1$d 分鐘</item>
         <item quantity="other">睡眠計時器：%1$d 分鐘</item>
     </plurals>
+    <string name="album_various_artists">多位演出者</string>
 </resources>

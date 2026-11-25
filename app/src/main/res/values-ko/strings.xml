@@ -230,4 +230,5 @@
         <item quantity="one">슬립 탼이머: %1$d분</item>
         <item quantity="other">슬립 탼이머: %1$d분</item>
     </plurals>
+    <string name="album_various_artists">여러 아티스트</string>
 </resources>

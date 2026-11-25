@@ -242,4 +242,5 @@
         <item quantity="one">Таймер: %1$d мин</item>
         <item quantity="other">Таймер: %1$d мин</item>
     </plurals>
+    <string name="album_various_artists">Разные исполнители</string>
 </resources>

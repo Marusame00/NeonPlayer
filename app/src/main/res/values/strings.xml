@@ -203,6 +203,7 @@
     <string name="sort_manual">Manual</string>
     <string name="tab_songs">Songs</string>
     <string name="tab_albums">Albums</string>
+    <string name="album_various_artists">Various Artists</string>
     <string name="tab_artists">Artists</string>
     <string name="tab_playlists">Playlists</string>
     <string name="tab_folders">Folders</string>

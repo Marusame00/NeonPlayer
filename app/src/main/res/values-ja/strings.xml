@@ -230,4 +230,5 @@
         <item quantity="one">スリープタイマー：%1$d 分</item>
         <item quantity="other">スリープタイマー：%1$d 分</item>
     </plurals>
+    <string name="album_various_artists">オムニバス</string>
 </resources>

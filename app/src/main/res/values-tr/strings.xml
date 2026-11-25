@@ -230,4 +230,5 @@
         <item quantity="one">Zamanlayıcı: %1$d dk</item>
         <item quantity="other">Zamanlayıcı: %1$d dk</item>
     </plurals>
+    <string name="album_various_artists">Çeşitli sanatçılar</string>
 </resources>

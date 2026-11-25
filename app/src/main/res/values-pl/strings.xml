@@ -242,4 +242,5 @@
         <item quantity="one">Wyłącznik czasowy: %1$d min</item>
         <item quantity="other">Wyłącznik czasowy: %1$d min</item>
     </plurals>
+    <string name="album_various_artists">Różni wykonawcy</string>
 </resources>

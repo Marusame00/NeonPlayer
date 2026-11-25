@@ -230,4 +230,5 @@
         <item quantity="one">Timer: %1$d min</item>
         <item quantity="other">Timer: %1$d min</item>
     </plurals>
+    <string name="album_various_artists">Artisti vari</string>
 </resources>

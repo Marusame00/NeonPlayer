@@ -230,4 +230,5 @@
         <item quantity="one">Timer tidur: %1$d mnt</item>
         <item quantity="other">Timer tidur: %1$d mnt</item>
     </plurals>
+    <string name="album_various_artists">Berbagai artis</string>
 </resources>

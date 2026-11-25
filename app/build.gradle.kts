@@ -14,7 +14,7 @@ android {
         applicationId = "com.neonplayer"
         minSdk = 26
         targetSdk = 37
-        versionCode = 8
+        versionCode = 9
         versionName = "1.0.0"
     }
 

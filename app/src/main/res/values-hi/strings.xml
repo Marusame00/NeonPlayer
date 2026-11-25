@@ -230,4 +230,5 @@
         <item quantity="one">स्लीप टाइमर: %1$d मिनट</item>
         <item quantity="other">स्लीप टाइमर: %1$d मिनट</item>
     </plurals>
+    <string name="album_various_artists">विविध कलाकार</string>
 </resources>

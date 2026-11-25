@@ -4,7 +4,7 @@ Deferred work. Nothing here is in progress; pick items up when there is a reason
 
 ## Open
 
-Nothing outstanding.
+- [ ] **Verify album grouping on device.** vc9 groups albums by name first and only splits on a genuinely different `albumArtist`. Built and installed on the Pixel 6, but not visually confirmed: the device was locked and in use, so the Albums tab was never captured. Check that a multi-artist album appears once with "Various Artists" (or its album artist) rather than once per track artist.
 
 ## Won't fix — Play Console edge-to-edge warnings
 

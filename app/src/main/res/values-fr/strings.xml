@@ -230,4 +230,5 @@
         <item quantity="one">Minuteur : %1$d min</item>
         <item quantity="other">Minuteur : %1$d min</item>
     </plurals>
+    <string name="album_various_artists">Artistes variés</string>
 </resources>

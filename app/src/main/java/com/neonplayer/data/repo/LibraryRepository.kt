@@ -3,6 +3,7 @@ package com.neonplayer.data.repo
 import android.content.Context
 import android.net.Uri
 import androidx.room.withTransaction
+import com.neonplayer.R
 import com.neonplayer.data.db.NeonDatabase
 import com.neonplayer.data.db.TrackEntity
 import com.neonplayer.data.db.toTrack
@@ -60,13 +61,14 @@ class LibraryRepository(
 
     fun albums(query: String): Flow<List<AlbumGroup>> = tracks(SortOrder.TITLE, query)
         .map { list ->
-            list.groupBy { "${it.displayAlbum}|${it.groupArtist}" }
-                .map { (key, group) ->
+            list.groupBy { it.displayAlbum.lowercase(Locale.ROOT) }
+                .flatMap { (_, sameAlbum) -> splitByAlbumArtist(sameAlbum) }
+                .map { group ->
                     val sorted = group.sortedWith(compareBy({ it.discNumber }, { it.trackNumber }, { it.title.lowercase(Locale.ROOT) }))
                     AlbumGroup(
-                        key = key,
+                        key = "${sorted.first().displayAlbum}|${sorted.first().albumArtist.trim().lowercase(Locale.ROOT)}",
                         title = sorted.first().displayAlbum,
-                        artist = sorted.first().groupArtist,
+                        artist = sorted.albumArtistLabel(),
                         year = sorted.firstOrNull { it.year > 0 }?.year ?: 0,
                         tracks = sorted,
                     )
@@ -74,6 +76,26 @@ class LibraryRepository(
                 .sortedBy { it.title.lowercase(Locale.ROOT) }
         }
         .flowOn(Dispatchers.Default)
+
+    /**
+     * Album name wins: tracks that share an album name stay together even when their
+     * per-track artists differ, which is what a multi-artist album looks like when the
+     * albumArtist tag is missing. Only a genuinely different albumArtist splits a group,
+     * so two distinct albums that happen to share a name are still kept apart.
+     */
+    private fun splitByAlbumArtist(tracks: List<Track>): List<List<Track>> {
+        val distinct = tracks.map { it.albumArtist.trim().lowercase(Locale.ROOT) }
+            .filter { it.isNotEmpty() }
+            .distinct()
+        if (distinct.size <= 1) return listOf(tracks)
+        return tracks.groupBy { it.albumArtist.trim().lowercase(Locale.ROOT) }.values.toList()
+    }
+
+    private fun List<Track>.albumArtistLabel(): String {
+        firstOrNull { it.albumArtist.isNotBlank() }?.let { return it.albumArtist }
+        val artists = map { it.displayArtist }.distinct()
+        return if (artists.size == 1) artists.first() else context.getString(R.string.album_various_artists)
+    }
 
     fun artists(query: String): Flow<List<ArtistGroup>> = tracks(SortOrder.TITLE, query)
         .map { list ->
