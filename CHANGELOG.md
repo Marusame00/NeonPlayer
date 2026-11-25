@@ -13,6 +13,14 @@ Groundwork for an optional paid theme pack, with no premium content in the free 
 - With no add-on installed the UI is unchanged. Verified on the Pixel 6 (2026-11-25): the accent row shows only "Cyan-dominant" and "Magenta-dominant".
 - The add-on contract and the Play declarations that must change when it ships are documented in `docs/premium-theme.md`.
 
+## versionCode 11 — build 11
+
+Theme expansion support, no on-disc DLC.
+
+- **Theme expansion seam.** `domain/expansion/ThemeExpansion.kt` defines `ThemeExpansion`, `ExpansionSource` and `PackageExpansionSource`, which discovers installed add-ons by the `com.neonplayer.expansion.` package prefix and reads their accent from manifest meta-data. `ui/theme/ExpansionPalette.kt` provides `LocalThemeExpansions` and `paletteFor(accentId, expansions)`. `AppSettings.accent` became a String id so an expansion can contribute one without a schema change. `NeonTheme(accentId, expansions, ...)` supplies the expansions to the tree.
+- With no add-on installed the UI is unchanged. Verified on the Pixel 6 (2026-11-25): the accent row shows only "Cyan-dominant" and "Magenta-dominant", with no locked or hidden content.
+- Design notes, the add-on package contract and the deferred Play Console checklist are in `docs/premium-theme.md`.
+
 ## versionCode 10 — build 10
 
 Long album names are no longer truncated.
