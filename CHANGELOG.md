@@ -8,6 +8,7 @@ Albums no longer split when a release has several artists.
 
 - **Album name now wins over artist when grouping.** `LibraryRepository.albums()` grouped by `"album|albumArtist"`, and `groupArtist` falls back to the per-track artist when the `albumArtist` tag is missing. A multi-artist album without that tag therefore produced one album entry per track artist. Grouping is now by album name first, and a group is only split when more than one distinct non-blank `albumArtist` is present — so genuinely different albums that share a name stay apart.
 - **Album artist label falls back to "Various Artists"** when no track carries an `albumArtist` tag and the track artists differ. New string `album_various_artists`, translated into all 14 locales.
+- Verified on the Pixel 6 (2026-11-25): "Year Of The Sword (Bonus…)" shows 10 tracks and "Year Of The Sword [CD1]" shows 19 tracks, both labelled "Various Artists" — merged rather than fragmented. Two genuinely different albums sharing a name ("Phenomenon" by Thousand Foot Krutch and an untagged "Phenomenon") correctly stay apart.
 - **Restored the "colors taken from the album art" listing claim.** It was removed in the previous audit as unimplemented, which was wrong: `ui/visualizer/ArtPalette.kt` extracts two accents from the artwork via Coil and `StageScreen` uses them when Settings → Colors from album art is on.
 
 ## versionCode 8 — build 8

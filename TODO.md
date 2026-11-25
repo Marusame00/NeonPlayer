@@ -4,7 +4,12 @@ Deferred work. Nothing here is in progress; pick items up when there is a reason
 
 ## Open
 
-- [ ] **Verify album grouping on device.** vc9 groups albums by name first and only splits on a genuinely different `albumArtist`. Built and installed on the Pixel 6, but not visually confirmed: the device was locked and in use, so the Albums tab was never captured. Check that a multi-artist album appears once with "Various Artists" (or its album artist) rather than once per track artist.
+Nothing outstanding.
+
+## Done in versionCode 9 (verified on the Pixel 6)
+
+- [x] **Multi-artist albums no longer split per artist.** `LibraryRepository.albums()` grouped by `"album|albumArtist"`, and `groupArtist` falls back to the per-track artist when the `albumArtist` tag is missing, so a multi-artist album without that tag produced one entry per track artist. Grouping is now by album name first, splitting only when more than one distinct non-blank `albumArtist` is present. Verified on the Pixel 6 (2026-11-25): "Year Of The Sword (Bonus…)" shows 10 tracks and "Year Of The Sword [CD1]" shows 19 tracks, both labelled "Various Artists" — merged, not fragmented. Two genuinely different albums that share a name ("Phenomenon" by Thousand Foot Krutch and an untagged "Phenomenon") correctly stay apart.
+- [x] **"Various Artists" label** when no track carries an `albumArtist` tag and the track artists differ. New string `album_various_artists`, translated into all 14 locales.
 
 ## Won't fix — Play Console edge-to-edge warnings
 
