@@ -57,6 +57,47 @@ uninstalled id rather than leaving the UI on a palette that no longer exists.
   without it.
 - The add-on needs its own listing, or ship it as an in-app product — decide at the time.
 
+## Play Console checklist
+
+### Do now, while still in testing (slow, one-time, harmless if the pack never ships)
+
+1. **Payments profile** — Play Console → **Setup → Payments profile**. Required before you can sell
+   anything at all, including a separate paid expansion app. Needs bank account and tax details,
+   and verification can take several days. This is the long pole; start it early.
+2. **License testing** — Play Console → **Setup → License testing**. Add your tester Gmail
+   addresses. Test purchases then complete without charging the card. Do this before any billing
+   test, otherwise testers pay for real.
+
+Neither changes any current declaration, so they are safe to set up now.
+
+### Decide the shape before doing anything else
+
+- **Option A — separate paid expansion app** (`com.neonplayer.expansion.gold`). Own listing, no
+  Play Billing library, no `BILLING` permission. Matches the seam already in the code. The
+  one-time developer registration fee covers unlimited apps, so a second listing costs nothing
+  extra. Simplest and the recommended route.
+- **Option B — in-app product inside NeonPlayer.** Requires the Play Billing library, the
+  `com.android.vending.BILLING` permission, products configured under **Monetise → Products →
+  In-app products**, and the app live on a track before products can be purchased.
+
+### Change at ship time, not before
+
+- **Content rating questionnaire** (App content → Content rating) — answer the digital purchases
+  question as Yes and resubmit. The current rating assumes no purchases.
+- **Data safety** — re-check the form. Google processes the payment itself, so most answers stay
+  "No data collected", but purchase history is a declarable type; confirm against the current form
+  rather than assuming.
+- **Store listing** — Play adds an "In-app purchases" indicator automatically once products exist.
+  Mention the optional pack in the description and state that the free app is fully functional
+  without it.
+- **Option B only** — the build carrying billing must be live on a track before products can be
+  bought, so billing cannot be tested from a draft.
+
+### Unverified
+
+Whether a second paid listing from a personal developer account needs its own closed test before
+production access. Confirm in Play Console when the time comes rather than assuming either way.
+
 ## Do not
 
 - Do not add premium enum values, colours or strings to the base app.
