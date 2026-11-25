@@ -59,6 +59,10 @@ uninstalled id rather than leaving the UI on a palette that no longer exists.
 
 ## Play Console checklist
 
+> **Status: deferred (2026-11-25).** The user decided to hold off on all of this until the app
+> shows traction. Nothing here is started. Do not raise it again unprompted; the seam in the code
+> is enough to keep the option open.
+
 ### Do now, while still in testing (slow, one-time, harmless if the pack never ships)
 
 1. **Payments profile** — Play Console → **Setup → Payments profile**. Required before you can sell
