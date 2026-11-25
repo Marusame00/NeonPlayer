@@ -57,6 +57,33 @@ uninstalled id rather than leaving the UI on a palette that no longer exists.
   without it.
 - The add-on needs its own listing, or ship it as an in-app product — decide at the time.
 
+## Free themes from GitHub (alternative to the paid pack)
+
+A second option, raised 2026-11-25: ship themes as **free** add-ons distributed through GitHub
+releases instead of Play. Same seam, same package contract, no money involved.
+
+Why it is attractive:
+
+- No payments profile, no billing library, no `BILLING` permission, no content-rating change, no
+  data-safety change. None of the Play Console checklist below applies.
+- Anyone can build and install a theme from source, and the community can contribute their own.
+- It exercises the seam for free, so the paid path stays available later without new plumbing.
+
+What it needs that the paid path does not:
+
+- **`REQUEST_INSTALL_PACKAGES` is not required**, but installing a downloaded APK does mean the
+  user allows "install unknown apps" for their browser or file manager. That is a real friction
+  step and worth stating plainly in the README rather than glossing over.
+- **Signature continuity.** A theme APK must keep the same signing key across releases or Android
+  refuses to update it in place. Document the key, or accept uninstall/reinstall on updates.
+- **A download page or release asset per theme**, plus a short "how to install a theme" section in
+  the README. No Play review, but also no update mechanism — users re-download manually.
+- **Trust.** Sideloaded APKs from a repo are a harder sell than a Play listing. Publishing the
+  theme source and a checksum per release mitigates it.
+
+Both options share the same code seam, so choosing one now does not close the other. Nothing is
+implemented; this is recorded so the option is not lost.
+
 ## Play Console checklist
 
 > **Status: deferred (2026-11-25).** The user decided to hold off on all of this until the app
