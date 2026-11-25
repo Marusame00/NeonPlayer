@@ -2,6 +2,17 @@
 
 Version codes are what Google Play tracks. `versionName` stays `1.0.0` for all of these.
 
+## versionCode 11 — build 11
+
+Groundwork for an optional paid theme pack, with no premium content in the free app.
+
+- **`AppSettings.accent` is now a String id** rather than an `AccentMode` enum, so an add-on can contribute an accent without a settings schema change. Built-in ids are the `AccentMode` names.
+- **New `domain/expansion/ThemeExpansion.kt`**: `ThemeExpansion`, the `ExpansionSource` interface, and `PackageExpansionSource`, which discovers installed add-ons by the `com.neonplayer.expansion.` package prefix and reads their accent from manifest meta-data. No network, no licence check, no verification.
+- **New `ui/theme/ExpansionPalette.kt`**: `LocalThemeExpansions` and `paletteFor(accentId, expansions)`, which resolves built-in ids first, then installed expansions, and falls back to Cyan for an unknown or uninstalled id.
+- **`NeonTheme(accentId, expansions, …)`** provides `LocalThemeExpansions` to the tree; Settings → Theme accent appends one chip per installed expansion.
+- With no add-on installed the UI is unchanged. Verified on the Pixel 6 (2026-11-25): the accent row shows only "Cyan-dominant" and "Magenta-dominant".
+- The add-on contract and the Play declarations that must change when it ships are documented in `docs/premium-theme.md`.
+
 ## versionCode 10 — build 10
 
 Long album names are no longer truncated.

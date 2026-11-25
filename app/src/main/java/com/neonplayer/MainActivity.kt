@@ -2,6 +2,8 @@ package com.neonplayer
 
 import android.Manifest
 import android.content.Context
+import androidx.compose.runtime.remember
+import com.neonplayer.domain.expansion.PackageExpansionSource
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
@@ -81,8 +83,10 @@ class MainActivity : ComponentActivity() {
         observeEvents()
         setContent {
             val settings by viewModel.settings.collectAsState()
+            val expansions = remember { PackageExpansionSource(this@MainActivity).installed() }
             NeonTheme(
-                accent = settings.accent,
+                accentId = settings.accent,
+                expansions = expansions,
                 glassIcons = settings.glassIcons,
                 reduceMotion = settings.reduceMotion,
             ) {

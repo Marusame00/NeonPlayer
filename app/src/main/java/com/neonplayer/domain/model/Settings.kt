@@ -19,7 +19,7 @@ const val BACKDROP_CUSTOM_PREFIX = "custom:"
 @Immutable
 data class AppSettings(
     val glassIcons: Boolean = true,
-    val accent: AccentMode = AccentMode.CYAN,
+    val accent: String = AccentMode.CYAN.name,
     val backdropId: String = BACKDROP_STATIC,
     val backdropDim: Float = 0.45f,
     val backdropVignette: Boolean = true,

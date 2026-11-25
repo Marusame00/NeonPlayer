@@ -42,7 +42,7 @@ class SettingsRepository(
         context.settingsDataStore.edit { prefs ->
             val next = transform(prefs.toSettings())
             prefs[Keys.GLASS_ICONS] = next.glassIcons
-            prefs[Keys.ACCENT] = next.accent.name
+            prefs[Keys.ACCENT] = next.accent
             prefs[Keys.BACKDROP_ID] = next.backdropId
             prefs[Keys.BACKDROP_DIM] = next.backdropDim
             prefs[Keys.BACKDROP_VIGNETTE] = next.backdropVignette
@@ -100,7 +100,7 @@ class SettingsRepository(
         val defaults = AppSettings()
         return AppSettings(
             glassIcons = this[Keys.GLASS_ICONS] ?: defaults.glassIcons,
-            accent = enumOf(this[Keys.ACCENT], defaults.accent),
+            accent = this[Keys.ACCENT] ?: defaults.accent,
             backdropId = this[Keys.BACKDROP_ID] ?: defaults.backdropId,
             backdropDim = this[Keys.BACKDROP_DIM] ?: defaults.backdropDim,
             backdropVignette = this[Keys.BACKDROP_VIGNETTE] ?: defaults.backdropVignette,

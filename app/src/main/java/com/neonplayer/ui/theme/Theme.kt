@@ -17,6 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.neonplayer.R
+import com.neonplayer.domain.expansion.ThemeExpansion
 import com.neonplayer.domain.model.AccentMode
 
 object NeonColors {
@@ -110,12 +111,13 @@ object Neon {
 
 @Composable
 fun NeonTheme(
-    accent: AccentMode = AccentMode.CYAN,
+    accentId: String = AccentMode.CYAN.name,
+    expansions: List<ThemeExpansion> = emptyList(),
     glassIcons: Boolean = true,
     reduceMotion: Boolean = false,
     content: @Composable () -> Unit,
 ) {
-    val palette = remember(accent) { paletteFor(accent) }
+    val palette = remember(accentId, expansions) { paletteFor(accentId, expansions) }
     val style = remember(glassIcons, reduceMotion) { NeonStyle(glassIcons, reduceMotion) }
     val scheme = remember(palette) {
         darkColorScheme(

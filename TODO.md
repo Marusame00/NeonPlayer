@@ -6,6 +6,10 @@ Deferred work. Nothing here is in progress; pick items up when there is a reason
 
 Nothing outstanding.
 
+## Done in versionCode 11 (verified on the Pixel 6)
+
+- [x] **Seam for a future paid theme expansion, without on-disc DLC.** `AppSettings.accent` is now a String id instead of an enum, `domain/expansion/ThemeExpansion.kt` discovers installed add-on packages by the `com.neonplayer.expansion.` prefix and reads their accent from manifest meta-data, and `ui/theme/ExpansionPalette.kt` resolves an id to a palette with a Cyan fallback. Settings renders one chip per installed expansion after the built-in ones. With no add-on installed the UI is unchanged. Verified on the Pixel 6 (2026-11-25): the accent row shows only "Cyan-dominant" and "Magenta-dominant". Contract and Play declaration changes are documented in `docs/premium-theme.md`.
+
 ## Done in versionCode 10 (verified on the Pixel 6)
 
 - [x] **Long album names were truncated in the album header.** `GroupedList.kt` capped both the title and subtitle at `maxLines = 1` with ellipsis regardless of expansion state, so long album names were cut off even with the album open. Both now use `maxLines = Int.MAX_VALUE` with `TextOverflow.Clip` when expanded, and keep the single-line ellipsis when collapsed. Verified on the Pixel 6 (2026-11-25): "Abominationz (Monoxide) [Explicit]" wraps onto two lines when expanded, with the track-count badge alongside.

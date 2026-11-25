@@ -35,6 +35,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.neonplayer.BuildConfig
 import com.neonplayer.R
 import com.neonplayer.domain.model.AccentMode
+import com.neonplayer.ui.theme.LocalThemeExpansions
 import com.neonplayer.domain.model.AppSettings
 import com.neonplayer.domain.model.OrientationLock
 import com.neonplayer.domain.model.ReplayGainMode
@@ -231,8 +232,15 @@ private fun AppearanceSection(vm: MainViewModel, settings: AppSettings) {
             AccentMode.entries.forEach { mode ->
                 NeonChip(
                     text = mode.label(context),
-                    selected = settings.accent == mode,
-                    onClick = { vm.updateSettings { it.copy(accent = mode) } },
+                    selected = settings.accent == mode.name,
+                    onClick = { vm.updateSettings { it.copy(accent = mode.name) } },
+                )
+            }
+            LocalThemeExpansions.current.forEach { expansion ->
+                NeonChip(
+                    text = expansion.label,
+                    selected = settings.accent == expansion.accentId,
+                    onClick = { vm.updateSettings { it.copy(accent = expansion.accentId) } },
                 )
             }
         }
