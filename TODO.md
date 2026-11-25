@@ -6,6 +6,15 @@ Deferred work. Nothing here is in progress; pick items up when there is a reason
 
 Nothing outstanding.
 
+## Won't fix — Play Console edge-to-edge warnings
+
+Both warnings are advisory ("User experience"), do not block review or rollout, and cannot both be cleared at once.
+
+- **"Edge-to-edge may not display for all users"** asks for a visible `enableEdgeToEdge()` call in the dex. R8 inlines the Kotlin extension into `MainActivity.onCreate`, so the scanner cannot see it. `-keep` rules in `app/proguard-rules.pro` did not prevent the inlining; `dexdump` on the vc8 bundle shows no `ComponentActivity.enableEdgeToEdge` method, only the `enableEdgeToEdge$lambda$1` name.
+- **"Deprecated APIs or parameters for edge-to-edge"** narrowed from four locations on vc7 (`mj0.b`, `oj0.b`, `qj0.b`, `u2.m`) to one on vc8: `u2.m`. Disassembly shows `u2.m` is `const/4 v0, #1` followed by `setLayoutInDisplayCutoutMode`, i.e. `LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES` set by `androidx.activity.EdgeToEdgeApi28.adjustLayoutInDisplayCutoutMode` — inside `enableEdgeToEdge()` itself.
+
+The two are mutually exclusive: clearing the second means dropping `enableEdgeToEdge()` for `WindowCompat.setDecorFitsSystemWindows(window, false)`, which brings the first back because Play's scanner does not recognise that call. Insets are genuinely handled (`WindowInsets.safeDrawing` on the main content, `imePadding()` on the root), verified visually on the Pixel 6, so there is no user-facing defect behind either warning. Leave both.
+
 ## Done in versionCode 7 (verified on the Pixel 6)
 
 - [x] **Keyboard covers the search field.** Reported by a tester: "The keyboard covers the text field making it hard to see what to type." The root content in `NeonPlayerApp` now applies `imePadding()`. Verified: the filter field stays fully visible with the keyboard open and typed text renders with the cursor.
