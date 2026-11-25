@@ -6,6 +6,10 @@ Deferred work. Nothing here is in progress; pick items up when there is a reason
 
 Nothing outstanding.
 
+## Done in versionCode 10 (verified on the Pixel 6)
+
+- [x] **Long album names were truncated in the album header.** `GroupedList.kt` capped both the title and subtitle at `maxLines = 1` with ellipsis regardless of expansion state, so long album names were cut off even with the album open. Both now use `maxLines = Int.MAX_VALUE` with `TextOverflow.Clip` when expanded, and keep the single-line ellipsis when collapsed. Verified on the Pixel 6 (2026-11-25): "Abominationz (Monoxide) [Explicit]" wraps onto two lines when expanded, with the track-count badge alongside.
+
 ## Done in versionCode 9 (verified on the Pixel 6)
 
 - [x] **Multi-artist albums no longer split per artist.** `LibraryRepository.albums()` grouped by `"album|albumArtist"`, and `groupArtist` falls back to the per-track artist when the `albumArtist` tag is missing, so a multi-artist album without that tag produced one entry per track artist. Grouping is now by album name first, splitting only when more than one distinct non-blank `albumArtist` is present. Verified on the Pixel 6 (2026-11-25): "Year Of The Sword (Bonus…)" shows 10 tracks and "Year Of The Sword [CD1]" shows 19 tracks, both labelled "Various Artists" — merged, not fragmented. Two genuinely different albums that share a name ("Phenomenon" by Thousand Foot Krutch and an untagged "Phenomenon") correctly stay apart.

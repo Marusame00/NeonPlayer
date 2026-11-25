@@ -173,8 +173,8 @@ private fun GroupHeader(
                     text = title,
                     style = NeonType.TitleM,
                     color = palette.textPrimary,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
+                    maxLines = if (expanded) Int.MAX_VALUE else 1,
+                    overflow = if (expanded) TextOverflow.Clip else TextOverflow.Ellipsis,
                 )
                 if (subtitle != null) {
                     Spacer(Modifier.height(1.dp))
@@ -182,8 +182,8 @@ private fun GroupHeader(
                         text = subtitle,
                         style = NeonType.BodySmall,
                         color = palette.textSecondary,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
+                        maxLines = if (expanded) Int.MAX_VALUE else 1,
+                        overflow = if (expanded) TextOverflow.Clip else TextOverflow.Ellipsis,
                     )
                 }
             }

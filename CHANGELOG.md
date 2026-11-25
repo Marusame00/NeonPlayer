@@ -2,6 +2,13 @@
 
 Version codes are what Google Play tracks. `versionName` stays `1.0.0` for all of these.
 
+## versionCode 10 — build 10
+
+Long album names are no longer truncated.
+
+- **Album headers wrap fully when expanded.** `GroupedList.kt` capped the title and subtitle at `maxLines = 1` with ellipsis regardless of expansion state, so a long album name was cut off even with the album open. Both now use `maxLines = Int.MAX_VALUE` with `TextOverflow.Clip` when expanded, and keep the single-line ellipsis when collapsed.
+- Verified on the Pixel 6 (2026-11-25): "Abominationz (Monoxide) [Explicit]" wraps onto two lines when expanded, with the track-count badge alongside.
+
 ## versionCode 9 — build 9
 
 Albums no longer split when a release has several artists.
